@@ -11,7 +11,7 @@ a tak wygląda rozdzielnica na parterze....
 
 ![IMG20210825202700](https://user-images.githubusercontent.com/95655881/145037701-f87cbae2-69b2-4353-b9aa-75e22a7165ee.jpg)
 
-na piętrze mam osobne pomieszczenie gdzie znajdują się 3 rozdzielnice elektryczne, jedna multimedialna oraz skrzynka podłógówki. w użytku dziennym pomieszczenie służy jako przechowalnia odkurzacza mopa itd :)
+Na piętrze mam osobne pomieszczenie gdzie znajdują się 3 rozdzielnice elektryczne, jedna multimedialna oraz skrzynka podłógówki. w użytku dziennym pomieszczenie służy jako przechowalnia odkurzacza, mopa itd :)
 
 ![IMG20211207180942](https://user-images.githubusercontent.com/95655881/145079941-257f4a01-e42e-4d7d-b011-c60dd822b540.jpg)
 
