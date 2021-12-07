@@ -7,9 +7,14 @@ Przykład mojego wykorzystania HomeAssistant w połączeniu ze sterownikiem PLC 
 poniżej filmik na youtube z pokazaniem całego dashboardu:
 https://www.youtube.com/watch?v=Wr6qmXL0ZV4
 
-a tak wygląda rozdzielnica na parterze....
+a tak wygląda rozdzielnica na parterze.... Duża 144p dla sterownika PLC + sterowanie 230v, druga obok sterowanie 24V oraz multimedialna
 
-![IMG20210825202700](https://user-images.githubusercontent.com/95655881/145037701-f87cbae2-69b2-4353-b9aa-75e22a7165ee.jpg)
+![IMG20211207200444](https://user-images.githubusercontent.com/95655881/145090823-6ab70344-7b4e-43bc-b9a5-5145068ddf22.jpg)
+
+![IMG20211207200459](https://user-images.githubusercontent.com/95655881/145090825-c37d2552-cbea-4b75-94ed-1d5fd204dc34.jpg)
+![IMG20211207200506](https://user-images.githubusercontent.com/95655881/145090828-0d72d0d8-c652-4dc1-b3bd-ca13b89cc36b.jpg)
+![IMG20211207200515](https://user-images.githubusercontent.com/95655881/145090829-1c32f993-68c2-446d-abc6-7d8703436dbf.jpg)
+
 
 Na piętrze mam osobne pomieszczenie gdzie znajdują się 3 rozdzielnice elektryczne, jedna multimedialna oraz skrzynka podłógówki. w użytku dziennym pomieszczenie służy jako przechowalnia odkurzacza, mopa itd :)
 
