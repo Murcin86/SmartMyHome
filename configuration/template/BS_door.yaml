@@ -1,0 +1,22 @@
+
+ - binary_sensor:
+    - name: Wszystkie drzwi
+      state: "{{ is_state('binary_sensor.doors_all', 'on') }}"
+      device_class: door
+      icon: >
+        {% if is_state("binary_sensor.doors_all", "on") %}
+          mdi:door-open
+        {% else %}
+          mdi:door-closed
+        {% endif %}
+
+    - name: Wyłaz strych
+      state: "{{ is_state('binary_sensor.attic_door_contact', 'on') }}"
+      device_class: door
+
+    - name: Drzwi kotłownia
+      state: "{{ is_state('binary_sensor.door_boiler', 'off') }}"
+      device_class: door
+    - name: Drzwi wejściowe
+      state: "{{ is_state('binary_sensor.door_entrance', 'off') }}"
+      device_class: door

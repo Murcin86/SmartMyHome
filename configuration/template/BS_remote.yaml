@@ -1,0 +1,17 @@
+
+- binary_sensor:
+  - name: Pilot Harmony
+    state: "{{ is_state('input_select.remote_select','Harmony') }}"
+    icon: mdi:remote
+  - name: Pilot Telewizor
+    state: "{{ is_state('input_select.remote_select','Telewizor') }}"
+    icon: mdi:television
+  - name: Pilot Amplituner
+    state: "{{ is_state('input_select.remote_select','Amplituner') }}"
+    icon: mdi:audio-video
+  - name: Pilot Xbox 360
+    state: "{{ is_state('input_select.remote_select','Xbox 360') }}"
+    icon: mdi:microsoft-xbox
+  - name: Pilot DVD
+    state: "{{ is_state('input_select.remote_select','DVD') }}"
+    icon: mdi:disc-player

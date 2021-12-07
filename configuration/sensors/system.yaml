@@ -1,0 +1,178 @@
+
+
+######################## POWIADOMIENIE O LOGOWANIU########################
+
+- platform: authenticated
+  
+######################## DATA I CZAS ########################
+- platform: time_date
+  display_options:
+    - 'time'
+    - 'date'
+    - 'date_time'
+    - 'time_date'
+    - 'beat'
+
+######################## JAKOsĆ POWIETRZA ########################
+- platform: rest
+  scan_interval: 900
+  name: Airly
+  resource: https://airapi.airly.eu/v2/measurements/nearest?lat=50.1419817789&lng=18.9935025573&maxDistanceKM=5
+  value_template: "{{ value_json['current']['values'][0]['value'] }} {{ value_json['current']['values'][1]['value'] }} {{ value_json['current']['values'][2]['value'] }} {{ value_json['current']['values'][3]['value'] }} {{ value_json['current']['values'][4]['value'] }} {{ value_json['current']['values'][5]['value'] }} {{ value_json['current']['indexes'][0]['level'] }} {{ value_json['current']['indexes'][0]['value'] }} {{ value_json['current']['indexes'][0]['description'] }}"
+  headers:
+    apikey: !secret airly_api
+    Accept-Language: pl 
+      
+- platform: template
+  sensors:
+    airly_pm1:
+      friendly_name: "Pyl PM1"
+      icon_template: mdi:jquery
+      unit_of_measurement: "μg/m3"
+      value_template: "{{ states.sensor.airly.state.split(' ')[0] }}"
+    airly_pm25:
+      friendly_name: "Pyl PM25"
+      icon_template: mdi:jquery
+      unit_of_measurement: "μg/m3"
+      value_template: "{{ states.sensor.airly.state.split(' ')[1] }}"
+    airly_pm10:
+      friendly_name: "Pyl PM10"
+      icon_template: mdi:jquery
+      unit_of_measurement: "μg/m3"
+      value_template: "{{ states.sensor.airly.state.split(' ')[2] }}"
+    airly_pressure:
+      friendly_name: "Cisnienie"
+      icon_template: mdi:gauge
+      unit_of_measurement: "hPA"
+      value_template: "{{ states.sensor.airly.state.split(' ')[3] | float(0)| round(1) }}"
+    airly_humidity:
+      friendly_name: "Wilgotnosć"
+      icon_template: mdi:water-percent
+      unit_of_measurement: "%"
+      value_template: "{{ states.sensor.airly.state.split(' ')[4] | float(0)| round(0) }}"
+    airly_temperature:
+      friendly_name: "Temperatura"
+      icon_template: mdi:thermometer
+      unit_of_measurement: "°C"
+      value_template: "{{ states.sensor.airly.state.split(' ')[5] | float(0)| round(1) }}"
+    airly_quality:
+      friendly_name: "Jakosć powietrza"
+      icon_template: mdi:quicktime
+      value_template: "{{ states.sensor.airly.state.split(' ')[6] }}"
+    airly_level:
+      friendly_name: "Poziom"
+      icon_template: mdi:database
+      value_template: "{{ states.sensor.airly.state.split(' ')[7] | float(0)| round(0) }}"
+    airly_description:
+      friendly_name: "Komunikat"
+      icon_template: mdi:alert
+      value_template: "{{ states.sensor.airly.state.split(' ')[8:] | join(' ') }}"
+
+
+######################## ODKURZACZ ########################
+
+- platform: template
+  sensors:
+    vacuum_status:
+      friendly_name: Status
+      value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.status }}'
+      icon_template: >
+       {% set val =  states.vacuum.xiaomi_vacuum_cleaner.attributes.status  %}
+        {% if val == 'Charging' %}
+          mdi:battery-charging
+        {% elif val == 'Cleaning' %}
+          mdi:move-resize
+        {% elif val == 'Returning home' %}
+          mdi:keyboard-return
+        {% elif val == 'Idle' %}
+          mdi:dots-horizontal
+        {% elif val == 'Paused' %}
+          mdi:pause-circle
+        {% else %}
+          mdi:help-circle
+        {% endif %}
+    vacuum_fan_speed:
+      friendly_name: Fan Speed
+      value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.fan_speed }}'
+      icon_template: 'mdi:speedometer'
+    vacuum_battery:
+      friendly_name: Vacuum Battery
+      value_template: 'Bateria: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_level }}'
+      unit_of_measurement: '%'
+      icon_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_icon }}'
+    vacuum_cleaning_time:
+      friendly_name: Time of Last Cycle
+      value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.cleaning_time   }}'
+      icon_template: 'mdi:timer'
+    vacuum_cleaned_area:
+      friendly_name: Area of Last Cycle
+      unit_of_measurement: 'm ²'
+      value_template: '{{ states.vacuum.xiaomi_vacuum_cleaner.attributes.cleaned_area   }}'
+      icon_template: 'mdi:ruler'
+    vacuum_cleanmainbrush:
+      friendly_name: Replace main brush
+      unit_of_measurement: 'h'
+      value_template: 'Glowna szczotka: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.main_brush_left  }}'
+      icon_template: 'mdi:screwdriver'
+    vacuum_cleansidebrush:
+      friendly_name: Replace side brush
+      unit_of_measurement: 'h'
+      value_template: 'Boczna szczotka: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.side_brush_left  }}'
+      icon_template: 'mdi:screwdriver'
+    vacuum_cleanfilter:
+      friendly_name: Replace filter
+      unit_of_measurement: 'h'
+      value_template: 'Filtr: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.filter_left   }}'
+      icon_template: 'mdi:screwdriver'
+    vacuum_sensordirtyleft:
+      friendly_name: Replace mop
+      unit_of_measurement: 'h'
+      value_template: 'Czujnik: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.sensor_dirty_left  }}'
+      icon_template: 'mdi:screwdriver'
+
+######################## SYSTEMOWE ########################
+
+- platform: version
+  name: Installed Version
+  source: local
+    
+- platform: version
+  name: Latest Available Version
+  beta: false
+  image: default 
+  source: hassio
+
+- platform: uptime
+
+- platform: dnsip
+- platform: dnsip
+  hostname: home-assistant.io
+  name: hass
+  resolver: 8.8.8.8
+    
+######################## SYSTEM DATA I CZAS ########################
+
+- platform: time_date
+  display_options:
+    - 'time'
+    - 'date'
+    - 'date_time'
+    - 'time_date'
+    - 'beat'
+
+######################## BLOK DANYCH DB ########################
+
+- platform: filesize
+  file_paths:
+    - /config/home-assistant_v2.db
+    - /config/home-assistant.log
+
+
+- platform: sql
+  db_url: !secret mariadb
+  queries:
+    - name: 'DataBase rozmiar'
+      query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024 / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema;'
+      column: 'value'
+      unit_of_measurement: MB
+

@@ -1,0 +1,22 @@
+
+######################## FUNCJE ALARMU ########################
+
+    # TRYB WAKACJE
+  - platform: ads
+    name: Tryb Wakacje
+    adsvar: GVL_Alarm.bWacationModeACTIVE
+    # TRYB POZA DOMEM
+  - platform: ads
+    name: Poza domem
+    adsvar: GVL_Alarm.bOutOfHomeACTIVE
+    #TRYB BEZPIECZNY DOM
+  - platform: ads
+    name: Bezpieczny dom
+    adsvar: GVL_Alarm.bSafeHomeACTIVE
+    # ALARM 
+  - platform: ads
+    name: Alarm załącz
+    adsvar: GVL_Alarm.bAlarm_ON_HMI
+  - platform: ads
+    name: Alarm wyłącz
+    adsvar: GVL_Alarm.bAlarm_OFF_HMI

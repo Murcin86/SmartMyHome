@@ -1,0 +1,55 @@
+
+######################## TEMPERATURY ODCZYTANE PARTER ########################
+
+- platform: ads
+  name: Temp. ciepła woda
+  adsvar: GVL_IO.iTemp_A3[6].bTemp
+  unit_of_measurement: '°C'
+  factor: 100 
+  adstype: int
+  scan_interval: 1000
+- platform: ads
+  name: Temp. cyrkulacja
+  adsvar: GVL_IO.iTemp_A3[4].bTemp
+  unit_of_measurement: '°C'
+  factor: 100 
+  adstype: int
+  scan_interval: 1000
+- platform: ads
+  name: Temp. cyrkulacja zadana
+  adsvar: HomeAssistant.iTEMP_CYRCULATION
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+  scan_interval: 1000
+
+######################## TEMPERATURY MIN MAX ########################
+
+- platform: ads
+  name: TempMin_woda
+  adsvar: HomeAssistant.iTEMP_woda_min
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+  scan_interval: 1000
+- platform: ads
+  name: TempMax_woda
+  adsvar: HomeAssistant.iTEMP_woda_max
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+  scan_interval: 1000
+- platform: ads
+  name: TempMin_cyrkulacja
+  adsvar: HomeAssistant.iTEMP_cyrkulacja_min
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+  scan_interval: 1000
+- platform: ads
+  name: TempMax_cyrkulacja
+  adsvar: HomeAssistant.iTEMP_cyrkulacja_max
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+  scan_interval: 1000

@@ -1,0 +1,10 @@
+
+######################## FUNKCJE SYSTEMOWE ########################
+
+  - platform: ads
+    name: Monitor HMI
+    adsvar: HomeAssistant.bHmi_ON
+
+  - platform: ads
+    name: Czas letni
+    adsvar: P_SYSTEM.bSummerTime

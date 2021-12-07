@@ -1,0 +1,61 @@
+
+######################## GNIAZDKA 230v ########################
+
+  - platform: ads
+    name: Gniazdko TV Biuro
+    adsvar: P_POWER_SOCKET_P1.bSwitchOfficeTVHMI
+  - platform: ads
+    name: PowerSocket_Office_desk_hmi
+    adsvar: P_POWER_SOCKET_P1.bSwitchOfficeHMI
+
+  - platform: ads
+    name: Kaloryfer łazienka górna
+    adsvar: GVL_PowerSocket.Q_PS_bathroomUP_Radiator
+  - platform: ads
+    name: Kaloryfer łazienka dolna
+    adsvar: GVL_PowerSocket.Q_PS_bathroomDWN_Radiator
+  - platform: ads
+    name: Gniazdka TV Sypialnia
+    adsvar: GVL_PowerSocket.Q_PS_badroom_TV
+  - platform: ads
+    name: Gniazdka TV Oliwia
+    adsvar: GVL_PowerSocket.Q_PS_oliwia_TV
+  - platform: ads
+    name: Gniazdka TV Julia
+    adsvar: GVL_PowerSocket.Q_PS_julia_TV
+  - platform: ads
+    name: Gniazdka TV Biuro
+    adsvar: GVL_PowerSocket.Q_PS_office_TV
+  - platform: ads
+    name: Gniazdka pralnia 1
+    adsvar: GVL_PowerSocket.Q_PS_washroom_GN1
+  - platform: ads
+    name: Gniazdka pralnia 2
+    adsvar: GVL_PowerSocket.Q_PS_washroom_GN2
+  - platform: ads
+    name: Gniazdka łazienka
+    adsvar: GVL_PowerSocket.Q_PS_bathroomUP_GN1
+  - platform: ads
+    name: Gniazdko biuro
+    adsvar: GVL_PowerSocket.Q_PS_Office
+  - platform: ads
+    name: Gniazdka przedpokoj
+    adsvar: GVL_PowerSocket.Q_PS_entranceHall
+  - platform: ads
+    name: Gniazdka zewnętrzne
+    adsvar: GVL_PowerSocket.Q_PS_Outsite
+  - platform: ads
+    name: Gniazdka pompa 
+    adsvar: GVL_PowerSocket.Q_PS_Outsite_2
+  - platform: ads
+    name: Gniazdka zewnetrzne pietro 
+    adsvar: GVL_PowerSocket.Q_PS_Outsite_Up
+  - platform: ads
+    name: Gniazdka salon
+    adsvar: GVL_PowerSocket.Q_PS_salon
+  - platform: ads
+    name: Gniazdka TV salon
+    adsvar: GVL_PowerSocket.Q_PS_salon_TV
+  - platform: ads
+    name: Gniazdka strych
+    adsvar: GVL_PowerSocket.Q_PS_Attic

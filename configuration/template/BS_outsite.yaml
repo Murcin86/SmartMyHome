@@ -1,0 +1,16 @@
+
+- binary_sensor:
+    - name: Skrzynka na listy wewn
+      state: "{{ is_state('binary_sensor.mailbox_openinsite', 'off') }}"
+      device_class: opening
+    - name: Skrzynka na listy zewn
+      state: "{{ is_state('binary_sensor.mailbox_openoutsite', 'off') }}"
+      device_class: opening
+    - name: Przyszedł list
+      state: "{{ is_state('binary_sensor.list_w_skrzynce', 'on') }}"
+      icon: >
+        {% if is_state("binary_sensor.list_w_skrzynce", "on") %}
+          mdi:mailbox-outline
+        {% else %}
+          mdi:email-receive-outline
+        {% endif %}

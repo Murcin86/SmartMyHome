@@ -1,0 +1,99 @@
+
+######################## TEMPLATE WODA ########################
+
+- sensor:
+  - name: pompa_cyrkulacji_czas_dzialania
+    state: "{{ (states('sensor.circulationpomp_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+
+######################## PIEC VAILLANT ########################
+
+  - name: Błędy Vaillant czas działania
+    state: "{{ (states('sensor.multimatic_vaillant_time_on') | float(0) * 3600) | timestamp_custom('%H:%M:%S', false) }}"
+
+  - name: Temperatura ciepłej wody w zasobniku
+    state: "{{ state_attr('water_heater.vaillant_control_dhw', 'current_temperature') }}" 
+    unit_of_measurement: '°C'
+  - name: Temperatura zadana ciepłej wody w zasobniku
+    state: "{{ state_attr('water_heater.vaillant_control_dhw', 'temperature') }}" 
+    unit_of_measurement: '°C'
+
+  - name: Ciepła woda tryb pracy
+    state: "{{ state_attr('water_heater.vaillant_control_dhw', 'operation_mode') }}" 
+  - name: Ciepła woda tryb PozaDomem
+    state: "{{ state_attr('water_heater.vaillant_control_dhw', 'away_mode') }}" 
+  - name: Ciepła woda tryb multimatic
+    state: "{{ state_attr('water_heater.vaillant_control_dhw', 'multimatic_mode') }}" 
+      
+######################## ZAWORY WODY ########################
+
+  - name: zawor_wody_1 #ZASOBNIK CIEPŁEJ WODY
+    state: >
+     {% if is_state('binary_sensor.zawor_wody_in_2', 'off') %}
+      Zamknięty
+     {% elif is_state('binary_sensor.zawor_wody_in_1', 'off') %}
+      Otwarty
+     {% else %}
+      Otwier. lub zamyk.
+     {% endif %}
+    icon: >
+     {% if is_state("binary_sensor.zawor_wody_in_2", "off") %}
+       mdi:valve-closed
+     {% elif is_state('binary_sensor.zawor_wody_in_1', 'off') %}
+       mdi:valve-open
+     {% else %}
+      mdi:valve
+     {% endif %}
+  - name: zawor_wody_2 #PIĘTRO
+    state: >
+     {% if is_state('binary_sensor.zawor_wody_in_4', 'off') %}
+       Zamknięty
+     {% elif is_state('binary_sensor.zawor_wody_in_3', 'off') %}
+      Otwarty
+     {% else %}
+      Otwier. lub zamyk.
+     {% endif %}
+    icon: >
+     {% if is_state("binary_sensor.water_valve_in_4", "off") %}
+       mdi:valve-closed
+     {% elif is_state('binary_sensor.water_valve_in_3', 'off') %}
+       mdi:valve-open
+     {% else %}
+       mdi:valve-open
+     {% endif %}
+  - name: zawor_wody_3 #PARTER
+    state: >
+     {% if is_state('binary_sensor.zawor_wody_in_6', 'off') %}
+       Zamknięty
+     {% elif is_state('binary_sensor.zawor_wody_in_5', 'off') %}
+      Otwarty
+     {% else %}
+      Otwier. lub zamyk.
+     {% endif %}
+    icon: >
+     {% if is_state("binary_sensor.water_valve_in_6", "off") %}
+       mdi:valve-closed
+     {% elif is_state('binary_sensor.water_valve_in_5', 'off') %}
+       mdi:valve-open
+     {% else %}
+       mdi:valve
+     {% endif %}
+
+########################## PRALKA ########################## 
+
+  - name: pranie
+    state: >
+      {% if is_state('binary_sensor.pranie_oczekiwanie', 'on') %}
+        Oczekiwanie na wyjęcie z pralki...
+      {% elif is_state('binary_sensor.pralka', 'on') %}
+        Trwa pranie...
+      {% else %}
+        Wyłączona
+      {% endif %}
+    icon: >
+     {% if is_state("binary_sensor.pranie_oczekiwanie", "on") %}
+       mdi:washing-machine-alert
+     {% elif is_state('binary_sensor.pralka', 'on') %}
+       mdi:washing-machine
+     {% else %}
+       mdi:washing-machine-off
+     {% endif %}

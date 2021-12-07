@@ -1,0 +1,45 @@
+
+######################## TEMPLATE POGODA ########################
+
+- sensor:
+  - name: sun_next_dawn_temp
+    state: "{{ state_attr('sun.sun', 'next_dawn') }}"
+  - name: sun_next_dusk_temp
+    state: "{{ state_attr('sun.sun', 'next_dusk') }}"
+  - name: sun_next_midnight_temp
+    state: "{{ state_attr('sun.sun', 'next_midnight') }}"
+  - name: sun_next_noon_temp
+    state: "{{ state_attr('sun.sun', 'next_noon') }}"
+  - name: sun_next_rising_temp
+    state: "{{ state_attr('sun.sun', 'next_rising') }}"
+  - name: sun_next_setting_temp
+    state: "{{ state_attr('sun.sun', 'next_setting') }}"
+
+  - name: sun_nastepny_swit
+    state: "{{ as_timestamp(states('sensor.sun_next_dawn_temp')) | timestamp_custom('%d.%m.%Y, %H:%M') }}"
+  - name: sun_nastepny_zmierzch
+    state: "{{ as_timestamp(states('sensor.sun_next_dusk_temp')) | timestamp_custom('%d.%m.%Y, %H:%M') }}"
+  - name: sun_nastepna_sloneczna_polnoc
+    state: "{{ as_timestamp(states('sensor.sun_next_midnight_temp')) | timestamp_custom('%d.%m.%Y, %H:%M') }}"
+  - name: sun_nastepne_sloneczne_poludnie
+    state: "{{ as_timestamp(states('sensor.sun_next_noon_temp')) | timestamp_custom('%d.%m.%Y, %H:%M') }}"
+  - name:  sun_nastepny_wschod
+    state: "{{ as_timestamp(states('sensor.sun_next_rising_temp')) | timestamp_custom('%d.%m.%Y, %H:%M') }}"
+  - name: sun_nastepny_zachod
+    state: "{{ as_timestamp(states('sensor.sun_next_setting_temp')) | timestamp_custom('%d.%m.%Y, %H:%M') }}"
+
+  - name: sun_elevation
+    unit_of_measurement: "°"
+    state: "{{ '%+.1f'|format(state_attr('sun.sun', 'elevation')) }}"
+  - name: sun_azimuth
+    unit_of_measurement: "°"
+    state: "{{ '%+.1f'|format(state_attr('sun.sun', 'azimuth')) }}"
+  - name: sun_rising
+    state: "{{ state_attr('sun.sun', 'rising') }}"
+  - name: sun_state
+    state: >
+      {% if is_state('sun.sun', 'above_horizon') %}
+        dzien
+      {% else %}
+        noc
+      {% endif %}

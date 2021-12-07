@@ -1,0 +1,387 @@
+
+################## ŻALUZJE PARTER ################## 
+
+- platform: template
+  covers:
+    blinds_floor0_up_dwn:
+      device_class: blind
+      friendly_name: "Żaluzje Parter góra-dół"
+      value_template: "{{ is_state('binary_sensor.blinds_p0_up', 'on')}}"
+      open_cover:
+        service: switch.turn_on
+        data:
+          entity_id: switch.blinds_p0_up
+      close_cover:
+        service: switch.turn_on
+        data:
+          entity_id: switch.blinds_p0_down
+
+    blinds_floor0_up_clo:
+      device_class: blind
+      friendly_name: "Żaluzje Parter góra-zamknij"
+      value_template: "{{ is_state('binary_sensor.blinds_p0_up', 'on')}}"
+      open_cover:
+        service: switch.turn_on
+        data:
+          entity_id: switch.blinds_p0_up
+      close_cover:
+        service: switch.turn_on
+        data:
+          entity_id: switch.blinds_p0_close
+
+    blinds_lamels_floor0:
+      device_class: blind
+      friendly_name: "Żaluzje lamelki Parter"
+      value_template: "{{ is_state('binary_sensor.blinds_lms_p0_up', 'on')}}"
+      open_cover:
+        service: switch.turn_on
+        data:
+          entity_id: switch.blinds_p0_lms_up
+      close_cover:
+        service: switch.turn_on
+        data:
+          entity_id: switch.blinds_p0_lms_down
+
+################## ŻALUZJE PIĘTRO ################## 
+
+    blinds_floor1_up_dwn:
+      device_class: blind
+      friendly_name: "Żaluzje Piętro góra-dół"
+      value_template: "{{ is_state('binary_sensor.blinds_p1_up', 'on')}}"
+      open_cover:
+        service: switch.turn_on
+        data:
+          entity_id: switch.blinds_p1_up
+      close_cover:
+        service: switch.turn_on
+        data:
+          entity_id: switch.blinds_p1_down
+
+    blinds_floor1_up_clo:
+      device_class: blind
+      friendly_name: "Żaluzje Piętro góra-zamknij"
+      value_template: "{{ is_state('binary_sensor.blinds_p1_up', 'on')}}"
+      open_cover:
+        service: switch.turn_on
+        data:
+          entity_id: switch.blinds_p1_up
+      close_cover:
+        service: switch.turn_on
+        data:
+          entity_id: switch.blinds_p1_close
+
+    blinds_lamels_floor1:
+      device_class: blind
+      friendly_name: "Żaluzje lamelki Piętro"
+      value_template: "{{ is_state('binary_sensor.blinds_lms_p1_up', 'on')}}"
+      open_cover:
+        service: switch.turn_on
+        data:
+          entity_id: switch.blinds_p1_lms_up
+      close_cover:
+        service: switch.turn_on
+        data:
+          entity_id: switch.blinds_p0_lms_down
+
+################## ŻALUZJE POJEDYNCZE ################## 
+
+- platform: template
+  covers:
+    zaluzja_taras:
+      device_class: blind
+      friendly_name: "Zaluzja Taras"
+      position_template: "{{ states('sensor.blind_1_pos') }}"
+      tilt_template:  "{{ states('sensor.blind_1_lms') }}"
+      open_cover:
+          service: ads.write_data_by_name
+          data:
+            adsvar: GVL_Blinds.st_BLINDS[1].iActlPosReq
+            adstype: int
+            value: 100
+      close_cover:
+          service: ads.write_data_by_name
+          data:
+            adsvar: GVL_Blinds.st_BLINDS[1].iActlPosReq
+            adstype: int
+            value: 0
+      set_cover_position:
+        service: ads.write_data_by_name
+        data:
+          adsvar: GVL_Blinds.st_BLINDS[1].iActlPosReq
+          adstype: int
+          value: "{{position}}"
+      set_cover_tilt_position:
+        service: ads.write_data_by_name
+        data:
+          adsvar: GVL_Blinds.st_BLINDS[1].iActlAnglReq
+          adstype: int
+          value: "{{tilt}}"
+    zaluzja_salon:
+      device_class: blind
+      friendly_name: "Zaluzja Salon"
+      position_template: "{{ states('sensor.blind_2_pos') }}"
+      tilt_template:  "{{ states('sensor.blind_2_lms') }}"
+      open_cover:
+          service: ads.write_data_by_name
+          data:
+            adsvar: GVL_Blinds.st_BLINDS[2].iActlPosReq
+            adstype: int
+            value: 100
+      close_cover:
+          service: ads.write_data_by_name
+          data:
+            adsvar: GVL_Blinds.st_BLINDS[2].iActlPosReq
+            adstype: int
+            value: 0
+      set_cover_position:
+        service: ads.write_data_by_name
+        data:
+          adsvar: GVL_Blinds.st_BLINDS[2].iActlPosReq
+          adstype: int
+          value: "{{position}}"
+      set_cover_tilt_position:
+        service: ads.write_data_by_name
+        data:
+          adsvar: GVL_Blinds.st_BLINDS[2].iActlAnglReq
+          adstype: int
+          value: "{{tilt}}"
+
+    zaluzja_kuchnia:
+      device_class: blind
+      friendly_name: "Zaluzja Kuchnia"
+      position_template: "{{ states('sensor.blind_3_pos') }}"
+      tilt_template:  "{{ states('sensor.blind_3_lms') }}"
+      open_cover:
+          service: ads.write_data_by_name
+          data:
+            adsvar: GVL_Blinds.st_BLINDS[3].iActlPosReq
+            adstype: int
+            value: 100
+      close_cover:
+          service: ads.write_data_by_name
+          data:
+            adsvar: GVL_Blinds.st_BLINDS[3].iActlPosReq
+            adstype: int
+            value: 0
+      set_cover_position:
+        service: ads.write_data_by_name
+        data:
+          adsvar: GVL_Blinds.st_BLINDS[3].iActlPosReq
+          adstype: int
+          value: "{{position}}"
+      set_cover_tilt_position:
+        service: ads.write_data_by_name
+        data:
+          adsvar: GVL_Blinds.st_BLINDS[3].iActlAnglReq
+          adstype: int
+          value: "{{tilt}}"
+
+    zaluzja_gabinet:
+      device_class: blind
+      friendly_name: "Zaluzja Gabinet"
+      position_template: "{{ states('sensor.blind_4_pos') }}"
+      tilt_template:  "{{ states('sensor.blind_4_lms') }}"
+      open_cover:
+          service: ads.write_data_by_name
+          data:
+            adsvar: GVL_Blinds.st_BLINDS[4].iActlPosReq
+            adstype: int
+            value: 100
+      close_cover:
+          service: ads.write_data_by_name
+          data:
+            adsvar: GVL_Blinds.st_BLINDS[4].iActlPosReq
+            adstype: int
+            value: 0
+      set_cover_position:
+        service: ads.write_data_by_name
+        data:
+          adsvar: GVL_Blinds.st_BLINDS[4].iActlPosReq
+          adstype: int
+          value: "{{position}}"
+      set_cover_tilt_position:
+        service: ads.write_data_by_name
+        data:
+          adsvar: GVL_Blinds.st_BLINDS[4].iActlAnglReq
+          adstype: int
+          value: "{{tilt}}"
+
+    zaluzja_lazienka:
+      device_class: blind
+      friendly_name: "Zaluzja Łazienka"
+      position_template: "{{ states('sensor.blind_5_pos') }}"
+      tilt_template:  "{{ states('sensor.blind_5_lms') }}"
+      open_cover:
+          service: ads.write_data_by_name
+          data:
+            adsvar: GVL_Blinds.st_BLINDS[5].iActlPosReq
+            adstype: int
+            value: 100
+      close_cover:
+          service: ads.write_data_by_name
+          data:
+            adsvar: GVL_Blinds.st_BLINDS[5].iActlPosReq
+            adstype: int
+            value: 0
+      set_cover_position:
+        service: ads.write_data_by_name
+        data:
+          adsvar: GVL_Blinds.st_BLINDS[5].iActlPosReq
+          adstype: int
+          value: "{{position}}"
+      set_cover_tilt_position:
+        service: ads.write_data_by_name
+        data:
+          adsvar: GVL_Blinds.st_BLINDS[5].iActlAnglReq
+          adstype: int
+          value: "{{tilt}}"
+
+    zaluzja_przedpokoj:
+      device_class: blind
+      friendly_name: "Zaluzja Przedpokój"
+      position_template: "{{ states('sensor.blind_6_pos') }}"
+      tilt_template:  "{{ states('sensor.blind_6_lms') }}"
+      open_cover:
+          service: ads.write_data_by_name
+          data:
+            adsvar: GVL_Blinds.st_BLINDS[6].iActlPosReq
+            adstype: int
+            value: 100
+      close_cover:
+          service: ads.write_data_by_name
+          data:
+            adsvar: GVL_Blinds.st_BLINDS[6].iActlPosReq
+            adstype: int
+            value: 0
+      set_cover_position:
+        service: ads.write_data_by_name
+        data:
+          adsvar: GVL_Blinds.st_BLINDS[6].iActlPosReq
+          adstype: int
+          value: "{{position}}"
+      set_cover_tilt_position:
+        service: ads.write_data_by_name
+        data:
+          adsvar: GVL_Blinds.st_BLINDS[6].iActlAnglReq
+          adstype: int
+          value: "{{tilt}}"
+
+    zaluzja_sypialnia_m:
+      device_class: blind
+      friendly_name: "Zaluzja Sypialnia M"
+      position_template: "{{ states('sensor.blind_7_pos') }}"
+      tilt_template:  "{{ states('sensor.blind_7_lms') }}"
+      open_cover:
+          service: ads.write_data_by_name
+          data:
+            adsvar: GVL_Blinds.st_BLINDS[7].iActlPosReq
+            adstype: int
+            value: 100
+      close_cover:
+          service: ads.write_data_by_name
+          data:
+            adsvar: GVL_Blinds.st_BLINDS[7].iActlPosReq
+            adstype: int
+            value: 0
+      set_cover_position:
+        service: ads.write_data_by_name
+        data:
+          adsvar: GVL_Blinds.st_BLINDS[7].iActlPosReq
+          adstype: int
+          value: "{{position}}"
+      set_cover_tilt_position:
+        service: ads.write_data_by_name
+        data:
+          adsvar: GVL_Blinds.st_BLINDS[7].iActlAnglReq
+          adstype: int
+          value: "{{tilt}}"
+
+    zaluzja_sypialnia_i:
+      device_class: blind
+      friendly_name: "Zaluzja Sypialnia I"
+      position_template: "{{ states('sensor.blind_8_pos') }}"
+      tilt_template:  "{{ states('sensor.blind_8_lms') }}"
+      open_cover:
+          service: ads.write_data_by_name
+          data:
+             adsvar: GVL_Blinds.st_BLINDS[8].iActlPosReq
+             adstype: int
+             value: 100
+      close_cover:
+          service: ads.write_data_by_name
+          data:
+            adsvar: GVL_Blinds.st_BLINDS[8].iActlPosReq
+            adstype: int
+            value: 0
+      set_cover_position:
+        service: ads.write_data_by_name
+        data:
+          adsvar: GVL_Blinds.st_BLINDS[8].iActlPosReq
+          adstype: int
+          value: "{{position}}"
+      set_cover_tilt_position:
+        service: ads.write_data_by_name
+        data:
+          adsvar: GVL_Blinds.st_BLINDS[8].iActlAnglReq
+          adstype: int
+          value: "{{tilt}}"
+
+    zaluzja_oliwia:
+      device_class: blind
+      friendly_name: "Zaluzja Oliwia"
+      position_template: "{{ states('sensor.blind_9_pos') }}"
+      tilt_template:  "{{ states('sensor.blind_9_lms') }}"
+      open_cover:
+          service: ads.write_data_by_name
+          data:
+            adsvar: GVL_Blinds.st_BLINDS[9].iActlPosReq
+            adstype: int
+            value: 100
+      close_cover:
+          service: ads.write_data_by_name
+          data:
+            adsvar: GVL_Blinds.st_BLINDS[9].iActlPosReq
+            adstype: int
+            value: 0
+      set_cover_position:
+        service: ads.write_data_by_name
+        data:
+          adsvar: GVL_Blinds.st_BLINDS[9].iActlPosReq
+          adstype: int
+          value: "{{position}}"
+      set_cover_tilt_position:
+        service: ads.write_data_by_name
+        data:
+          adsvar: GVL_Blinds.st_BLINDS[9].iActlAnglReq
+          adstype: int
+          value: "{{tilt}}"
+
+    zaluzja_julia:
+      device_class: blind
+      friendly_name: "Zaluzja Julia"
+      position_template: "{{ states('sensor.blind_10_pos') }}"
+      tilt_template:  "{{ states('sensor.blind_10_lms') }}"
+      open_cover:
+          service: ads.write_data_by_name
+          data:
+            adsvar: GVL_Blinds.st_BLINDS[10].iActlPosReq
+            adstype: int
+            value: 100
+      close_cover:
+          service: ads.write_data_by_name
+          data:
+            adsvar: GVL_Blinds.st_BLINDS[10].iActlPosReq
+            adstype: int
+            value: 0
+      set_cover_position:
+        service: ads.write_data_by_name
+        data:
+          adsvar: GVL_Blinds.st_BLINDS[10].iActlPosReq
+          adstype: int
+          value: "{{position}}"
+      set_cover_tilt_position:
+        service: ads.write_data_by_name
+        data:
+          adsvar: GVL_Blinds.st_BLINDS[10].iActlAnglReq
+          adstype: int
+          value: "{{tilt}}"

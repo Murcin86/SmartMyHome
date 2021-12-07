@@ -1,0 +1,165 @@
+
+######################## CZASY ZAŁĄCZONYCH ELEMENTÓW ########################
+
+# TELEFONY - CZAS BLOKADY
+- platform: history_stats
+  name: Telefon Marcin Czas blokady time
+  entity_id: binary_sensor.telefon_marcin_blokada_keyguard
+  state: 'off'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: Telefon Marcin Czas blokady count
+  entity_id: binary_sensor.telefon_marcin_blokada_keyguard
+  state: 'off'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'  
+- platform: template
+  sensors:
+    telefon_marcin_czas_blokady:
+      value_template: "{{ (states('sensor.telefon_marcin_czas_blokady_time') | float(0)* 3600) | timestamp_custom('%H:%M:%S', false) }}"
+      friendly_name: 'Czas niezablokowanego telefonu Marcin'
+
+- platform: history_stats
+  name: Telefon Iwona Czas blokady time
+  entity_id: binary_sensor.telefon_iwona_blokada_keyguard
+  state: 'off'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: Telefon Iwona Czas blokady count
+  entity_id: binary_sensor.telefon_iwona_blokada_keyguard
+  state: 'off'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'  
+- platform: template
+  sensors:
+    telefon_iwona_czas_blokady:
+      value_template: "{{ (states('sensor.telefon_iwona_czas_blokady_time') | float(0)* 3600) | timestamp_custom('%H:%M:%S', false) }}"
+      friendly_name: 'Czas niezablokowanego telefonu Iwona'
+
+- platform: history_stats
+  name: Telefon Julia Czas blokady time
+  entity_id: binary_sensor.telefon_julia_blokada_keyguard
+  state: 'off'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: Telefon Julia Czas blokady count
+  entity_id: binary_sensor.telefon_julia_blokada_keyguard
+  state: 'off'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'  
+- platform: template
+  sensors:
+    telefon_julia_czas_blokady:
+      value_template: "{{ (states('sensor.telefon_julia_czas_blokady_time') | float(0)* 3600) | timestamp_custom('%H:%M:%S', false) }}"
+      friendly_name: 'Czas niezablokowanego telefonu Julia'
+
+- platform: history_stats
+  name: Telefon Oliwia Czas blokady time
+  entity_id: binary_sensor.telefon_oliwia_blokada_keyguard
+  state: 'off'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: Telefon Oliwia Czas blokady count
+  entity_id: binary_sensor.telefon_oliwia_blokada_keyguard
+  state: 'off'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'  
+- platform: template
+  sensors:
+    telefon_oliwia_czas_blokady:
+      value_template: "{{ (states('sensor.telefon_oliwia_czas_blokady_time') | float(0)* 3600) | timestamp_custom('%H:%M:%S', false) }}"
+      friendly_name: 'Czas niezablokowanego telefonu Oliwia'
+
+# TELEFONY - CZASY AKTYWNE
+- platform: history_stats
+  name: Telefon Marcin Czas aktywny time
+  entity_id: binary_sensor.telefon_marcin_interaktywny
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: Telefon Marcin Czas aktywny count
+  entity_id: binary_sensor.telefon_marcin_interaktywny
+  state: 'on'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'  
+- platform: template
+  sensors:
+    telefon_marcin_czas_aktywny:
+      value_template: "{{ (states('sensor.telefon_marcin_czas_aktywny_time') | float(0)* 3600) | timestamp_custom('%H:%M:%S', false) }}"
+      friendly_name: 'Czas aktywnego telefonu Marcin'
+
+- platform: history_stats
+  name: Telefon Iwona Czas aktywny time
+  entity_id: binary_sensor.telefon_iwona_interaktywny
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: Telefon Iwona Czas aktywny count
+  entity_id: binary_sensor.telefon_iwona_interaktywny
+  state: 'on'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'  
+- platform: template
+  sensors:
+    telefon_iwona_czas_aktywny:
+      value_template: "{{ (states('sensor.telefon_iwona_czas_aktywny_time') | float(0)* 3600) | timestamp_custom('%H:%M:%S', false) }}"
+      friendly_name: 'Czas aktywnego telefonu Iwona'
+
+- platform: history_stats
+  name: Telefon Julia Czas aktywny time
+  entity_id: binary_sensor.telefon_julia_interaktywny
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: Telefon Julia Czas aktywny count
+  entity_id: binary_sensor.telefon_julia_interaktywny
+  state: 'on'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'  
+- platform: template
+  sensors:
+    telefon_julia_czas_aktywny:
+      value_template: "{{ (states('sensor.telefon_julia_czas_aktywny_time') | float(0)* 3600) | timestamp_custom('%H:%M:%S', false) }}"
+      friendly_name: 'Czas aktywnego telefonu Julia'
+
+- platform: history_stats
+  name: Telefon Oliwia Czas aktywny time
+  entity_id: binary_sensor.telefon_oliwia_interaktywny
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: Telefon Oliwia Czas aktywny count
+  entity_id: binary_sensor.telefon_oliwia_interaktywny
+  state: 'on'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'  
+- platform: template
+  sensors:
+    telefon_oliwia_czas_aktywny:
+      value_template: "{{ (states('sensor.telefon_oliwia_czas_aktywny_time') | float(0)* 3600) | timestamp_custom('%H:%M:%S', false) }}"
+      friendly_name: 'Czas aktywnego telefonu Oliwia'
+

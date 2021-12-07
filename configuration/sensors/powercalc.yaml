@@ -1,0 +1,84 @@
+
+######################## POMIARY ZUŻYCIA ENERGI INTEGRACJI POWERCALC ######################## 
+
+- platform: powercalc
+  entity_id: switch.diskstation
+  fixed:
+    power: 20
+  name: diskstation powercalc
+
+- platform: powercalc
+  entity_id: switch.gniazdka_strych
+  fixed:
+    power: 7
+  name: attic powercalc
+
+- platform: powercalc
+  entity_id: binary_sensor.ping_router
+  fixed:
+    power: 2
+  name: roborock powercalc
+
+- platform: powercalc
+  entity_id: switch.pantrymonitorpowersocket
+  fixed:
+    power: 16
+  name: monitor_hmi powercalc
+
+- platform: powercalc
+  entity_id: binary_sensor.ping_router
+  fixed:
+    power: 2
+  name: switch_gbn powercalc
+
+- platform: powercalc
+  entity_id: binary_sensor.ping_router
+  fixed:
+    power: 9
+  name: router powercalc
+  
+- platform: powercalc
+  entity_id: binary_sensor.ping_router
+  fixed:
+    power: 15
+  name: switches powercalc
+  
+- platform: powercalc
+  entity_id: binary_sensor.ping_router
+  fixed:
+    power: 6
+  name: switch_poe powercalc
+
+- platform: powercalc
+  entity_id: binary_sensor.ping_router
+  fixed:
+    power: 2
+  name: oven powercalc
+
+- platform: powercalc
+  entity_id: binary_sensor.ping_router
+  fixed:
+    power: 13
+  name: futro_s920 powercalc
+
+- platform: powercalc
+  entity_id: binary_sensor.ping_plc
+  fixed:
+    power: 32
+  name: plc powercalc
+  
+- platform: powercalc
+  entity_id: binary_sensor.ping_plc
+  fixed:
+    power: 20
+  name: zasilacz_24 powercalc
+  
+
+
+
+
+
+
+
+
+

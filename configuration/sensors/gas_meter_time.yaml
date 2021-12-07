@@ -1,0 +1,19 @@
+
+######################## CZASY GAZU ########################
+
+- platform: history_stats
+  name: GazMeter alarm Count_ON
+  entity_id: binary_sensor.czujnik_gazu_alarm
+  state: 'on'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}' 
+
+- platform: history_stats
+  name: GazMeter imp Count_ON
+  entity_id: binary_sensor.czujnik_gazu_impuls
+  #unit_of_measurement: 'impuls'
+  state: 'on'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}' 
