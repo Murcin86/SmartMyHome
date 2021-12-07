@@ -1,0 +1,107 @@
+ project_id: !secret google_assistant_project_id
+ service_account: !include Hassio-0d5fc6300251.json
+ exposed_domains:
+  - script
+  - light
+  - camera
+  - switch
+#  - cover 
+#  - vacuum 
+#  - media_player 
+#  - cover 
+#  - climate 
+ entity_config: # wyłączenie opcji w Google Assistant
+
+     switch.PowerSocket_Office_tv:
+      expose: false
+     switch.PowerSocket_Office_tv_hmi:
+      expose: false
+     switch.PowerSocket_Office_desk_hmi:
+      expose: false
+     switch.biuro_1_button:
+      expose: false
+     switch.biuro_2_button:
+      expose: false
+     switch.czas_letni:
+      expose: false
+     switch.Diskstation:
+      expose: false
+
+     switch.adguard_filtering:
+      expose: false
+     switch.adguard_parental_control:
+      expose: false
+     switch.adguard_protection:
+      expose: false
+     switch.adguard_safe_browsing:
+      expose: false
+     switch.adguard_safe_search:
+      expose: false
+     switch.adguard_query_log:
+      expose: false
+
+     switch.reset_minmax_temp:
+      expose: false
+     switch.officelaptoppowersocket_power_outage_memory:
+      expose: false
+     switch.officelaptoppowersocket_led_disabled_night:
+      expose: false
+     switch.officelaptoppowersocket_auto_off:
+      expose: false
+     switch.mainpowersocketups:
+      expose: false
+     switch.washingmachinepowersocket:
+      expose: false
+     switch.blinds_on_1:
+      expose: false
+     switch.blinds_on_2:
+      expose: false
+     switch.blinds_on_3:
+      expose: false
+     switch.blinds_on_4:
+      expose: false
+     switch.blinds_on_5:
+      expose: false
+     switch.blinds_on_6:
+      expose: false
+     switch.blinds_on_7:
+      expose: false
+     switch.blinds_on_8:
+      expose: false
+     switch.blinds_on_9:
+      expose: false
+     switch.blinds_on_10:
+      expose: false
+      
+      
+     light.schody_led_1:
+      expose: false
+     light.schody_led_2:
+      expose: false
+     light.schody_led_3:
+      expose: false
+     light.schody_led_4:
+      expose: false
+     light.schody_led_5:
+      expose: false
+     light.schody_led_6:
+      expose: false
+     light.schody_led_7:
+      expose: false
+     light.schody_led_8:
+      expose: false
+     light.schody_led_9:
+      expose: false
+     light.schody_led_10:
+      expose: false
+     light.schody_led_11:
+      expose: false
+     light.schody_led_12:
+      expose: false
+     light.schody_led_13:
+      expose: false
+     light.schody_led_14:
+      expose: false
+     light.schody_led_15:
+      expose: false
+
