@@ -1,0 +1,17 @@
+
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: '/'
+      - type: disk_use
+        arg: '/'
+      - type: disk_free
+        arg: '/'
+      - type: memory_use_percent
+      - type: processor_use
+      - type: network_in
+        arg: enp0s3
+      - type: network_out
+        arg: enp0s3
+      - type: last_boot
+      - type: swap_use_percent
