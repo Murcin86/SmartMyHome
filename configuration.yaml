@@ -60,7 +60,7 @@ telegram_bot:
   - platform: polling
     api_key: !secret telegram_api
     allowed_chat_ids:
-      - xxxxxxxxxx 
+      - !secret telegram_chat_id 
     
 notify:
   - platform: telegram
