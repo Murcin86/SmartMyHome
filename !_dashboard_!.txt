@@ -8108,76 +8108,32 @@ views:
                   :host div#items {
                     margin: 0px 0px 0px -20px;
                    }
-                head: sensor.telefon_julia_lokalizacja_geokodowana
+                head: sensor.telefon_julia_aktualna_wersja
                 group_config:
                   secondary_info: last-changed
                 entities:
-                  - entity: sensor.telefon_julia_adres_ip_wi_fi
-                  - entity: sensor.telefon_julia_aktualna_strefa_czasowa
-                  - entity: sensor.telefon_julia_aktualna_wersja
-                  - entity: binary_sensor.telefon_julia_aplikacja_nieaktywna
-                  - entity: binary_sensor.telefon_julia_blokada_keyguard
-                  - entity: binary_sensor.telefon_julia_blokada_urzadzenia
-                  - entity: binary_sensor.telefon_julia_czy_sie_laduje
-                  - entity: sensor.telefon_julia_czestotliwosc_wi_fi
-                  - entity: binary_sensor.telefon_julia_dane_mobilne
-                  - entity: binary_sensor.telefon_julia_interaktywny
-                  - entity: sensor.telefon_julia_liczba_aktywnych_powiadomien
-                  - entity: sensor.telefon_julia_media_session
-                  - entity: binary_sensor.telefon_julia_muzyka_aktywna
-                  - entity: sensor.telefon_julia_nastepny_alarm
-                  - entity: sensor.telefon_julia_odebrane_dane_gb
-                  - entity: sensor.telefon_julia_mobile_rx_gb
-                  - entity: sensor.telefon_julia_odebrane_dane_przez_aplikacje_w_gb
-                  - entity: sensor.telefon_julia_ostatni_restart
-                  - entity: sensor.telefon_julia_ostatnia_aktualizacja
-                  - entity: sensor.telefon_julia_ostatnie_powiadomienie
-                  - entity: sensor.telefon_julia_ostatnio_usuniete_powiadomienie
-                  - entity: binary_sensor.telefon_julia_oszczedzanie_energii
-                  - entity: sensor.telefon_julia_pamiec_aplikacji
-                  - entity: sensor.telefon_julia_pamiec_wewnetrzna
-                  - entity: sensor.telefon_julia_pamiec_zewnetrzna
-                  - entity: sensor.telefon_julia_poziom_baterii
-                  - entity: sensor.telefon_julia_poziom_glosnosci_alarmu
-                  - entity: sensor.telefon_julia_poziom_glosnosci_dzwonka
-                  - entity: sensor.telefon_julia_poziom_glosnosci_muzyki
-                  - entity: sensor.telefon_julia_poziom_glosnosci_polaczen_glosowych
-                  - entity: sensor.telefon_julia_polaczenie_bluetooth
-                  - entity: sensor.telefon_julia_polaczenie_wi_fi
-                  - entity: sensor.telefon_julia_predkosc_lacza_wi_fi
-                  - entity: sensor.telefon_julia_publiczny_adres_ip
-                  - entity: binary_sensor.telefon_julia_roaming_dla_danych_mobilnych
-                  - entity: sensor.telefon_julia_sim_1
-                  - entity: sensor.telefon_julia_sim_2
-                  - entity: sensor.telefon_julia_sensor_krokow
-                  - entity: sensor.telefon_julia_sensor_trybu_nie_przeszkadzac
-                  - entity: sensor.telefon_julia_sensor_zblizenia
-                  - entity: sensor.telefon_julia_sensor_swiatla
-                  - entity: sensor.telefon_julia_sila_sygnalu_wi_fi
-                  - entity: sensor.telefon_julia_pewnosc_snu
-                  - entity: sensor.telefon_julia_sekcja_snu
-                  - entity: binary_sensor.telefon_julia_stan_bluetooth
-                  - entity: binary_sensor.telefon_julia_stan_wi_fi
-                  - entity: sensor.telefon_julia_stan_baterii
-                  - entity: sensor.telefon_julia_stan_telefonu
-                  - entity: binary_sensor.telefon_julia_sluchawki
-                  - entity: sensor.telefon_julia_temperatura_baterii
-                  - entity: binary_sensor.telefon_julia_tryb_doze
-                  - entity: sensor.telefon_julia_tryb_audio
-                  - entity: sensor.telefon_julia_tryb_dzwonka
-                  - entity: binary_sensor.telefon_julia_tryb_glosnomowiacy
-                  - entity: sensor.telefon_julia_typ_ladowarki
-                  - entity: sensor.telefon_julia_waznosc_aplikacji
-                  - entity: sensor.telefon_julia_wi_fi_bssid
-                  - entity: binary_sensor.telefon_julia_wyciszony_mikrofon
-                  - entity: sensor.telefon_julia_wykryta_aktywnosc
-                  - entity: sensor.telefon_julia_wyslane_dane_gb
-                  - entity: sensor.telefon_julia_mobile_tx_gb
-                  - entity: sensor.telefon_julia_wyslane_dane_przez_aplikacje_w_gb
-                  - entity: binary_sensor.telefon_julia_zabezpieczenie_keyguard
-                  - entity: binary_sensor.telefon_julia_zabezpieczenie_urzadzenia
-                  - entity: sensor.telefon_julia_zasobnik_gotowosci_aplikacji
-                  - entity: sensor.telefon_julia_zdrowie_baterii
+                  - type: custom:auto-entities
+                    card:
+                      type: entities
+                      state_color: true
+                      secondary_info: last-changed
+                    filter:
+                      include:
+                        - entity_id: '*telefon_julia*'
+                      exclude:
+                        - entity_id: '*_lokalizacja_geokodowana*'
+                    sort:
+                      method: entity_id
+              - type: custom:fold-entity-row
+                style: |
+                  :host div#items {
+                    margin: 0px 0px 0px -20px;
+                   }
+                head:
+                  type: section
+                  label: Aktualny adres
+                entities:
+                  - entity: sensor.telefon_julia_lokalizacja_geokodowana
             state_color: true
       - type: vertical-stack
         cards:
@@ -8319,76 +8275,32 @@ views:
                   :host div#items {
                     margin: 0px 0px 0px -20px;
                    }
-                head: sensor.telefon_oliwia_lokalizacja_geokodowana
+                head: sensor.telefon_oliwia_aktualna_wersja
                 group_config:
                   secondary_info: last-changed
                 entities:
-                  - entity: sensor.telefon_oliwia_adres_ip_wi_fi
-                  - entity: sensor.telefon_oliwia_aktualna_strefa_czasowa
-                  - entity: sensor.telefon_oliwia_aktualna_wersja
-                  - entity: binary_sensor.telefon_oliwia_aplikacja_nieaktywna
-                  - entity: binary_sensor.telefon_oliwia_blokada_keyguard
-                  - entity: binary_sensor.telefon_oliwia_blokada_urzadzenia
-                  - entity: binary_sensor.telefon_oliwia_czy_sie_laduje
-                  - entity: sensor.telefon_oliwia_czestotliwosc_wi_fi
-                  - entity: binary_sensor.telefon_oliwia_dane_mobilne
-                  - entity: binary_sensor.telefon_oliwia_interaktywny
-                  - entity: sensor.telefon_oliwia_liczba_aktywnych_powiadomien
-                  - entity: sensor.telefon_oliwia_media_session
-                  - entity: binary_sensor.telefon_oliwia_muzyka_aktywna
-                  - entity: sensor.telefon_oliwia_nastepny_alarm
-                  - entity: sensor.telefon_oliwia_odebrane_dane_gb
-                  - entity: sensor.telefon_oliwia_mobile_rx_gb
-                  - entity: sensor.telefon_oliwia_odebrane_dane_przez_aplikacje_w_gb
-                  - entity: sensor.telefon_oliwia_ostatni_restart
-                  - entity: sensor.telefon_oliwia_ostatnia_aktualizacja
-                  - entity: sensor.telefon_oliwia_ostatnie_powiadomienie
-                  - entity: sensor.telefon_oliwia_ostatnio_usuniete_powiadomienie
-                  - entity: binary_sensor.telefon_oliwia_oszczedzanie_energii
-                  - entity: sensor.telefon_oliwia_pamiec_aplikacji
-                  - entity: sensor.telefon_oliwia_pamiec_wewnetrzna
-                  - entity: sensor.telefon_oliwia_pamiec_zewnetrzna
-                  - entity: sensor.telefon_oliwia_poziom_baterii
-                  - entity: sensor.telefon_oliwia_poziom_glosnosci_alarmu
-                  - entity: sensor.telefon_oliwia_poziom_glosnosci_dzwonka
-                  - entity: sensor.telefon_oliwia_poziom_glosnosci_muzyki
-                  - entity: sensor.telefon_oliwia_poziom_glosnosci_polaczen_glosowych
-                  - entity: sensor.telefon_oliwia_polaczenie_bluetooth
-                  - entity: sensor.telefon_oliwia_polaczenie_wi_fi
-                  - entity: sensor.telefon_oliwia_predkosc_lacza_wi_fi
-                  - entity: sensor.telefon_oliwia_publiczny_adres_ip
-                  - entity: binary_sensor.telefon_oliwia_roaming_dla_danych_mobilnych
-                  - entity: sensor.telefon_oliwia_sim_1
-                  - entity: sensor.telefon_oliwia_sim_2
-                  - entity: sensor.telefon_oliwia_sensor_krokow
-                  - entity: sensor.telefon_oliwia_sensor_trybu_nie_przeszkadzac
-                  - entity: sensor.telefon_oliwia_sensor_zblizenia
-                  - entity: sensor.telefon_oliwia_sensor_swiatla
-                  - entity: sensor.telefon_oliwia_sila_sygnalu_wi_fi
-                  - entity: sensor.telefon_oliwia_sleep_confidence
-                  - entity: sensor.telefon_oliwia_sleep_segment
-                  - entity: binary_sensor.telefon_oliwia_stan_bluetooth
-                  - entity: binary_sensor.telefon_oliwia_stan_wi_fi
-                  - entity: sensor.telefon_oliwia_stan_baterii
-                  - entity: sensor.telefon_oliwia_stan_telefonu
-                  - entity: binary_sensor.telefon_oliwia_sluchawki
-                  - entity: sensor.telefon_oliwia_temperatura_baterii
-                  - entity: binary_sensor.telefon_oliwia_tryb_doze
-                  - entity: sensor.telefon_oliwia_tryb_audio
-                  - entity: sensor.telefon_oliwia_tryb_dzwonka
-                  - entity: binary_sensor.telefon_oliwia_tryb_glosnomowiacy
-                  - entity: sensor.telefon_oliwia_typ_ladowarki
-                  - entity: sensor.telefon_oliwia_waznosc_aplikacji
-                  - entity: sensor.telefon_oliwia_wi_fi_bssid
-                  - entity: binary_sensor.telefon_oliwia_wyciszony_mikrofon
-                  - entity: sensor.telefon_oliwia_wykryta_aktywnosc
-                  - entity: sensor.telefon_oliwia_wyslane_dane_gb
-                  - entity: sensor.telefon_oliwia_mobile_tx_gb
-                  - entity: sensor.telefon_oliwia_wyslane_dane_przez_aplikacje_w_gb
-                  - entity: binary_sensor.telefon_oliwia_zabezpieczenie_keyguard
-                  - entity: binary_sensor.telefon_oliwia_zabezpieczenie_urzadzenia
-                  - entity: sensor.telefon_oliwia_zasobnik_gotowosci_aplikacji
-                  - entity: sensor.telefon_oliwia_zdrowie_baterii
+                  - type: custom:auto-entities
+                    card:
+                      type: entities
+                      state_color: true
+                      secondary_info: last-changed
+                    filter:
+                      include:
+                        - entity_id: '*telefon_oliwia*'
+                      exclude:
+                        - entity_id: '*_lokalizacja_geokodowana*'
+                    sort:
+                      method: entity_id
+              - type: custom:fold-entity-row
+                style: |
+                  :host div#items {
+                    margin: 0px 0px 0px -20px;
+                   }
+                head:
+                  type: section
+                  label: Aktualny adres
+                entities:
+                  - entity: sensor.telefon_oliwia_lokalizacja_geokodowana
             state_color: true
       - type: vertical-stack
         cards:
@@ -8526,76 +8438,36 @@ views:
           - type: entities
             entities:
               - type: custom:fold-entity-row
-                head: sensor.telefon_iwona_lokalizacja_geokodowana
+                style: |
+                  :host div#items {
+                    margin: 0px 0px 0px -20px;
+                   }
+                head: sensor.telefon_iwona_aktualna_wersja
                 group_config:
                   secondary_info: last-changed
                 entities:
-                  - sensor.telefon_iwona_adres_ip_wi_fi
-                  - sensor.telefon_iwona_aktualna_strefa_czasowa
-                  - sensor.telefon_iwona_aktualna_wersja
-                  - binary_sensor.telefon_iwona_aplikacja_nieaktywna
-                  - binary_sensor.telefon_iwona_blokada_keyguard
-                  - binary_sensor.telefon_iwona_blokada_urzadzenia
-                  - binary_sensor.telefon_iwona_czy_sie_laduje
-                  - sensor.telefon_iwona_czestotliwosc_wi_fi
-                  - binary_sensor.telefon_iwona_dane_mobilne
-                  - binary_sensor.telefon_iwona_interaktywny
-                  - sensor.telefon_iwona_liczba_aktywnych_powiadomien
-                  - sensor.telefon_iwona_sesja_medialna
-                  - binary_sensor.telefon_iwona_muzyka_aktywna
-                  - sensor.telefon_iwona_nastepny_alarm
-                  - sensor.telefon_iwona_odebrane_dane_gb
-                  - sensor.telefon_iwona_odebrane_dane_komorkowe_gb
-                  - sensor.telefon_iwona_odebrane_dane_przez_aplikacje_w_gb
-                  - sensor.telefon_iwona_ostatni_restart
-                  - sensor.telefon_iwona_ostatnia_aktualizacja
-                  - sensor.telefon_iwona_ostatnie_powiadomienie
-                  - sensor.telefon_iwona_ostatnio_usuniete_powiadomienie
-                  - binary_sensor.telefon_iwona_oszczedzanie_energii
-                  - sensor.telefon_iwona_pamiec_aplikacji
-                  - sensor.telefon_iwona_pamiec_wewnetrzna
-                  - sensor.telefon_iwona_pamiec_zewnetrzna
-                  - sensor.telefon_iwona_poziom_baterii
-                  - sensor.telefon_iwona_poziom_glosnosci_alarmu
-                  - sensor.telefon_iwona_poziom_glosnosci_dzwonka
-                  - sensor.telefon_iwona_poziom_glosnosci_muzyki
-                  - sensor.telefon_iwona_poziom_glosnosci_polaczen_glosowych
-                  - sensor.telefon_iwona_polaczenie_bluetooth
-                  - sensor.telefon_iwona_polaczenie_wi_fi
-                  - sensor.telefon_iwona_predkosc_lacza_wi_fi
-                  - sensor.telefon_iwona_publiczny_adres_ip
-                  - binary_sensor.telefon_iwona_roaming_dla_danych_mobilnych
-                  - sensor.telefon_iwona_sim_1
-                  - sensor.telefon_iwona_sim_2
-                  - sensor.telefon_iwona_sensor_krokow
-                  - sensor.telefon_iwona_sensor_trybu_nie_przeszkadzac
-                  - sensor.telefon_iwona_sensor_zblizenia
-                  - sensor.telefon_iwona_sensor_swiatla
-                  - sensor.telefon_iwona_sila_sygnalu_wi_fi
-                  - sensor.telefon_iwona_sleep_confidence
-                  - sensor.telefon_iwona_sleep_segment
-                  - binary_sensor.telefon_iwona_stan_bluetooth
-                  - binary_sensor.telefon_iwona_stan_wi_fi
-                  - sensor.telefon_iwona_stan_baterii
-                  - sensor.telefon_iwona_stan_telefonu
-                  - binary_sensor.telefon_iwona_sluchawki
-                  - sensor.telefon_iwona_temperatura_baterii
-                  - binary_sensor.telefon_iwona_tryb_doze
-                  - sensor.telefon_iwona_tryb_audio
-                  - sensor.telefon_iwona_tryb_dzwonka
-                  - binary_sensor.telefon_iwona_tryb_glosnomowiacy
-                  - sensor.telefon_iwona_typ_ladowarki
-                  - sensor.telefon_iwona_waznosc_aplikacji
-                  - sensor.telefon_iwona_wi_fi_bssid
-                  - binary_sensor.telefon_iwona_wyciszony_mikrofon
-                  - sensor.telefon_iwona_wykryta_aktywnosc
-                  - sensor.telefon_iwona_wyslane_dane_gb
-                  - sensor.telefon_iwona_wyslane_dane_komorkowe_gb
-                  - sensor.telefon_iwona_wyslane_dane_przez_aplikacje_w_gb
-                  - binary_sensor.telefon_iwona_zabezpieczenie_keyguard
-                  - binary_sensor.telefon_iwona_zabezpieczenie_urzadzenia
-                  - sensor.telefon_iwona_zasobnik_gotowosci_aplikacji
-                  - sensor.telefon_iwona_zdrowie_baterii
+                  - type: custom:auto-entities
+                    card:
+                      type: entities
+                      state_color: true
+                      secondary_info: last-changed
+                    filter:
+                      include:
+                        - entity_id: '*telefon_iwona*'
+                      exclude:
+                        - entity_id: '*_lokalizacja_geokodowana*'
+                    sort:
+                      method: entity_id
+              - type: custom:fold-entity-row
+                style: |
+                  :host div#items {
+                    margin: 0px 0px 0px -20px;
+                   }
+                head:
+                  type: section
+                  label: Aktualny adres
+                entities:
+                  - entity: sensor.telefon_iwona_lokalizacja_geokodowana
             state_color: true
       - type: vertical-stack
         cards:
@@ -8737,76 +8609,32 @@ views:
                   :host div#items {
                     margin: 0px 0px 0px -20px;
                    }
-                head: sensor.telefon_marcin_lokalizacja_geokodowana
+                head: sensor.telefon_marcin_aktualna_wersja
                 group_config:
                   secondary_info: last-changed
                 entities:
-                  - sensor.telefon_marcin_adres_ip_wi_fi
-                  - sensor.telefon_marcin_aktualna_strefa_czasowa
-                  - sensor.telefon_marcin_aktualna_wersja
-                  - binary_sensor.telefon_marcin_aplikacja_nieaktywna
-                  - binary_sensor.telefon_marcin_blokada_keyguard
-                  - binary_sensor.telefon_marcin_blokada_urzadzenia
-                  - binary_sensor.telefon_marcin_czy_sie_laduje
-                  - sensor.telefon_marcin_czestotliwosc_wi_fi
-                  - binary_sensor.telefon_marcin_dane_mobilne
-                  - binary_sensor.telefon_marcin_interaktywny
-                  - sensor.telefon_marcin_liczba_aktywnych_powiadomien
-                  - sensor.telefon_marcin_media_session
-                  - binary_sensor.telefon_marcin_muzyka_aktywna
-                  - sensor.telefon_marcin_nastepny_alarm
-                  - sensor.telefon_marcin_odebrane_dane_gb
-                  - sensor.telefon_marcin_odebrane_dane_komorkowe_gb
-                  - sensor.telefon_marcin_odebrane_dane_przez_aplikacje_w_gb
-                  - sensor.telefon_marcin_ostatni_restart
-                  - sensor.telefon_marcin_ostatnia_aktualizacja
-                  - sensor.telefon_marcin_ostatnie_powiadomienie
-                  - sensor.telefon_marcin_ostatnio_usuniete_powiadomienie
-                  - binary_sensor.telefon_marcin_oszczedzanie_energii
-                  - sensor.telefon_marcin_pamiec_aplikacji
-                  - sensor.telefon_marcin_pamiec_wewnetrzna
-                  - sensor.telefon_marcin_pamiec_zewnetrzna
-                  - sensor.telefon_marcin_poziom_baterii
-                  - sensor.telefon_marcin_poziom_glosnosci_alarmu
-                  - sensor.telefon_marcin_poziom_glosnosci_dzwonka
-                  - sensor.telefon_marcin_poziom_glosnosci_muzyki
-                  - sensor.telefon_marcin_poziom_glosnosci_polaczen_glosowych
-                  - sensor.telefon_marcin_polaczenie_bluetooth
-                  - sensor.telefon_marcin_polaczenie_wi_fi
-                  - sensor.telefon_marcin_predkosc_lacza_wi_fi
-                  - sensor.telefon_marcin_publiczny_adres_ip
-                  - binary_sensor.telefon_marcin_roaming_dla_danych_mobilnych
-                  - sensor.telefon_marcin_sim_1
-                  - sensor.telefon_marcin_sim_2
-                  - sensor.telefon_marcin_sensor_krokow
-                  - sensor.telefon_marcin_sensor_trybu_nie_przeszkadzac
-                  - sensor.telefon_marcin_sensor_zblizenia
-                  - sensor.telefon_marcin_sensor_swiatla
-                  - sensor.telefon_marcin_sila_sygnalu_wi_fi
-                  - sensor.telefon_marcin_sleep_confidence
-                  - sensor.telefon_marcin_sleep_segment
-                  - binary_sensor.telefon_marcin_stan_bluetooth
-                  - binary_sensor.telefon_marcin_stan_wi_fi
-                  - sensor.telefon_marcin_stan_baterii
-                  - sensor.telefon_marcin_stan_telefonu
-                  - binary_sensor.telefon_marcin_sluchawki
-                  - sensor.telefon_marcin_temperatura_baterii
-                  - binary_sensor.telefon_marcin_tryb_doze
-                  - sensor.telefon_marcin_tryb_audio
-                  - sensor.telefon_marcin_tryb_dzwonka
-                  - binary_sensor.telefon_marcin_tryb_glosnomowiacy
-                  - sensor.telefon_marcin_typ_ladowarki
-                  - sensor.telefon_marcin_waznosc_aplikacji
-                  - sensor.telefon_marcin_wi_fi_bssid
-                  - binary_sensor.telefon_marcin_wyciszony_mikrofon
-                  - sensor.telefon_marcin_wykryta_aktywnosc
-                  - sensor.telefon_marcin_wyslane_dane_gb
-                  - sensor.telefon_marcin_wyslane_dane_komorkowe_gb
-                  - sensor.telefon_marcin_wyslane_dane_przez_aplikacje_w_gb
-                  - binary_sensor.telefon_marcin_zabezpieczenie_keyguard
-                  - binary_sensor.telefon_marcin_zabezpieczenie_urzadzenia
-                  - sensor.telefon_marcin_zasobnik_gotowosci_aplikacji
-                  - sensor.telefon_marcin_zdrowie_baterii
+                  - type: custom:auto-entities
+                    card:
+                      type: entities
+                      state_color: true
+                      secondary_info: last-changed
+                    filter:
+                      include:
+                        - entity_id: '*telefon_marcin*'
+                      exclude:
+                        - entity_id: '*_lokalizacja_geokodowana*'
+                    sort:
+                      method: entity_id
+              - type: custom:fold-entity-row
+                style: |
+                  :host div#items {
+                    margin: 0px 0px 0px -20px;
+                   }
+                head:
+                  type: section
+                  label: Aktualny adres
+                entities:
+                  - entity: sensor.telefon_marcin_lokalizacja_geokodowana
             state_color: true
       - type: vertical-stack
         cards:
@@ -8921,74 +8749,32 @@ views:
                   :host div#items {
                     margin: 0px 0px 0px -20px;
                    }
-                head: sensor.tablet_marcin_lokalizacja_geokodowana
+                head: sensor.tablet_plc_aktualna_wersja
                 group_config:
                   secondary_info: last-changed
                 entities:
-                  - device_tracker.tablet_marcin
-                  - sensor.tablet_marcin_adres_ip_wi_fi
-                  - sensor.tablet_marcin_aktualna_strefa_czasowa
-                  - sensor.tablet_marcin_aktualna_wersja
-                  - binary_sensor.tablet_marcin_aplikacja_nieaktywna
-                  - sensor.tablet_marcin_app_importance
-                  - sensor.tablet_marcin_battery_temperature
-                  - binary_sensor.tablet_marcin_blokada_keyguard
-                  - binary_sensor.tablet_marcin_blokada_urzadzenia
-                  - binary_sensor.tablet_marcin_czy_sie_laduje
-                  - sensor.tablet_marcin_czestotliwosc_wi_fi
-                  - binary_sensor.tablet_marcin_interaktywny
-                  - sensor.tablet_marcin_liczba_aktywnych_powiadomien
-                  - sensor.tablet_marcin_media_session
-                  - binary_sensor.tablet_marcin_mobile_data
-                  - binary_sensor.tablet_marcin_mobile_data_roaming
-                  - binary_sensor.tablet_marcin_muzyka_aktywna
-                  - sensor.tablet_marcin_nastepny_alarm
-                  - sensor.tablet_marcin_odebrane_dane_gb
-                  - sensor.tablet_marcin_odebrane_dane_komorkowe_gb
-                  - sensor.tablet_marcin_odebrane_dane_przez_aplikacje_w_gb
-                  - sensor.tablet_marcin_ostatni_restart
-                  - sensor.tablet_marcin_ostatnia_aktualizacja
-                  - sensor.tablet_marcin_ostatnie_powiadomienie
-                  - sensor.tablet_marcin_ostatnio_usuniete_powiadomienie
-                  - binary_sensor.tablet_marcin_oszczedzanie_energii
-                  - sensor.tablet_marcin_pamiec_aplikacji
-                  - sensor.tablet_marcin_pamiec_wewnetrzna
-                  - sensor.tablet_marcin_pamiec_zewnetrzna
-                  - sensor.tablet_marcin_poziom_baterii
-                  - sensor.tablet_marcin_poziom_glosnosci_alarmu
-                  - sensor.tablet_marcin_poziom_glosnosci_dzwonka
-                  - sensor.tablet_marcin_poziom_glosnosci_muzyki
-                  - sensor.tablet_marcin_poziom_glosnosci_polaczen_glosowych
-                  - sensor.tablet_marcin_polaczenie_bluetooth
-                  - sensor.tablet_marcin_polaczenie_wi_fi
-                  - sensor.tablet_marcin_priorytet_aplikacji_standby_bucket
-                  - sensor.tablet_marcin_predkosc_lacza_wi_fi
-                  - sensor.tablet_marcin_publiczny_adres_ip
-                  - sensor.tablet_marcin_sim_1
-                  - sensor.tablet_marcin_sim_2
-                  - sensor.tablet_marcin_sensor_trybu_nie_przeszkadzac
-                  - sensor.tablet_marcin_sensor_swiatla
-                  - sensor.tablet_marcin_sila_sygnalu_wi_fi
-                  - sensor.tablet_marcin_sleep_confidence
-                  - binary_sensor.tablet_marcin_stan_bluetooth
-                  - binary_sensor.tablet_marcin_stan_wi_fi
-                  - sensor.tablet_marcin_stan_baterii
-                  - sensor.tablet_marcin_stan_telefonu
-                  - binary_sensor.tablet_marcin_sluchawki
-                  - binary_sensor.tablet_marcin_tryb_doze
-                  - sensor.tablet_marcin_tryb_audio
-                  - sensor.tablet_marcin_tryb_dzwonka
-                  - binary_sensor.tablet_marcin_tryb_glosnomowiacy
-                  - sensor.tablet_marcin_typ_ladowarki
-                  - sensor.tablet_marcin_wi_fi_bssid
-                  - binary_sensor.tablet_marcin_wyciszony_mikrofon
-                  - sensor.tablet_marcin_wykryta_aktywnosc
-                  - sensor.tablet_marcin_wyslane_dane_gb
-                  - sensor.tablet_marcin_wyslane_dane_komorkowe_gb
-                  - sensor.tablet_marcin_wyslane_dane_przez_aplikacje_w_gb
-                  - binary_sensor.tablet_marcin_zabezpieczenie_keyguard
-                  - binary_sensor.tablet_marcin_zabezpieczenie_urzadzenia
-                  - sensor.tablet_marcin_zdrowie_baterii
+                  - type: custom:auto-entities
+                    card:
+                      type: entities
+                      state_color: true
+                      secondary_info: last-changed
+                    filter:
+                      include:
+                        - entity_id: '*tablet_plc*'
+                      exclude:
+                        - entity_id: '*_lokalizacja_geokodowana*'
+                    sort:
+                      method: entity_id
+              - type: custom:fold-entity-row
+                style: |
+                  :host div#items {
+                    margin: 0px 0px 0px -20px;
+                   }
+                head:
+                  type: section
+                  label: Aktualny adres
+                entities:
+                  - entity: sensor.tablet_plc_lokalizacja_geokodowana
             state_color: true
       - type: vertical-stack
         cards:
@@ -9103,74 +8889,32 @@ views:
                   :host div#items {
                     margin: 0px 0px 0px -20px;
                    }
-                head: sensor.tablet_plc_geocoded_location
+                head: sensor.tablet_plc_aktualna_wersja
                 group_config:
                   secondary_info: last-changed
                 entities:
-                  - device_tracker.tablet_plc
-                  - sensor.tablet_plc_adres_ip_wi_fi
-                  - sensor.tablet_plc_aktualna_strefa_czasowa
-                  - sensor.tablet_plc_aktualna_wersja
-                  - binary_sensor.tablet_plc_aplikacja_nieaktywna
-                  - sensor.tablet_plc_app_importance
-                  - sensor.tablet_plc_battery_temperature
-                  - binary_sensor.tablet_plc_blokada_keyguard
-                  - binary_sensor.tablet_plc_blokada_urzadzenia
-                  - binary_sensor.tablet_plc_czy_sie_laduje
-                  - sensor.tablet_plc_czestotliwosc_wi_fi
-                  - binary_sensor.tablet_plc_interaktywny
-                  - sensor.tablet_plc_liczba_aktywnych_powiadomien
-                  - sensor.tablet_plc_media_session
-                  - binary_sensor.tablet_plc_mobile_data
-                  - binary_sensor.tablet_plc_mobile_data_roaming
-                  - binary_sensor.tablet_plc_muzyka_aktywna
-                  - sensor.tablet_plc_nastepny_alarm
-                  - sensor.tablet_plc_odebrane_dane_gb
-                  - sensor.tablet_plc_odebrane_dane_komorkowe_gb
-                  - sensor.tablet_plc_odebrane_dane_przez_aplikacje_w_gb
-                  - sensor.tablet_plc_ostatni_restart
-                  - sensor.tablet_plc_ostatnia_aktualizacja
-                  - sensor.tablet_plc_ostatnie_powiadomienie
-                  - sensor.tablet_plc_ostatnio_usuniete_powiadomienie
-                  - binary_sensor.tablet_plc_oszczedzanie_energii
-                  - sensor.tablet_plc_pamiec_aplikacji
-                  - sensor.tablet_plc_pamiec_wewnetrzna
-                  - sensor.tablet_plc_pamiec_zewnetrzna
-                  - sensor.tablet_plc_poziom_baterii
-                  - sensor.tablet_plc_poziom_glosnosci_alarmu
-                  - sensor.tablet_plc_poziom_glosnosci_dzwonka
-                  - sensor.tablet_plc_poziom_glosnosci_muzyki
-                  - sensor.tablet_plc_poziom_glosnosci_polaczen_glosowych
-                  - sensor.tablet_plc_polaczenie_bluetooth
-                  - sensor.tablet_plc_polaczenie_wi_fi
-                  - sensor.tablet_plc_priorytet_aplikacji_standby_bucket
-                  - sensor.tablet_plc_predkosc_lacza_wi_fi
-                  - sensor.tablet_plc_publiczny_adres_ip
-                  - sensor.tablet_plc_sim_1
-                  - sensor.tablet_plc_sim_2
-                  - sensor.tablet_plc_sensor_trybu_nie_przeszkadzac
-                  - sensor.tablet_plc_sensor_swiatla
-                  - sensor.tablet_plc_sila_sygnalu_wi_fi
-                  - sensor.tablet_plc_sleep_confidence
-                  - binary_sensor.tablet_plc_stan_bluetooth
-                  - binary_sensor.tablet_plc_stan_wi_fi
-                  - sensor.tablet_plc_stan_baterii
-                  - sensor.tablet_plc_stan_telefonu
-                  - binary_sensor.tablet_plc_sluchawki
-                  - binary_sensor.tablet_plc_tryb_doze
-                  - sensor.tablet_plc_tryb_audio
-                  - sensor.tablet_plc_tryb_dzwonka
-                  - binary_sensor.tablet_plc_tryb_glosnomowiacy
-                  - sensor.tablet_plc_typ_ladowarki
-                  - sensor.tablet_plc_wi_fi_bssid
-                  - binary_sensor.tablet_plc_wyciszony_mikrofon
-                  - sensor.tablet_plc_wykryta_aktywnosc
-                  - sensor.tablet_plc_wyslane_dane_gb
-                  - sensor.tablet_plc_wyslane_dane_komorkowe_gb
-                  - sensor.tablet_plc_wyslane_dane_przez_aplikacje_w_gb
-                  - binary_sensor.tablet_plc_zabezpieczenie_keyguard
-                  - binary_sensor.tablet_plc_zabezpieczenie_urzadzenia
-                  - sensor.tablet_plc_zdrowie_baterii
+                  - type: custom:auto-entities
+                    card:
+                      type: entities
+                      state_color: true
+                      secondary_info: last-changed
+                    filter:
+                      include:
+                        - entity_id: '*tablet_plc*'
+                      exclude:
+                        - entity_id: '*_lokalizacja_geokodowana*'
+                    sort:
+                      method: entity_id
+              - type: custom:fold-entity-row
+                style: |
+                  :host div#items {
+                    margin: 0px 0px 0px -20px;
+                   }
+                head:
+                  type: section
+                  label: Aktualny adres
+                entities:
+                  - entity: sensor.tablet_plc_lokalizacja_geokodowana
             state_color: true
       - type: custom:mini-graph-card
         entities:
