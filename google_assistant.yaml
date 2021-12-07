@@ -1,5 +1,5 @@
  project_id: !secret google_assistant_project_id
- service_account: !include Hassio-0d5fc6300251.json
+ service_account: !include Hassio-project.json
  exposed_domains:
   - script
   - light
