@@ -1,0 +1,10 @@
+
+######################## GŁÓWNE CZUJNIKI DOMU ########################
+
+- platform: ads
+  name: Czujnik gazu impuls
+  adsvar: GVL_Sensors.bGasMeter_imp
+  
+- platform: ads
+  name: Czujnik gazu alarm
+  adsvar: GVL_Sensors.bGasMeter_alarm

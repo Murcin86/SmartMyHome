@@ -1,0 +1,51 @@
+
+######################## ZASILANIE SIECIOWEJ OK ########################
+
+- platform: ads
+  name: Zasilanie 230v OK
+  device_class: safety
+  adsvar: GVL_Power.bPowerOK
+  
+######################## BEZPIECZNIKI 24V ########################
+
+- platform: ads
+  name: bezpiecznik P0_1
+  device_class: safety
+  adsvar: GVL_Power.fuse_P0_1
+- platform: ads
+  name: bezpiecznik P0_2
+  device_class: safety
+  adsvar: GVL_Power.fuse_P0_2
+- platform: ads
+  name: bezpiecznik P0_3
+  device_class: safety
+  adsvar: GVL_Power.fuse_P0_3
+- platform: ads
+  name: bezpiecznik P0_4
+  device_class: safety
+  adsvar: GVL_Power.fuse_P0_4
+- platform: ads
+  name: bezpiecznik P0_5
+  device_class: safety
+  adsvar: GVL_Power.fuse_P0_5
+  
+- platform: ads
+  name: bezpiecznik P1_1
+  device_class: safety
+  adsvar: GVL_Power.fuse_P1_1
+- platform: ads
+  name: bezpiecznik P1_2
+  device_class: safety
+  adsvar: GVL_Power.fuse_P1_2
+- platform: ads
+  name: bezpiecznik P1_3
+  device_class: safety
+  adsvar: GVL_Power.fuse_P1_3
+- platform: ads
+  name: bezpiecznik P1_4
+  device_class: safety
+  adsvar: GVL_Power.fuse_P1_4
+- platform: ads
+  name: bezpiecznik P1_5
+  device_class: safety
+  adsvar: GVL_Power.fuse_P1_5

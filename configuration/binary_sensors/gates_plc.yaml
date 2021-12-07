@@ -1,0 +1,41 @@
+
+######################## CZUJNIKI GARAŻ ######################## 
+
+- platform: ads
+  name: garage_opened
+  adsvar: GVL_Sensors.bGATE_GARAGE_OPN
+  device_class: garage_door
+
+- platform: ads
+  name: garage_closed
+  adsvar: GVL_Sensors.bGATE_GARAGE_CLO
+  device_class: garage_door
+
+- platform: ads
+  name: garage_moving
+  adsvar: GVL_Sensors.bGATE_GARAGE_MOVING
+  device_class: garage_door
+        
+######################## BRAMA WJAZDOWA ######################## 
+
+- platform: ads
+  name: entrance_gate_opened
+  adsvar: P_OUTSITE.bEntryGateStateOPN
+  device_class: garage_door
+        
+- platform: ads
+  name: entrance_gate_closed
+  adsvar: P_OUTSITE.bEntryGateStateCLO
+  device_class: garage_door
+        
+- platform: ads
+  name: entrance_gate_moving
+  adsvar: GVL_Sensors.bGateEntry1_MOVING
+  device_class: garage_door
+
+######################## GOSCINNA BRAMA WJAZDOWA ######################## 
+
+- platform: ads
+  name: entrance_gate_guest
+  adsvar: GVL_Sensors.bGateEntry2_CLO
+  device_class: garage_door

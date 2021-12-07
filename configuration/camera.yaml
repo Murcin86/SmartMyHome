@@ -1,0 +1,72 @@
+#  - platform: mjpeg
+#    name: Kamera Oliwia
+#    mjpeg_url: http://192.168.20.151:8081
+#  - platform: mjpeg
+#    name: Kamera Kotłownia
+#    mjpeg_url: http://192.168.20.151:8082
+#  - platform: mjpeg
+#    name: Kamera Garaż
+#    mjpeg_url: http://192.168.20.151:8083
+#  - platform: mjpeg
+#    name: Kamera Piętro
+#    mjpeg_url: http://192.168.20.151:8084
+#  - platform: mjpeg
+#    name: Kamera Julia
+#    mjpeg_url: http://192.168.20.151:8085
+
+ ############################ KAMERA ROBOROCK - ODKURZACZ ############################ 
+  - platform: xiaomi_cloud_map_extractor
+    host: 192.168.20.160
+    token: !secret vacuum_token
+    username: !secret vacuum_user
+    password: !secret vacuum_pass
+    draw: ['all']
+    attributes:
+      - calibration_points
+
+ ######################## KAMERA DAHUA OBROTOWA KORYTARZ PIĘTRO ######################## 
+#   - platform: ffmpeg
+#     name: kamera_duhau_obrotowa
+#     input: rtsp://marcin:Murcin123@192.168.20.158:554/cam/realmonitor?channel=1&subtype=00
+
+ ############################### KAMERA D-LINK DCS-930LB ############################### 
+  - platform: mjpeg
+    name: kamera_garaz
+    mjpeg_url: http://marcin:Murcin@192.168.20.177/video/mjpg.cgi
+    
+ ############################### KAMERA D-LINK DCS-935L ############################### 
+  - platform: mjpeg
+    name: kamera_parter
+    mjpeg_url: http://marcin:Murcin12@192.168.20.146/video/mjpg.cgi
+
+ ############################### KAMERA YI ############################### 
+#   - platform: ffmpeg
+#     name: Camera Julia 
+#     input: rtsp://marcin:Murcin123@192.168.20.146/ch0_0.h264
+    
+#   - platform: yi
+#     name: "Cam - salotto"
+#     host: '192.168.20.146'
+#     password: Murcin123
+
+#   - platform: yi
+#     name: Camera
+#     host: "192.168.1.146"
+#     password: Murcin123
+    
+#   - platform: ffmpeg
+#     name: DaFang3
+#     input: -rtsp_transport tcp -i rtsp://192.168.20.146:8554/unicast
+
+#   - platform: yi
+#     name: Camera Oliwia
+#     host: '192.168.20.147'
+#     password: bVetoseja19861
+
+
+  - platform: generic
+    name: Marcin_GM
+    still_image_url: https://maps.googleapis.com/maps/api/staticmap?center={{ state_attr('device_tracker.telefon_marcin', 'latitude') }},{{ state_attr('device_tracker.telefon_marcin', 'longitude') }}&zoom=13&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:P%7C{{ state_attr('device_tracker.telefon_marcin', 'latitude') }},{{ state_attr('device_tracker.telefon_marcin', 'longitude') }}&key=oCLfW7Fcmt0oEZcE9oQNVshp
+    limit_refetch_to_url_change: true
+
+

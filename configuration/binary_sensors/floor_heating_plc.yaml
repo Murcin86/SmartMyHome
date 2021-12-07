@@ -1,0 +1,84 @@
+  
+######################## CZUJNIKI CENTRALNE OGRZEWANIE PARTER ########################
+
+- platform: ads
+  name: co_boiler
+  device_class: heat
+  adsvar: GVL_FloorHeating.bHF_boiler
+- platform: ads
+  name: co_garage
+  device_class: heat
+  adsvar: GVL_FloorHeating.bHF_garage1
+- platform: ads
+  name: co_entrance
+  device_class: heat
+  adsvar: GVL_FloorHeating.bHF_entrance
+- platform: ads
+  name: co_bathroom_down
+  device_class: heat
+  adsvar: GVL_FloorHeating.bHF_bathroomdown
+- platform: ads
+  name: co_smallroom
+  device_class: heat
+  adsvar: GVL_FloorHeating.bHF_smallroom
+- platform: ads
+  name: co_pantry
+  device_class: heat
+  adsvar: GVL_FloorHeating.bHF_pantry
+
+######################## CZUJNIKI CENTRALNE OGRZEWANIE PIĘTRO ########################
+
+- platform: ads
+  name: co_julia
+  device_class: heat
+  adsvar: GVL_FloorHeating.bHF_julia1
+- platform: ads
+  name: co_oliwia
+  device_class: heat
+  adsvar: GVL_FloorHeating.bHF_oliwia1
+- platform: ads
+  name: co_badroom
+  device_class: heat
+  adsvar: GVL_FloorHeating.bHF_badroom1
+- platform: ads
+  name: co_office
+  device_class: heat
+  adsvar: GVL_FloorHeating.bHF_office1
+- platform: ads
+  name: co_washroom
+  device_class: heat
+  adsvar: GVL_FloorHeating.bHF_washroom
+
+######################## CENTRALNE OGRZEWANIE ########################
+
+- platform: ads
+  name: co_circulation_pomp
+  device_class: plug
+  adsvar: GVL_FloorHeating.bCirculationPomp_Q
+
+- platform: ads
+  name: co_pomp_floor_0
+  device_class: heat
+  adsvar: GVL_FloorHeating.bPomp_P0
+- platform: ads
+  name: co_pomp_floor_1
+  device_class: heat
+  adsvar: GVL_FloorHeating.bPomp_P1
+- platform: ads
+  name: co_mixpomp_floor_0_lev_1
+  device_class: power
+  adsvar: GVL_FloorHeating.bMixPomp_P0_level_1
+- platform: ads
+  name: co_mixpomp_floor_0_lev_2
+  device_class: power
+  adsvar: GVL_FloorHeating.bMixPomp_P0_level_2
+- platform: ads
+  name: co_mixpomp_floor_1_lev_1
+  device_class: power
+  adsvar: GVL_FloorHeating.bMixPomp_P1_level_1
+- platform: ads
+  name: co_mixpomp_floor_1_lev_2
+  device_class: power
+  adsvar: GVL_FloorHeating.bMixPomp_P1_level_2
+
+

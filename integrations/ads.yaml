@@ -1,0 +1,9 @@
+
+####################################### KONFIGURACJA ADS #######################################
+
+ads: 
+ # połączenie ze sterownikiem PLC
+ device: !secret ads_of_plc
+ port: !secret port_of_plc
+ ip_address: !secret ip_adress_of_plc
+ 

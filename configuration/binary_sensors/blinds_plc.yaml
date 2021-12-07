@@ -1,0 +1,120 @@
+
+######################## ŻALUZJE ########################
+
+- platform: ads
+  name: blinds_all_up
+  device_class: moving
+  adsvar: P_BLINDS.bAllUpPos
+- platform: ads
+  name: blinds_all_down
+  device_class: moving
+  adsvar: P_BLINDS.bAllDwnPos
+  
+- platform: ads
+  name: blinds_p0_up
+  device_class: moving
+  adsvar: P_BLINDS.bP0UpPos
+- platform: ads
+  name: blinds_p0_dwn
+  device_class: moving
+  adsvar: P_BLINDS.bP0DwnPos
+  
+- platform: ads
+  name: blinds_p1_up
+  device_class: moving
+  adsvar: P_BLINDS.bP1UpPos
+- platform: ads
+  name: blinds_p1_dwn
+  device_class: moving
+  adsvar: P_BLINDS.bP1DwnPos
+
+
+- platform: ads
+  name: blinds_lms_all_up
+  device_class: moving
+  adsvar: P_BLINDS.bAllLmsUpPos
+- platform: ads
+  name: blinds_lms_all_down
+  device_class: moving
+  adsvar: P_BLINDS.bAllLmsDwnPos
+  
+- platform: ads
+  name: blinds_lms_p0_up
+  device_class: moving
+  adsvar: P_BLINDS.bP0LmsUpPos
+- platform: ads
+  name: blinds_lms_p0_dwn
+  device_class: moving
+  adsvar: P_BLINDS.bP0LmsDwnPos
+  
+- platform: ads
+  name: blinds_lms_p1_up
+  device_class: moving
+  adsvar: P_BLINDS.bP1LmsUpPos
+- platform: ads
+  name: blinds_lms_p1_dwn
+  device_class: moving
+  adsvar: P_BLINDS.bP1LmsDwnPos
+
+######################## ŻALUZJE sygnały Q ########################
+
+- platform: ads
+  name: blinds_Q_1_up
+  adsvar: GVL_Blinds.st_BLINDS[1].bBlind_UP_Q
+- platform: ads
+  name: blinds_Q_1_dwn
+  adsvar: GVL_Blinds.st_BLINDS[1].bBlind_DOWN_Q
+- platform: ads
+  name: blinds_Q_2_up
+  adsvar: GVL_Blinds.st_BLINDS[2].bBlind_UP_Q
+- platform: ads
+  name: blinds_Q_2_dwn
+  adsvar: GVL_Blinds.st_BLINDS[2].bBlind_DOWN_Q
+- platform: ads
+  name: blinds_Q_3_up
+  adsvar: GVL_Blinds.st_BLINDS[3].bBlind_UP_Q
+- platform: ads
+  name: blinds_Q_3_dwn
+  adsvar: GVL_Blinds.st_BLINDS[3].bBlind_DOWN_Q
+- platform: ads
+  name: blinds_Q_4_up
+  adsvar: GVL_Blinds.st_BLINDS[4].bBlind_UP_Q
+- platform: ads
+  name: blinds_Q_4_dwn
+  adsvar: GVL_Blinds.st_BLINDS[4].bBlind_DOWN_Q
+- platform: ads
+  name: blinds_Q_5_up
+  adsvar: GVL_Blinds.st_BLINDS[5].bBlind_UP_Q
+- platform: ads
+  name: blinds_Q_5_dwn
+  adsvar: GVL_Blinds.st_BLINDS[5].bBlind_DOWN_Q
+- platform: ads
+  name: blinds_Q_6_up
+  adsvar: GVL_Blinds.st_BLINDS[6].bBlind_UP_Q
+- platform: ads
+  name: blinds_Q_6_dwn
+  adsvar: GVL_Blinds.st_BLINDS[6].bBlind_DOWN_Q
+- platform: ads
+  name: blinds_Q_7_up
+  adsvar: GVL_Blinds.st_BLINDS[7].bBlind_UP_Q
+- platform: ads
+  name: blinds_Q_7_dwn
+  adsvar: GVL_Blinds.st_BLINDS[7].bBlind_DOWN_Q
+- platform: ads
+  name: blinds_Q_8_up
+  adsvar: GVL_Blinds.st_BLINDS[8].bBlind_UP_Q
+- platform: ads
+  name: blinds_Q_8_dwn
+  adsvar: GVL_Blinds.st_BLINDS[8].bBlind_DOWN_Q
+- platform: ads
+  name: blinds_Q_9_up
+  adsvar: GVL_Blinds.st_BLINDS[9].bBlind_UP_Q
+- platform: ads
+  name: blinds_Q_9_dwn
+  adsvar: GVL_Blinds.st_BLINDS[9].bBlind_DOWN_Q
+- platform: ads
+  name: blinds_Q_10_up
+  adsvar: GVL_Blinds.st_BLINDS[10].bBlind_UP_Q
+- platform: ads
+  name: blinds_Q_10_dwn
+  adsvar: GVL_Blinds.st_BLINDS[10].bBlind_DOWN_Q
