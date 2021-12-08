@@ -4,6 +4,17 @@ Przykład mojego wykorzystania HomeAssistant w połączeniu ze sterownikiem PLC 
 
 ![image](https://user-images.githubusercontent.com/95655881/145036958-e5cebe25-711a-482c-bc5b-13645a4a65d7.png)
 
+Zainstalowane dodatki:
+
+![image](https://user-images.githubusercontent.com/95655881/145274322-ab924764-7117-4abe-bb6e-2c74cbfd61ec.png)
+
+oraz nierozłączne HACS:
+![image](https://user-images.githubusercontent.com/95655881/145274460-6c534519-0e3a-4276-a613-51ac7dda1aa1.png)
+![image](https://user-images.githubusercontent.com/95655881/145274505-02d948d8-ac6b-4a2f-9f90-7129fac79f55.png)
+![image](https://user-images.githubusercontent.com/95655881/145274532-12b410f4-eb08-49c3-a1e5-946ef9cb9e07.png)
+
+
+
 poniżej filmik na youtube z pokazaniem całego dashboardu:
 https://www.youtube.com/watch?v=Wr6qmXL0ZV4
 
