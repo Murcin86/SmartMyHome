@@ -1,0 +1,14 @@
+
+################## WYBÓR RADIA ################## 
+
+name: 'Wybór odtwarzacza:'
+options:
+- Salon speaker
+- Amplituner
+- Kuchnia
+- Biuro
+- Łazienka górna
+- Julia
+- Cały dom
+initial: Biuro
+icon: mdi:speaker-wireless

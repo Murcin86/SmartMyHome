@@ -1,0 +1,83 @@
+
+######################## FUNKCJE ROBOROCK S6 ########################
+
+vacuum_lazienka:
+  alias: Odkurzanie łazienki
+  sequence:
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      command: app_segment_clean
+      params:
+      - 16
+vacuum_kuchnia:
+  alias: Odkurzanie kuchni
+  sequence:
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      command: app_segment_clean
+      params:
+      - 17
+vacuum_salon:
+  alias: Odkurzanie salonu
+  sequence:
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      command: app_segment_clean
+      params:
+      - 18
+vacuum_korytarz:
+  alias: Odkurzanie przedpokoju
+  sequence:
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      command: app_segment_clean
+      params:
+      - 19
+vacuum_przedpokoj:
+  alias: Odkurzanie przedpokoju
+  sequence:
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      command: app_segment_clean
+      params:
+      - 20
+vacuum_gabinet:
+  alias: Odkurzanie gabinetu
+  sequence:
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.xiaomi_vacuum_cleaner
+      command: app_segment_clean
+      params:
+      - 21
+
+vacuum_set_silente:
+  sequence:
+  - data:
+      fan_speed: Silent
+    entity_id: vacuum.xiaomi_vacuum_cleaner
+    service: vacuum.set_fan_speed
+vacuum_set_standard:
+  sequence:
+  - data:
+      fan_speed: Standard
+    entity_id: vacuum.xiaomi_vacuum_cleaner
+    service: vacuum.set_fan_speed
+vacuum_set_medium:
+  sequence:
+  - data:
+      fan_speed: Medium
+    entity_id: vacuum.xiaomi_vacuum_cleaner
+    service: vacuum.set_fan_speed
+vacuum_set_turbo:
+  sequence:
+  - data:
+      fan_speed: Turbo
+    entity_id: vacuum.xiaomi_vacuum_cleaner
+    service: vacuum.set_fan_speed
+

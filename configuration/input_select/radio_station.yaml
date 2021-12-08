@@ -1,0 +1,22 @@
+
+################## WYBÓR RADIO STACJI ################## 
+
+name: 'Wybór radio stacji:'
+options:
+- RMF FM
+- RMF MAXX
+- RMF Classisc
+- AntyRadio
+- Absolute Radio Classisc Rock
+- Meloradio
+- Muzo Radio
+- RadioZET
+- ChilliZet
+- Eska
+- Jedynka
+- Dwójka
+- Trójka
+- Złote przeboje
+- Spotyfy
+- Custom Station
+initial: RMF FM
