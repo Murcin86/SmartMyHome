@@ -4,6 +4,11 @@ Przykład mojego wykorzystania HomeAssistant w połączeniu ze sterownikiem PLC 
 
 ![image](https://user-images.githubusercontent.com/95655881/145036958-e5cebe25-711a-482c-bc5b-13645a4a65d7.png)
 
+Wykorzystane integracje:
+
+![image](https://user-images.githubusercontent.com/95655881/145706263-0403e5b8-fb61-44dc-b2a2-519076fb9ab9.png)
+
+
 Zainstalowane dodatki:
 
 ![image](https://user-images.githubusercontent.com/95655881/145274322-ab924764-7117-4abe-bb6e-2c74cbfd61ec.png)
