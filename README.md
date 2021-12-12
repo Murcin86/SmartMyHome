@@ -8,6 +8,10 @@ Zainstalowane dodatki:
 
 ![image](https://user-images.githubusercontent.com/95655881/145274322-ab924764-7117-4abe-bb6e-2c74cbfd61ec.png)
 
+Standardowe dodatki:
+![image](https://user-images.githubusercontent.com/95655881/145705578-a9a4448b-54f7-4aff-b837-5f8f18662532.png)
+
+
 oraz nierozłączne HACS:
 ![image](https://user-images.githubusercontent.com/95655881/145274460-6c534519-0e3a-4276-a613-51ac7dda1aa1.png)
 ![image](https://user-images.githubusercontent.com/95655881/145274505-02d948d8-ac6b-4a2f-9f90-7129fac79f55.png)
