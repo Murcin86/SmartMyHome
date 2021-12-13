@@ -22,7 +22,7 @@ oraz nierozłączne HACS:
 
 
 poniżej filmik na youtube z pokazaniem całego dashboardu:
-https://www.youtube.com/watch?v=Wr6qmXL0ZV4
+https://www.youtube.com/watch?v=I4_ygZ_jMbM
 
 a tak wygląda rozdzielnica na parterze.... Duża 144p dla sterownika PLC + sterowanie 230v, druga obok sterowanie 24V oraz multimedialna
 
