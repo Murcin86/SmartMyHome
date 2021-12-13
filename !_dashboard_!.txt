@@ -196,15 +196,186 @@ views:
             show_state: false
             type: glance
             state_color: true
+          - cards:
+              - type: picture-elements
+                camera_image: camera.ipc_d302f_g_mainstream_2
+                camera_view: live
+                elements:
+                  - type: icon
+                    icon: mdi:information-outline
+                    entity: camera.ipc_d302f_g_mainstream_2
+                    style:
+                      top: 10%
+                      right: 2%
+                  - type: conditional
+                    conditions:
+                      - entity: binary_sensor.brama_garazowa
+                        state: 'on'
+                    elements:
+                      - type: icon
+                        icon: mdi:garage-alert-variant
+                        style:
+                          color: white
+                          right: 10%
+                          bottom: 1%
+                        tap_action:
+                          action: call-service
+                          service: switch.turn_on
+                          service_data:
+                            entity: switch.brama_garazowa_zamknij
+                  - type: conditional
+                    conditions:
+                      - entity: binary_sensor.brama_garazowa
+                        state: 'off'
+                    elements:
+                      - type: icon
+                        icon: mdi:lock-outline
+                        style:
+                          color: white
+                          right: 30%
+                          bottom: 0%
+                  - type: conditional
+                    conditions:
+                      - entity: binary_sensor.brama_wjazdowa
+                        state: 'on'
+                    elements:
+                      - type: icon
+                        icon: mdi:arrow-collapse-left
+                        style:
+                          color: white
+                          left: 35%
+                          top: 20%
+                        tap_cation:
+                          action: call-service
+                          service: switch.turn_on
+                          service_data:
+                            entity: switch.brama_wjazdowa_zamknij
+                  - type: conditional
+                    conditions:
+                      - entity: binary_sensor.brama_goscinna
+                        state: 'on'
+                    elements:
+                      - type: icon
+                        icon: mdi:gate-open
+                        style:
+                          color: white
+                          right: 16%
+                          top: 32%
+                  - type: conditional
+                    conditions:
+                      - entity: binary_sensor.brama_wjazdowa
+                        state: 'off'
+                    elements:
+                      - type: icon
+                        icon: mdi:lock-outline
+                        style:
+                          color: white
+                          left: 5%
+                          top: 18%
+                  - type: conditional
+                    conditions:
+                      - entity: binary_sensor.furtka_elektrozamek
+                        state: 'on'
+                    elements:
+                      - type: icon
+                        icon: mdi:lock-open
+                        style:
+                          color: white
+                          left: 42%
+                          top: 25%
+                  - type: conditional
+                    conditions:
+                      - entity: binary_sensor.furtka_wejsciowa
+                        state: 'on'
+                    elements:
+                      - type: icon
+                        icon: mdi:door-open
+                        style:
+                          color: white
+                          left: 48%
+                          top: 30%
+                  - type: conditional
+                    conditions:
+                      - entity: binary_sensor.drzwi_wejsciowe
+                        state: 'on'
+                    elements:
+                      - type: icon
+                        icon: mdi:door-open
+                        style:
+                          color: white
+                          left: 75%
+                          top: 55%
+                  - type: conditional
+                    conditions:
+                      - entity: binary_sensor.videosource_1_motion_alarm_2
+                        state: 'on'
+                    elements:
+                      - type: icon
+                        icon: mdi:motion-sensor
+                        style:
+                          color: white
+                          left: 38%
+                          bottom: 18%
+              - type: picture-elements
+                camera_image: camera.ipc_d302f_g_mainstream
+                camera_view: live
+                elements:
+                  - type: icon
+                    icon: mdi:information-outline
+                    entity: camera.ipc_d302f_g_mainstream
+                    style:
+                      top: 7%
+                      right: 0%
+                  - type: conditional
+                    conditions:
+                      - entity: binary_sensor.drzwi_kotlownia
+                        state: 'on'
+                    elements:
+                      - type: icon
+                        icon: mdi:door-open
+                        style:
+                          color: white
+                          left: 35%
+                          bottom: 0%
+                  - type: conditional
+                    conditions:
+                      - entity: binary_sensor.okno_salon_taras
+                        state: 'on'
+                    elements:
+                      - type: icon
+                        icon: mdi:window-open-variant
+                        style:
+                          color: white
+                          left: 10%
+                          top: 20%
+                  - type: conditional
+                    conditions:
+                      - entity: binary_sensor.videosource_1_motion_alarm
+                        state: 'on'
+                    elements:
+                      - type: icon
+                        icon: mdi:motion-sensor
+                        style:
+                          color: white
+                          left: 38%
+                          bottom: 18%
+            type: horizontal-stack
+        type: vertical-stack
+      - cards:
           - type: entities
             entities:
+              - type: custom:weather-card
+                entity: weather.dom
+                number_of_forecasts: '5'
+                name: Tychy
               - type: custom:fold-entity-row
                 style: |
                   :host div#items {
                     margin: 0px 0px 0px -20px;
                    }
                 head:
-                  entity: sensor.airly_description
+                  entity: sensor.airly_pressure
+                  name: Aktualne ciśnienie
                 entities:
                   - type: custom:auto-entities
                     card:
@@ -214,22 +385,11 @@ views:
                     filter:
                       include:
                         - entity_id: '*airly*'
-                      exclude:
-                        - entity_id: '*description*'
-                        - entity_id: sensor.airly
+                      exclude: null
                       sort:
                         method: state
                         reverse: true
                 state_color: true
-            state_color: true
-        type: vertical-stack
-      - cards:
-          - type: entities
-            entities:
-              - type: custom:weather-card
-                entity: weather.dom
-                number_of_forecasts: '5'
-                name: Tychy
               - type: custom:fold-entity-row
                 style: |
                   :host div#items {
@@ -407,170 +567,6 @@ views:
               - entity: sensor.licznik_swiatel
                 secondary_info: last-changed
             state_color: true
-          - cards:
-              - type: picture-elements
-                camera_image: camera.ipc_d302f_g_mainstream_2
-                camera_view: live
-                elements:
-                  - type: icon
-                    icon: mdi:information-outline
-                    entity: camera.ipc_d302f_g_mainstream_2
-                    style:
-                      top: 10%
-                      right: 2%
-                  - type: conditional
-                    conditions:
-                      - entity: binary_sensor.brama_garazowa
-                        state: 'on'
-                    elements:
-                      - type: icon
-                        icon: mdi:garage-alert-variant
-                        style:
-                          color: white
-                          right: 10%
-                          bottom: 1%
-                        tap_action:
-                          action: call-service
-                          service: switch.turn_on
-                          service_data:
-                            entity: switch.brama_garazowa_zamknij
-                  - type: conditional
-                    conditions:
-                      - entity: binary_sensor.brama_garazowa
-                        state: 'off'
-                    elements:
-                      - type: icon
-                        icon: mdi:lock-outline
-                        style:
-                          color: white
-                          right: 30%
-                          bottom: 0%
-                  - type: conditional
-                    conditions:
-                      - entity: binary_sensor.brama_wjazdowa
-                        state: 'on'
-                    elements:
-                      - type: icon
-                        icon: mdi:arrow-collapse-left
-                        style:
-                          color: white
-                          left: 35%
-                          top: 20%
-                        tap_cation:
-                          action: call-service
-                          service: switch.turn_on
-                          service_data:
-                            entity: switch.brama_wjazdowa_zamknij
-                  - type: conditional
-                    conditions:
-                      - entity: binary_sensor.brama_goscinna
-                        state: 'on'
-                    elements:
-                      - type: icon
-                        icon: mdi:gate-open
-                        style:
-                          color: white
-                          right: 16%
-                          top: 32%
-                  - type: conditional
-                    conditions:
-                      - entity: binary_sensor.brama_wjazdowa
-                        state: 'off'
-                    elements:
-                      - type: icon
-                        icon: mdi:lock-outline
-                        style:
-                          color: white
-                          left: 5%
-                          top: 18%
-                  - type: conditional
-                    conditions:
-                      - entity: binary_sensor.furtka_elektrozamek
-                        state: 'on'
-                    elements:
-                      - type: icon
-                        icon: mdi:lock-open
-                        style:
-                          color: white
-                          left: 42%
-                          top: 25%
-                  - type: conditional
-                    conditions:
-                      - entity: binary_sensor.furtka_wejsciowa
-                        state: 'on'
-                    elements:
-                      - type: icon
-                        icon: mdi:door-open
-                        style:
-                          color: white
-                          left: 48%
-                          top: 30%
-                  - type: conditional
-                    conditions:
-                      - entity: binary_sensor.drzwi_wejsciowe
-                        state: 'on'
-                    elements:
-                      - type: icon
-                        icon: mdi:door-open
-                        style:
-                          color: white
-                          left: 75%
-                          top: 55%
-                  - type: conditional
-                    conditions:
-                      - entity: binary_sensor.videosource_1_motion_alarm_2
-                        state: 'on'
-                    elements:
-                      - type: icon
-                        icon: mdi:motion-sensor
-                        style:
-                          color: white
-                          left: 38%
-                          bottom: 18%
-              - type: picture-elements
-                camera_image: camera.ipc_d302f_g_mainstream
-                camera_view: live
-                elements:
-                  - type: icon
-                    icon: mdi:information-outline
-                    entity: camera.ipc_d302f_g_mainstream
-                    style:
-                      top: 7%
-                      right: 0%
-                  - type: conditional
-                    conditions:
-                      - entity: binary_sensor.drzwi_kotlownia
-                        state: 'on'
-                    elements:
-                      - type: icon
-                        icon: mdi:door-open
-                        style:
-                          color: white
-                          left: 35%
-                          bottom: 0%
-                  - type: conditional
-                    conditions:
-                      - entity: binary_sensor.okno_salon_taras
-                        state: 'on'
-                    elements:
-                      - type: icon
-                        icon: mdi:window-open-variant
-                        style:
-                          color: white
-                          left: 10%
-                          top: 20%
-                  - type: conditional
-                    conditions:
-                      - entity: binary_sensor.videosource_1_motion_alarm
-                        state: 'on'
-                    elements:
-                      - type: icon
-                        icon: mdi:motion-sensor
-                        style:
-                          color: white
-                          left: 38%
-                          bottom: 18%
-            type: horizontal-stack
           - type: markdown
             content: |-
               #  <font color = 'red' > Lista alarmów
@@ -601,6 +597,7 @@ views:
             disableLocationLink: true
             entities:
               - entity: calendar.mycalendar_google
+              - entity: calendar.familijne
             firstDayOfWeek: '1'
             hideFinishedEvents: true
             maxDaysToShow: '14'
@@ -1062,6 +1059,7 @@ views:
                   type: buttons
                   entities:
                     - entity: light.lazienka_dolna_1
+                      name: Łazienka
               - type: entities
                 entities:
                   - type: custom:fold-entity-row
@@ -1129,7 +1127,7 @@ views:
                   type: buttons
                   entities:
                     - entity: light.przedpokoj_wejsciowy
-                      name: Przedpokó
+                      name: Przedpokój
               - type: entities
                 entities:
                   - type: custom:fold-entity-row
@@ -2594,6 +2592,8 @@ views:
                     name: Biuro R
                   - entity: binary_sensor.okno_pralnia
                     name: Pralnia
+                  - entity: binary_sensor.okno_strych
+                    name: Strych
             state_color: true
           - type: conditional
             conditions:
@@ -2622,6 +2622,7 @@ views:
                   name: Biuro R
                 - entity: binary_sensor.okno_pralnia
                   name: Pralnia
+                - entity: binary_sensor.okno_strych
               state_color: true
               show_state: false
           - type: entities
@@ -2680,6 +2681,10 @@ views:
                           options:
                             secondary_info: last-changed
                             state_color: true
+                        - entity_id: '*ruch_na_strychu*'
+                          options:
+                            secondary_info: last-changed
+                            state_color: true
                     exclude:
                       - entity_id: '*ruch_parter*'
                         options:
@@ -2723,18 +2728,10 @@ views:
                   name: Biuro
                 - entity: binary_sensor.ruch_w_pralni
                   name: Pralnia
+                - entity: binary_sensor.ruch_na_strychu
+                  name: Strych
               state_color: true
               show_state: false
-          - type: entities
-            entities:
-              - entity: binary_sensor.ruch_na_strychu
-                secondary_info: last-changed
-              - entity: binary_sensor.wylaz_strych
-                secondary_info: last-changed
-              - entity: binary_sensor.okno_strych
-                secondary_info: last-changed
-            title: Strych
-            state_color: true
   - badges: []
     cards:
       - type: vertical-stack
@@ -4815,9 +4812,14 @@ views:
                           top: 13%
                           left: 20%
                     image: /local/img/harmony_elite.jpg
+                - type: picture
+                  image: /local/img/marantz.jpeg
+                  tap_action:
+                    action: none
+                  hold_action:
+                    action: none
       - cards:
           - artwork: cover
-            entity: media_player.spotify_murcin86
             hide:
               artwork_border: false
               icon: false
@@ -4829,18 +4831,56 @@ views:
             type: custom:mini-media-player
             info: scroll
             volume_stateless: false
-            group: false
+            group: true
             toggle_power: true
             sound_mode: icon
             replace_mute: play_pause
             name: Mój Spotify
+            entity: media_player.spotify_account
           - entities:
               - entity: media_player.home
                 group: true
                 hide:
                   controls: true
                 type: custom:mini-media-player
-              - entity: media_player.salon_music_speaker
+              - entity: media_player.kids
+                group: true
+                hide:
+                  controls: true
+                type: custom:mini-media-player
+              - group: true
+                hide:
+                  controls: true
+                type: custom:mini-media-player
+                entity: media_player.julia
+              - entity: media_player.oliwia
+                group: true
+                hide:
+                  controls: true
+                type: custom:mini-media-player
+              - entity: media_player.salon
+                group: true
+                hide:
+                  controls: true
+                type: custom:mini-media-player
+                volume_stateless: false
+              - entity: media_player.kuchnia
+                group: true
+                hide:
+                  controls: true
+                type: custom:mini-media-player
+                volume_stateless: false
+              - entity: media_player.sypialnia
+                group: true
+                hide:
+                  controls: true
+                type: custom:mini-media-player
+              - entity: media_player.kuchnia
+                group: true
+                hide:
+                  controls: true
+                type: custom:mini-media-player
+              - entity: media_player.salon_music
                 group: true
                 hide:
                   volume: true
@@ -4849,33 +4889,7 @@ views:
                 volume_stateless: true
                 source: icon
                 artwork: cover
-              - group: true
-                hide:
-                  controls: true
-                type: custom:mini-media-player
-                entity: media_player.julia_speaker
-              - entity: media_player.oliwia_speaker
-                group: true
-                hide:
-                  controls: true
-                type: custom:mini-media-player
-              - entity: media_player.kitchen_speaker
-                group: true
-                hide:
-                  controls: true
-                type: custom:mini-media-player
-              - entity: media_player.salon_speaker
-                group: true
-                hide:
-                  controls: true
-                type: custom:mini-media-player
-                volume_stateless: false
-              - entity: media_player.badroom_speaker
-                group: true
-                hide:
-                  controls: true
-                type: custom:mini-media-player
-              - entity: media_player.office_speaker
+              - entity: media_player.biuro
                 group: true
                 hide:
                   controls: true
@@ -4897,10 +4911,10 @@ views:
                 hide:
                   controls: true
                 type: custom:mini-media-player
-                entity: media_player.office_tv
+                entity: media_player.biuro_tv
                 volume_stateless: true
                 source: icon
-              - entity: media_player.badroom_tv
+              - entity: media_player.sypialnia_tv
                 group: true
                 hide:
                   controls: true
@@ -4913,39 +4927,85 @@ views:
                 tap_action:
                   action: toggle
                 entity: switch.gniazdka_tv_salon
+                icon_height: 30px
+                name: Salon TV
               - type: button
                 tap_action:
                   action: toggle
                 entity: switch.gniazdko_tv_sypialnia
+                icon_height: 30px
+                name: Sypialnia TV
               - type: button
                 tap_action:
                   action: toggle
                 entity: switch.gniazdko_tv_biuro
+                icon_height: 30px
+                name: Biuro TV
               - type: button
                 tap_action:
                   action: toggle
                 entity: switch.gniazdko_tv_julia
+                icon: mdi:google-home
+                icon_height: 30px
+                name: Julia
               - type: button
                 tap_action:
                   action: toggle
                 entity: switch.gniazdko_tv_oliwia
+                icon: mdi:google-home
+                show_state: false
+                icon_height: 30px
+                name: Oliwia
               - type: button
                 tap_action:
                   action: toggle
                 entity: switch.kaloryfer_lazienka_gorna
-            columns: 5
+                name: Łazienka górna
+                icon_height: 30px
+            columns: 3
+            square: false
         type: vertical-stack
-      - entities:
-          - entity: input_select.radio_station
-          - entity: input_select.audio_select
-          - entity: input_number.volume_radio
-          - action_name: PLAY
-            entity: script.radio_play
-          - action_name: ZATRZYMAJ
-            entity: script.radio_stop
-        show_header_toggle: null
-        title: Radio i Muzyka
-        type: entities
+      - cards:
+          - entities:
+              - entity: input_select.radio_station
+              - entity: input_select.audio_select
+              - entity: input_number.volume_radio
+              - action_name: PLAY
+                entity: script.radio_play
+              - action_name: ZATRZYMAJ
+                entity: script.radio_stop
+            title: Radio i Muzyka
+            type: entities
+          - entities:
+              - entity: media_player.salon_philips
+                group: true
+                hide:
+                  controls: true
+                type: custom:mini-media-player
+                volume_stateless: false
+              - entity: media_player.biuro_samsung
+                group: true
+                hide:
+                  controls: true
+                type: custom:mini-media-player
+                volume_stateless: false
+              - entity: media_player.philips_dlna
+                group: true
+                hide:
+                  controls: true
+                type: custom:mini-media-player
+                volume_stateless: false
+              - entity: media_player.samsung_dlna
+                group: true
+                hide:
+                  controls: true
+                type: custom:mini-media-player
+                volume_stateless: false
+              - entity: remote.salon
+            type: entities
+            state_color: true
+            title: Telewizor
+        type: vertical-stack
       - always_play_random_song: true
         display_style: grid
         grid_covers_per_row: 3
@@ -4955,67 +5015,6 @@ views:
         account: default
         playlist_type: featured
         spotify_entity: media_player.office_speaker
-      - cards:
-          - artwork: cover
-            shortcuts:
-              buttons:
-                - id: http://217.74.72.11/rmf_fm
-                  name: RMF FM
-                  type: music
-                - id: http://www.rmfon.pl/n/rmfmaxxx.pls
-                  name: RMF MAXX
-                  type: music
-                - id: http://rmfstream1.interia.pl:8000/rmf_classic
-                  name: RMF Classic
-                  type: music
-                - id: http://stream.polandrockfestival.pl:8000/
-                  name: Antyradio
-                  type: music
-                - id: >-
-                    http://icy-e-bab-04-cr.sharp-stream.com/absoluteclassicrock.mp3
-                  name: Absolute Radio Classic Rock
-                  type: music
-                - id: https://ml.cdn.eurozet.pl/mel-net.mp3
-                  name: Meloradio
-                  type: music
-                - id: http://stream4.nadaje.com/muzo
-                  name: Muzo Radio
-                  type: music
-                - id: https://zt.cdn.eurozet.pl/zet-tun.mp3
-                  name: RadioZET
-                  type: music
-                - id: http://chi-net.cdn.eurozet.pl:8900/
-                  name: ChilliZet
-                  type: music
-                - id: >-
-                    http://www.pldm.ml/radio.php?id=-1&url=http://www.eskago.pl/radio/eska-malopolska-zakopane
-                  name: Eska
-                  type: music
-                - id: http://mp3.polskieradio.pl:8900/
-                  name: Jedynka
-                  type: music
-                - id: http://mp3.polskieradio.pl:8902/
-                  name: Dwójka
-                  type: music
-                - id: http://mp3.polskieradio.pl:8904/
-                  name: Trójka
-                  type: music
-                - id: http://mainstream.radioagora.pl/tuba9-1.mp3
-                  name: Złote przeboje
-                  type: music
-                - id: spotify:playlist:37i9dQZF1E3agq9f3jFqW4
-                  name: Spotify
-                  type: music
-              columns: 3
-            show_source: icon
-            type: custom:mini-media-player
-            entity: media_player.office_speaker
-        type: vertical-stack
-      - type: media-control
-        entity: media_player.salon
-      - type: entities
-        entities:
-          - remote.salon
     icon: mdi:music
     path: media
     title: media
@@ -5037,253 +5036,120 @@ views:
           camera: camera.xiaomi_cloud_map_extractor
         calibration_source:
           camera: true
-        entity: vacuum.xiaomi_vacuum_cleaner
+        entity: vacuum.roborock_s6
         vacuum_platform: default
-        map_locked: false
+        map_locked: true
         two_finger_pan: true
+        language: pl
+        append_tiles: true
+        tiles:
+          - entity: sensor.roborock_s6_last_clean_area
+            label: Last Clean Area
+            icon: mdi:texture-box
+            multiplier: 1
+            unit: m²
+            precision: 2
+          - entity: sensor.roborock_s6_last_clean_duration
+            label: Last Clean Duration
+            icon: mdi:timer-sand
+            multiplier: 0.1526717557251908
+            unit: min
+            precision: 0
+          - entity: binary_sensor.roborock_s6_water_box_attached
+            label: Water Box Attached
+            icon: mdi:square-rounded
+          - entity: binary_sensor.roborock_s6_mop_attached
+            label: Last Clean Start
+            icon: mdi:water
         map_modes:
           - template: vacuum_clean_zone
+          - template: vacuum_goto
           - template: vacuum_clean_zone_predefined
             predefined_selections:
               - zones:
                   - - 19008
                     - 25081
-                    - 26410
-                    - 29046
+                    - 26200
+                    - 29000
                 label:
                   text: Salon
                   x: 24500
-                  'y': 28700
+                  'y': 27500
                   offset_y: 35
                 icon:
                   name: mdi:sofa
                   x: 24500
-                  'y': 28500
-      - type: picture-elements
-        elements:
-          - icon: mdi:fan
-            style:
-              '--paper-item-icon-color': rgb(115, 122, 130)
-              left: 20%
-              top: 95%
-            tap_action:
-              action: call-service
-              service: automation.trigger
-              service_data:
-                entity_id: automation.tryb_odkurzania
-            type: icon
-          - icon: mdi:play
-            style:
-              '--paper-item-icon-color': rgb(115, 122, 130)
-              left: 40%
-              top: 95%
-            tap_action:
-              action: call-service
-              service: vacuum.start
-              service_data:
-                entity_id: vacuum.xiaomi_vacuum_cleaner
-            type: icon
-          - icon: mdi:pause
-            style:
-              '--paper-item-icon-color': rgb(115, 122, 130)
-              left: 50%
-              top: 95%
-            tap_action:
-              action: call-service
-              service: vacuum.pause
-              service_data:
-                entity_id: vacuum.xiaomi_vacuum_cleaner
-            type: icon
-          - icon: mdi:stop
-            style:
-              '--paper-item-icon-color': rgb(115, 122, 130)
-              left: 60%
-              top: 95%
-            tap_action:
-              action: call-service
-              service: vacuum.stop
-              service_data:
-                entity_id: vacuum.xiaomi_vacuum_cleaner
-            type: icon
-          - icon: mdi:home
-            style:
-              '--paper-item-icon-color': rgb(115, 122, 130)
-              left: 70%
-              top: 95%
-            tap_action:
-              action: call-service
-              service: vacuum.return_to_base
-              service_data:
-                entity_id: vacuum.xiaomi_vacuum_cleaner
-            type: icon
-          - icon: mdi:bell-ring
-            style:
-              '--paper-item-icon-color': rgb(115, 122, 130)
-              left: 80%
-              top: 95%
-            tap_action:
-              action: call-service
-              service: vacuum.locate
-              service_data:
-                entity_id: vacuum.xiaomi_vacuum_cleaner
-            type: icon
-          - entity: sensor.vacuum_status
-            style:
-              '--paper-item-icon-color': rgb(115, 122, 130)
-              border-left-style: solid
-              font-size: 90%
-              font-weight: bold
-              left: 1%
-              pointer-events: none
-              top: 15%
-              transform: none
-            type: state-label
-          - entity: sensor.vacuum_battery
-            style:
-              '--paper-item-icon-color': rgb(115, 122, 130)
-              border-left-style: solid
-              font-size: 90%
-              font-weight: bold
-              left: 1%
-              pointer-events: none
-              top: 35%
-              transform: none
-            type: state-label
-          - entity: sensor.vacuum_fan_speed
-            prefix: 'Prędkość: '
-            style:
-              '--paper-item-icon-color': rgb(115, 122, 130)
-              border-left-style: solid
-              font-size: 90%
-              font-weight: bold
-              left: 1%
-              pointer-events: none
-              top: 25%
-              transform: none
-            type: state-label
-          - entity: sensor.vacuum_cleaned_area
-            prefix: 'Obszar: '
-            style:
-              '--paper-item-icon-color': rgb(115, 122, 130)
-              font-size: 110%
-              font-weight: bold
-              left: 30%
-              pointer-events: none
-              top: 80%
-            type: state-label
-          - entity: sensor.vacuum_cleaning_time
-            prefix: 'Czas: '
-            style:
-              '--paper-item-icon-color': rgb(115, 122, 130)
-              font-size: 110%
-              font-weight: bold
-              pointer-events: none
-              right: 1%
-              top: 80%
-            suffix: ' min'
-            type: state-label
-          - entity: sensor.vacuum_cleanmainbrush
-            style:
-              '--paper-item-icon-color': rgb(115, 122, 130)
-              border-right-style: solid
-              font-size: 90%
-              font-weight: bold
-              pointer-events: none
-              right: 1%
-              top: 15%
-              transform: none
-            type: state-label
-          - entity: sensor.vacuum_cleansidebrush
-            style:
-              '--paper-item-icon-color': rgb(115, 122, 130)
-              border-right-style: solid
-              font-size: 90%
-              font-weight: bold
-              pointer-events: none
-              right: 1%
-              top: 25%
-              transform: none
-            type: state-label
-          - entity: sensor.vacuum_sensordirtyleft
-            style:
-              '--paper-item-icon-color': rgb(115, 122, 130)
-              border-right-style: solid
-              font-size: 90%
-              font-weight: bold
-              pointer-events: none
-              right: 1%
-              top: 35%
-              transform: none
-            type: state-label
-          - entity: sensor.vacuum_cleanfilter
-            style:
-              '--paper-item-icon-color': rgb(115, 122, 130)
-              border-right-style: solid
-              font-size: 90%
-              font-weight: bold
-              pointer-events: none
-              right: 1%
-              top: 45%
-              transform: none
-            type: state-label
-          - entity: vacuum.xiaomi_vacuum_cleaner
-            style:
-              '--paper-item-icon-color': rgb(115, 122, 130)
-              font-size: 150%
-              font-weight: bold
-              left: 50%
-              top: 8%
-            tap_action:
-              action: more-info
-            type: state-label
-        image: /local/img/vacuumscreen.png
-      - type: custom:vacuum-card
-        compact_view: false
-        entity: vacuum.xiaomi_vacuum_cleaner
-        show_name: true
-        show_status: true
-        show_toolbar: true
-        map: camera.xiaomi_cloud_map_extractor
-        actions:
-          - icon: mdi:stairs
-            name: Odkurzaj Korytarz
-            service: script.vacuum_salon
-          - icon: mdi:silverware-fork-knife
-            name: Odkurzaj Kuchnia
-            service: script.vacuum_kuchnia
-          - icon: mdi:brush
-            name: Odkurzaj Gabinet
-            service: script.vacuum_korytarz
-          - icon: mdi:toilet
-            name: Odkurzaj Łazienka
-            service: script.vacuum_przedpokoj
-          - icon: mdi:sofa
-            name: Odkurzaj Salon
-            service: script.vacuum_lazienka
-          - icon: mdi:door-closed
-            name: Odkurzaj Przedpokój
-            service: script.vacuum_gabinet
-        stats:
-          cleaning:
-            - attribute: cleaned_area
-              subtitle: Cleaning area
-              unit: m2
-            - attribute: cleaning_time
-              subtitle: Cleaning time
-              unit: minut
-          default:
-            - attribute: filter_left
-              subtitle: Filter
-              unit: godzin
-            - attribute: side_brush_left
-              subtitle: Boczne szczotki
-              unit: godzin
-            - attribute: main_brush_left
-              subtitle: Szczotka główna
-              unit: godzin
-            - attribute: sensor_dirty_left
-              subtitle: Czujniki
-              unit: godzin
+                  'y': 27500
+              - zones:
+                  - - 19008
+                    - 21081
+                    - 22000
+                    - 25081
+                label:
+                  text: Kuchnia
+                  x: 20500
+                  'y': 23400
+                  offset_y: 35
+                icon:
+                  name: mdi:silverware-fork-knife
+                  x: 20500
+                  'y': 23050
+              - zones:
+                  - - 19008
+                    - 17700
+                    - 22000
+                    - 21081
+                label:
+                  text: Gabinet
+                  x: 20500
+                  'y': 19800
+                  offset_y: 35
+                icon:
+                  name: mdi:brush
+                  x: 20500
+                  'y': 19500
+              - zones:
+                  - - 22000
+                    - 17700
+                    - 23500
+                    - 19850
+                label:
+                  text: WC
+                  x: 22600
+                  'y': 19600
+                  offset_y: 35
+                icon:
+                  name: mdi:toilet
+                  x: 22800
+                  'y': 19300
+              - zones:
+                  - - 23500
+                    - 17700
+                    - 26200
+                    - 21000
+                label:
+                  text: Przedpokój
+                  x: 25300
+                  'y': 20500
+                  offset_y: 35
+                icon:
+                  name: mdi:door-closed
+                  x: 25000
+                  'y': 20000
+              - zones:
+                  - - 22000
+                    - 19850
+                    - 23500
+                    - 25081
+                label:
+                  text: Korytarz
+                  x: 22300
+                  'y': 24000
+                  offset_y: 35
+                icon:
+                  name: mdi:stairs
+                  x: 22800
+                  'y': 24000
   - title: Dane Dom
     path: kotlownia
     icon: mdi:water-pump
@@ -5365,20 +5231,20 @@ views:
                 show_fill: false
                 state_adaptive_color: true
               - aggregate_func: max
-                color: '#666666'
+                color: white
                 entity: binary_sensor.ciepla_woda_grzanie
                 name: grzanie
-                show_line: false
+                show_line: true
+                show_fill: false
                 show_points: false
                 show_state: false
                 smoothing: true
                 y_axis: secondary
               - aggregate_func: max
-                color: white
+                color: '#666666'
                 entity: binary_sensor.zezwolenie_na_uruchomienie_pompy
                 name: zezwolenie
-                show_line: true
-                show_fill: false
+                show_line: false
                 show_points: false
                 show_state: false
                 smoothing: true
@@ -6424,13 +6290,6 @@ views:
           - entity: sensor.licznik_impulsow_gaz_plc
         hours_to_show: 24
         refresh_interval: 0
-      - type: history-graph
-        entities:
-          - entity: sensor.licznik_glowny_gazu
-        hours_to_show: 744
-        refresh_interval: 0
-        view_layout:
-          position: sidebar
       - type: statistics-graph
         entities:
           - sensor.zuzycie_gazu_w_tym_miesiacu
@@ -6439,14 +6298,18 @@ views:
         title: Zużycie gazu
         view_layout:
           position: sidebar
+      - type: custom:mini-graph-card
+        entities:
+          - sensor.zuzycie_gazu_w_tym_miesiacu
+        show:
+          graph: bar
+        hours_to_show: 72
   - title: Ogrzewanie
     path: ogrzewanie-dom
     icon: mdi:radiator
     visible:
       - user: c84cbe7abef9425d9b1632e1f2760da6
       - user: 4ef97f3e6dc04a4ea74d10b9c44d5598
-      - user: 805092647db847c7b49845fa252467b5
-      - user: 000e6a0be92643dc8b56799557b36098
     theme: ''
     type: sidebar
     badges: []
@@ -6523,6 +6386,7 @@ views:
               extrema: true
               graph: line
               points: true
+              icon: false
           - type: custom:mini-graph-card
             animate: true
             color_thresholds:
@@ -6593,6 +6457,7 @@ views:
               extrema: true
               graph: line
               points: true
+              icon: false
           - type: custom:mini-graph-card
             animate: true
             color_thresholds:
@@ -6663,6 +6528,7 @@ views:
               extrema: true
               graph: line
               points: true
+              icon: false
           - type: custom:mini-graph-card
             animate: true
             color_thresholds:
@@ -6733,6 +6599,7 @@ views:
               extrema: true
               graph: line
               points: true
+              icon: false
           - type: custom:mini-graph-card
             animate: true
             color_thresholds:
@@ -6803,6 +6670,7 @@ views:
               extrema: true
               graph: line
               points: true
+              icon: false
           - type: custom:mini-graph-card
             animate: true
             color_thresholds:
@@ -6873,6 +6741,7 @@ views:
               extrema: true
               graph: line
               points: true
+              icon: false
           - type: custom:mini-graph-card
             animate: true
             color_thresholds:
@@ -6943,6 +6812,7 @@ views:
               extrema: true
               graph: line
               points: true
+              icon: false
           - type: custom:mini-graph-card
             animate: true
             color_thresholds:
@@ -7013,6 +6883,7 @@ views:
               extrema: true
               graph: line
               points: true
+              icon: false
           - type: custom:mini-graph-card
             animate: true
             color_thresholds:
@@ -7083,6 +6954,7 @@ views:
               extrema: true
               graph: line
               points: true
+              icon: false
           - type: custom:mini-graph-card
             animate: true
             color_thresholds:
@@ -7153,6 +7025,7 @@ views:
               extrema: true
               graph: line
               points: true
+              icon: false
           - type: custom:mini-graph-card
             animate: true
             color_thresholds:
@@ -7223,6 +7096,7 @@ views:
               extrema: true
               graph: line
               points: true
+              icon: false
           - type: custom:mini-graph-card
             animate: true
             color_thresholds:
@@ -7293,6 +7167,7 @@ views:
               extrema: true
               graph: line
               points: true
+              icon: false
           - type: custom:mini-graph-card
             animate: true
             color_thresholds:
@@ -7363,6 +7238,7 @@ views:
               extrema: true
               graph: line
               points: true
+              icon: false
           - type: custom:mini-graph-card
             animate: true
             color_thresholds:
@@ -7433,6 +7309,7 @@ views:
               extrema: true
               graph: line
               points: true
+              icon: false
           - type: custom:mini-graph-card
             animate: true
             color_thresholds:
@@ -7503,6 +7380,7 @@ views:
               extrema: true
               graph: line
               points: true
+              icon: false
           - type: custom:mini-graph-card
             animate: true
             color_thresholds:
@@ -7561,6 +7439,7 @@ views:
               extrema: true
               graph: line
               points: true
+              icon: false
         square: false
         columns: 6
       - type: vertical-stack
@@ -7958,6 +7837,1217 @@ views:
             update_interval: 1
         columns: 2
         square: false
+  - title: Ogrzewanie Phone
+    path: ogrzewanie-phone
+    icon: mdi:radiator
+    visible:
+      - user: c84cbe7abef9425d9b1632e1f2760da6
+      - user: 805092647db847c7b49845fa252467b5
+      - user: 000e6a0be92643dc8b56799557b36098
+      - user: 8cef7abca7484458803fc5cb8861fa3a
+      - user: f05478cf3aac4fb5a53c97c3bf8577f4
+    badges: []
+    cards:
+      - type: grid
+        cards:
+          - type: custom:mini-graph-card
+            animate: true
+            color_thresholds:
+              - color: '#a55eea'
+                value: -6.9
+              - color: '#8854d0'
+                value: -3.9
+              - color: '#3867d6'
+                value: -1.2
+              - color: '#4b7bec'
+                value: 1.6
+              - color: '#2d98da'
+                value: 4.3
+              - color: '#45aaf2'
+                value: 7.1
+              - color: '#0fb9b1'
+                value: 9.9
+              - color: '#2bcbba'
+                value: 12.7
+              - color: '#20bf6b'
+                value: 15.5
+              - color: '#26de81'
+                value: 18.2
+              - color: '#fed330'
+                value: 21
+              - color: '#f7b731'
+                value: 23.8
+              - color: '#fd9644'
+                value: 26.6
+              - color: '#fa8231'
+                value: 29.3
+              - color: '#fc5c65'
+                value: 32.1
+              - color: '#eb3b5a'
+                value: 35.9
+            entities:
+              - entity: sensor.ble_temperature_czujnik_salon
+                name: Salon
+                index: 0
+              - entity: sensor.vaillant_temp_p0_set
+                index: 2
+                show_state: true
+                show_graph: false
+              - aggregate_func: max
+                color: white
+                entity: binary_sensor.co_pomp_floor_0
+                index: 4
+                show_legend: false
+                show_state: true
+                show_line: false
+                y_axis: secondary
+              - entity: sensor.ble_humidity_czujnik_salon
+                index: 3
+                show_state: true
+                show_graph: false
+            hour24: true
+            decimals: 1
+            hours_to_show: 24
+            line_width: 2
+            lower_bound_secondary: ~0
+            points_per_hour: 12
+            state_map:
+              - label: 'OFF'
+                value: 'off'
+              - label: Grzeje
+                value: 'on'
+            show:
+              extrema: true
+              graph: line
+              points: true
+              icon: false
+          - type: custom:mini-graph-card
+            animate: true
+            color_thresholds:
+              - color: '#a55eea'
+                value: -6.9
+              - color: '#8854d0'
+                value: -3.9
+              - color: '#3867d6'
+                value: -1.2
+              - color: '#4b7bec'
+                value: 1.6
+              - color: '#2d98da'
+                value: 4.3
+              - color: '#45aaf2'
+                value: 7.1
+              - color: '#0fb9b1'
+                value: 9.9
+              - color: '#2bcbba'
+                value: 12.7
+              - color: '#20bf6b'
+                value: 15.5
+              - color: '#26de81'
+                value: 18.2
+              - color: '#fed330'
+                value: 21
+              - color: '#f7b731'
+                value: 23.8
+              - color: '#fd9644'
+                value: 26.6
+              - color: '#fa8231'
+                value: 29.3
+              - color: '#fc5c65'
+                value: 32.1
+              - color: '#eb3b5a'
+                value: 35.9
+            entities:
+              - entity: sensor.kitchen_temperature
+                name: Kuchnia
+                index: 0
+              - entity: sensor.vaillant_temp_p0_set
+                index: 2
+                show_state: true
+                show_graph: false
+              - aggregate_func: max
+                color: white
+                entity: binary_sensor.co_pomp_floor_0
+                index: 4
+                show_legend: false
+                show_state: true
+                show_line: false
+                y_axis: secondary
+              - entity: sensor.kitchen_humidity
+                index: 3
+                show_state: true
+                show_graph: false
+            hour24: true
+            decimals: 1
+            hours_to_show: 24
+            line_width: 2
+            lower_bound_secondary: ~0
+            points_per_hour: 12
+            state_map:
+              - label: 'OFF'
+                value: 'off'
+              - label: Grzeje
+                value: 'on'
+            show:
+              extrema: true
+              graph: line
+              points: true
+              icon: false
+          - type: custom:mini-graph-card
+            animate: true
+            color_thresholds:
+              - color: '#a55eea'
+                value: -6.9
+              - color: '#8854d0'
+                value: -3.9
+              - color: '#3867d6'
+                value: -1.2
+              - color: '#4b7bec'
+                value: 1.6
+              - color: '#2d98da'
+                value: 4.3
+              - color: '#45aaf2'
+                value: 7.1
+              - color: '#0fb9b1'
+                value: 9.9
+              - color: '#2bcbba'
+                value: 12.7
+              - color: '#20bf6b'
+                value: 15.5
+              - color: '#26de81'
+                value: 18.2
+              - color: '#fed330'
+                value: 21
+              - color: '#f7b731'
+                value: 23.8
+              - color: '#fd9644'
+                value: 26.6
+              - color: '#fa8231'
+                value: 29.3
+              - color: '#fc5c65'
+                value: 32.1
+              - color: '#eb3b5a'
+                value: 35.9
+            entities:
+              - entity: sensor.ble_temperature_czujnik_korytarz
+                name: Korytarz
+                index: 0
+              - entity: sensor.vaillant_temp_p0_set
+                index: 2
+                show_state: true
+                show_graph: false
+              - aggregate_func: max
+                color: white
+                entity: binary_sensor.co_pomp_floor_0
+                index: 4
+                show_legend: false
+                show_state: true
+                show_line: false
+                y_axis: secondary
+              - entity: sensor.ble_humidity_czujnik_korytarz
+                index: 3
+                show_state: true
+                show_graph: false
+            hour24: true
+            decimals: 1
+            hours_to_show: 24
+            line_width: 2
+            lower_bound_secondary: ~0
+            points_per_hour: 12
+            state_map:
+              - label: 'OFF'
+                value: 'off'
+              - label: Grzeje
+                value: 'on'
+            show:
+              extrema: true
+              graph: line
+              points: true
+              icon: false
+          - type: custom:mini-graph-card
+            animate: true
+            color_thresholds:
+              - color: '#a55eea'
+                value: -6.9
+              - color: '#8854d0'
+                value: -3.9
+              - color: '#3867d6'
+                value: -1.2
+              - color: '#4b7bec'
+                value: 1.6
+              - color: '#2d98da'
+                value: 4.3
+              - color: '#45aaf2'
+                value: 7.1
+              - color: '#0fb9b1'
+                value: 9.9
+              - color: '#2bcbba'
+                value: 12.7
+              - color: '#20bf6b'
+                value: 15.5
+              - color: '#26de81'
+                value: 18.2
+              - color: '#fed330'
+                value: 21
+              - color: '#f7b731'
+                value: 23.8
+              - color: '#fd9644'
+                value: 26.6
+              - color: '#fa8231'
+                value: 29.3
+              - color: '#fc5c65'
+                value: 32.1
+              - color: '#eb3b5a'
+                value: 35.9
+            entities:
+              - entity: sensor.ble_temperature_czujnik_lazienka_dolna
+                name: Łazienka
+                index: 0
+              - entity: sensor.tempset_lazienka_dolna
+                index: 2
+                show_state: true
+                show_graph: false
+              - aggregate_func: max
+                color: white
+                entity: binary_sensor.co_bathroom_down
+                index: 4
+                show_legend: false
+                show_state: true
+                y_axis: secondary
+                show_line: false
+              - entity: sensor.ble_humidity_czujnik_lazienka_dolna
+                index: 3
+                show_state: true
+                show_graph: false
+            hour24: true
+            decimals: 1
+            hours_to_show: 24
+            line_width: 2
+            lower_bound_secondary: ~0
+            points_per_hour: 12
+            state_map:
+              - label: 'OFF'
+                value: 'off'
+              - label: Grzeje
+                value: 'on'
+            show:
+              extrema: true
+              graph: line
+              points: true
+              icon: false
+          - type: custom:mini-graph-card
+            animate: true
+            color_thresholds:
+              - color: '#a55eea'
+                value: -6.9
+              - color: '#8854d0'
+                value: -3.9
+              - color: '#3867d6'
+                value: -1.2
+              - color: '#4b7bec'
+                value: 1.6
+              - color: '#2d98da'
+                value: 4.3
+              - color: '#45aaf2'
+                value: 7.1
+              - color: '#0fb9b1'
+                value: 9.9
+              - color: '#2bcbba'
+                value: 12.7
+              - color: '#20bf6b'
+                value: 15.5
+              - color: '#26de81'
+                value: 18.2
+              - color: '#fed330'
+                value: 21
+              - color: '#f7b731'
+                value: 23.8
+              - color: '#fd9644'
+                value: 26.6
+              - color: '#fa8231'
+                value: 29.3
+              - color: '#fc5c65'
+                value: 32.1
+              - color: '#eb3b5a'
+                value: 35.9
+            entities:
+              - entity: sensor.ble_temperature_czujnik_gabinet
+                name: Gabinet
+                index: 0
+              - entity: sensor.tempset_gabinet
+                index: 2
+                show_state: true
+                show_graph: false
+              - aggregate_func: max
+                color: white
+                entity: binary_sensor.co_smallroom
+                index: 4
+                show_legend: false
+                show_state: true
+                y_axis: secondary
+                show_line: false
+              - entity: sensor.ble_humidity_czujnik_gabinet
+                index: 3
+                show_state: true
+                show_graph: false
+            hour24: true
+            decimals: 1
+            hours_to_show: 24
+            line_width: 2
+            lower_bound_secondary: ~0
+            points_per_hour: 12
+            state_map:
+              - label: 'OFF'
+                value: 'off'
+              - label: Grzeje
+                value: 'on'
+            show:
+              extrema: true
+              graph: line
+              points: true
+              icon: false
+          - type: custom:mini-graph-card
+            animate: true
+            color_thresholds:
+              - color: '#a55eea'
+                value: -6.9
+              - color: '#8854d0'
+                value: -3.9
+              - color: '#3867d6'
+                value: -1.2
+              - color: '#4b7bec'
+                value: 1.6
+              - color: '#2d98da'
+                value: 4.3
+              - color: '#45aaf2'
+                value: 7.1
+              - color: '#0fb9b1'
+                value: 9.9
+              - color: '#2bcbba'
+                value: 12.7
+              - color: '#20bf6b'
+                value: 15.5
+              - color: '#26de81'
+                value: 18.2
+              - color: '#fed330'
+                value: 21
+              - color: '#f7b731'
+                value: 23.8
+              - color: '#fd9644'
+                value: 26.6
+              - color: '#fa8231'
+                value: 29.3
+              - color: '#fc5c65'
+                value: 32.1
+              - color: '#eb3b5a'
+                value: 35.9
+            entities:
+              - entity: sensor.ble_temperature_czujnik_przedpokoj
+                name: Przedpokój
+                index: 0
+              - entity: sensor.tempset_przedpokoj_wejsciowy
+                index: 2
+                show_state: true
+                show_graph: false
+              - aggregate_func: max
+                color: white
+                entity: binary_sensor.co_entrance
+                index: 4
+                show_legend: false
+                show_state: true
+                y_axis: secondary
+                show_line: false
+              - entity: sensor.ble_humidity_czujnik_przedpokoj
+                index: 3
+                show_state: true
+                show_graph: false
+            hour24: true
+            decimals: 1
+            hours_to_show: 24
+            line_width: 2
+            lower_bound_secondary: ~0
+            points_per_hour: 12
+            state_map:
+              - label: 'OFF'
+                value: 'off'
+              - label: Grzeje
+                value: 'on'
+            show:
+              extrema: true
+              graph: line
+              points: true
+              icon: false
+          - type: custom:mini-graph-card
+            animate: true
+            color_thresholds:
+              - color: '#a55eea'
+                value: -6.9
+              - color: '#8854d0'
+                value: -3.9
+              - color: '#3867d6'
+                value: -1.2
+              - color: '#4b7bec'
+                value: 1.6
+              - color: '#2d98da'
+                value: 4.3
+              - color: '#45aaf2'
+                value: 7.1
+              - color: '#0fb9b1'
+                value: 9.9
+              - color: '#2bcbba'
+                value: 12.7
+              - color: '#20bf6b'
+                value: 15.5
+              - color: '#26de81'
+                value: 18.2
+              - color: '#fed330'
+                value: 21
+              - color: '#f7b731'
+                value: 23.8
+              - color: '#fd9644'
+                value: 26.6
+              - color: '#fa8231'
+                value: 29.3
+              - color: '#fc5c65'
+                value: 32.1
+              - color: '#eb3b5a'
+                value: 35.9
+            entities:
+              - entity: sensor.ble_temperature_czujnik_spizarka
+                name: Spiżarka
+                index: 0
+              - entity: sensor.tempset_spizarka
+                index: 2
+                show_state: true
+                show_graph: false
+              - aggregate_func: max
+                color: white
+                entity: binary_sensor.co_pantry
+                index: 4
+                show_legend: false
+                show_state: true
+                y_axis: secondary
+                show_line: false
+              - entity: sensor.ble_humidity_czujnik_spizarka
+                index: 3
+                show_state: true
+                show_graph: false
+            hour24: true
+            decimals: 1
+            hours_to_show: 24
+            line_width: 2
+            lower_bound_secondary: ~0
+            points_per_hour: 12
+            state_map:
+              - label: 'OFF'
+                value: 'off'
+              - label: Grzeje
+                value: 'on'
+            show:
+              extrema: true
+              graph: line
+              points: true
+              icon: false
+          - type: custom:mini-graph-card
+            animate: true
+            color_thresholds:
+              - color: '#a55eea'
+                value: -6.9
+              - color: '#8854d0'
+                value: -3.9
+              - color: '#3867d6'
+                value: -1.2
+              - color: '#4b7bec'
+                value: 1.6
+              - color: '#2d98da'
+                value: 4.3
+              - color: '#45aaf2'
+                value: 7.1
+              - color: '#0fb9b1'
+                value: 9.9
+              - color: '#2bcbba'
+                value: 12.7
+              - color: '#20bf6b'
+                value: 15.5
+              - color: '#26de81'
+                value: 18.2
+              - color: '#fed330'
+                value: 21
+              - color: '#f7b731'
+                value: 23.8
+              - color: '#fd9644'
+                value: 26.6
+              - color: '#fa8231'
+                value: 29.3
+              - color: '#fc5c65'
+                value: 32.1
+              - color: '#eb3b5a'
+                value: 35.9
+            entities:
+              - entity: sensor.ble_temperature_czujnik_garaz
+                name: Garaż
+                index: 0
+              - entity: sensor.tempset_garaz
+                index: 2
+                show_state: true
+                show_graph: false
+              - aggregate_func: max
+                color: white
+                entity: binary_sensor.co_garage
+                index: 4
+                show_legend: false
+                show_state: true
+                y_axis: secondary
+                show_line: false
+              - entity: sensor.ble_humidity_czujnik_garaz
+                index: 3
+                show_state: true
+                show_graph: false
+            hour24: true
+            decimals: 1
+            hours_to_show: 24
+            line_width: 2
+            lower_bound_secondary: ~0
+            points_per_hour: 12
+            state_map:
+              - label: 'OFF'
+                value: 'off'
+              - label: Grzeje
+                value: 'on'
+            show:
+              extrema: true
+              graph: line
+              points: true
+              icon: false
+          - type: custom:mini-graph-card
+            animate: true
+            color_thresholds:
+              - color: '#a55eea'
+                value: -6.9
+              - color: '#8854d0'
+                value: -3.9
+              - color: '#3867d6'
+                value: -1.2
+              - color: '#4b7bec'
+                value: 1.6
+              - color: '#2d98da'
+                value: 4.3
+              - color: '#45aaf2'
+                value: 7.1
+              - color: '#0fb9b1'
+                value: 9.9
+              - color: '#2bcbba'
+                value: 12.7
+              - color: '#20bf6b'
+                value: 15.5
+              - color: '#26de81'
+                value: 18.2
+              - color: '#fed330'
+                value: 21
+              - color: '#f7b731'
+                value: 23.8
+              - color: '#fd9644'
+                value: 26.6
+              - color: '#fa8231'
+                value: 29.3
+              - color: '#fc5c65'
+                value: 32.1
+              - color: '#eb3b5a'
+                value: 35.9
+            entities:
+              - entity: sensor.ble_temperature_czujnik_kotlownia
+                name: Kotłownia
+                index: 0
+              - entity: sensor.tempset_kotlownia
+                index: 2
+                show_state: true
+                show_graph: false
+              - aggregate_func: max
+                color: white
+                entity: binary_sensor.co_boiler
+                index: 4
+                show_legend: false
+                show_state: true
+                y_axis: secondary
+                show_line: false
+              - entity: sensor.ble_humidity_czujnik_kotlownia
+                index: 3
+                show_state: true
+                show_graph: false
+            hour24: true
+            decimals: 1
+            hours_to_show: 24
+            line_width: 2
+            lower_bound_secondary: ~0
+            points_per_hour: 12
+            state_map:
+              - label: 'OFF'
+                value: 'off'
+              - label: Grzeje
+                value: 'on'
+            show:
+              extrema: true
+              graph: line
+              points: true
+              icon: false
+          - type: custom:mini-graph-card
+            animate: true
+            color_thresholds:
+              - color: '#a55eea'
+                value: -6.9
+              - color: '#8854d0'
+                value: -3.9
+              - color: '#3867d6'
+                value: -1.2
+              - color: '#4b7bec'
+                value: 1.6
+              - color: '#2d98da'
+                value: 4.3
+              - color: '#45aaf2'
+                value: 7.1
+              - color: '#0fb9b1'
+                value: 9.9
+              - color: '#2bcbba'
+                value: 12.7
+              - color: '#20bf6b'
+                value: 15.5
+              - color: '#26de81'
+                value: 18.2
+              - color: '#fed330'
+                value: 21
+              - color: '#f7b731'
+                value: 23.8
+              - color: '#fd9644'
+                value: 26.6
+              - color: '#fa8231'
+                value: 29.3
+              - color: '#fc5c65'
+                value: 32.1
+              - color: '#eb3b5a'
+                value: 35.9
+            entities:
+              - entity: sensor.ble_temperature_czujnik_lazienka_gorna
+                name: Łazienka
+                index: 0
+              - entity: sensor.vaillant_temp_p1_set
+                index: 2
+                show_state: true
+                show_graph: false
+              - aggregate_func: max
+                color: white
+                entity: binary_sensor.co_pomp_floor_1
+                index: 4
+                show_legend: false
+                show_state: true
+                y_axis: secondary
+                show_line: false
+              - entity: sensor.ble_humidity_czujnik_lazienka_gorna
+                index: 3
+                show_state: true
+                show_graph: false
+            hour24: true
+            decimals: 1
+            hours_to_show: 24
+            line_width: 2
+            lower_bound_secondary: ~0
+            points_per_hour: 12
+            state_map:
+              - label: 'OFF'
+                value: 'off'
+              - label: Grzeje
+                value: 'on'
+            show:
+              extrema: true
+              graph: line
+              points: true
+              icon: false
+          - type: custom:mini-graph-card
+            animate: true
+            color_thresholds:
+              - color: '#a55eea'
+                value: -6.9
+              - color: '#8854d0'
+                value: -3.9
+              - color: '#3867d6'
+                value: -1.2
+              - color: '#4b7bec'
+                value: 1.6
+              - color: '#2d98da'
+                value: 4.3
+              - color: '#45aaf2'
+                value: 7.1
+              - color: '#0fb9b1'
+                value: 9.9
+              - color: '#2bcbba'
+                value: 12.7
+              - color: '#20bf6b'
+                value: 15.5
+              - color: '#26de81'
+                value: 18.2
+              - color: '#fed330'
+                value: 21
+              - color: '#f7b731'
+                value: 23.8
+              - color: '#fd9644'
+                value: 26.6
+              - color: '#fa8231'
+                value: 29.3
+              - color: '#fc5c65'
+                value: 32.1
+              - color: '#eb3b5a'
+                value: 35.9
+            entities:
+              - entity: sensor.ble_temperature_czujnik_julia
+                name: Julia
+                index: 0
+              - entity: sensor.tempset_julia
+                index: 2
+                show_state: true
+                show_graph: false
+              - aggregate_func: max
+                color: white
+                entity: binary_sensor.co_julia
+                index: 4
+                show_legend: false
+                show_state: true
+                y_axis: secondary
+                show_line: false
+              - entity: sensor.ble_humidity_czujnik_julia
+                index: 3
+                show_state: true
+                show_graph: false
+            hour24: true
+            decimals: 1
+            hours_to_show: 24
+            line_width: 2
+            lower_bound_secondary: ~0
+            points_per_hour: 12
+            state_map:
+              - label: 'OFF'
+                value: 'off'
+              - label: Grzeje
+                value: 'on'
+            show:
+              extrema: true
+              graph: line
+              points: true
+              icon: false
+          - type: custom:mini-graph-card
+            animate: true
+            color_thresholds:
+              - color: '#a55eea'
+                value: -6.9
+              - color: '#8854d0'
+                value: -3.9
+              - color: '#3867d6'
+                value: -1.2
+              - color: '#4b7bec'
+                value: 1.6
+              - color: '#2d98da'
+                value: 4.3
+              - color: '#45aaf2'
+                value: 7.1
+              - color: '#0fb9b1'
+                value: 9.9
+              - color: '#2bcbba'
+                value: 12.7
+              - color: '#20bf6b'
+                value: 15.5
+              - color: '#26de81'
+                value: 18.2
+              - color: '#fed330'
+                value: 21
+              - color: '#f7b731'
+                value: 23.8
+              - color: '#fd9644'
+                value: 26.6
+              - color: '#fa8231'
+                value: 29.3
+              - color: '#fc5c65'
+                value: 32.1
+              - color: '#eb3b5a'
+                value: 35.9
+            entities:
+              - entity: sensor.ble_temperature_czujnik_oliwia
+                name: Oliwia
+                index: 0
+              - entity: sensor.tempset_oliwia
+                index: 2
+                show_state: true
+                show_graph: false
+              - aggregate_func: max
+                color: white
+                entity: binary_sensor.co_oliwia
+                index: 4
+                show_legend: false
+                show_state: true
+                y_axis: secondary
+                show_line: false
+              - entity: sensor.ble_humidity_czujnik_oliwia
+                index: 3
+                show_state: true
+                show_graph: false
+            hour24: true
+            decimals: 1
+            hours_to_show: 24
+            line_width: 2
+            lower_bound_secondary: ~0
+            points_per_hour: 12
+            state_map:
+              - label: 'OFF'
+                value: 'off'
+              - label: Grzeje
+                value: 'on'
+            show:
+              extrema: true
+              graph: line
+              points: true
+              icon: false
+          - type: custom:mini-graph-card
+            animate: true
+            color_thresholds:
+              - color: '#a55eea'
+                value: -6.9
+              - color: '#8854d0'
+                value: -3.9
+              - color: '#3867d6'
+                value: -1.2
+              - color: '#4b7bec'
+                value: 1.6
+              - color: '#2d98da'
+                value: 4.3
+              - color: '#45aaf2'
+                value: 7.1
+              - color: '#0fb9b1'
+                value: 9.9
+              - color: '#2bcbba'
+                value: 12.7
+              - color: '#20bf6b'
+                value: 15.5
+              - color: '#26de81'
+                value: 18.2
+              - color: '#fed330'
+                value: 21
+              - color: '#f7b731'
+                value: 23.8
+              - color: '#fd9644'
+                value: 26.6
+              - color: '#fa8231'
+                value: 29.3
+              - color: '#fc5c65'
+                value: 32.1
+              - color: '#eb3b5a'
+                value: 35.9
+            entities:
+              - entity: sensor.badroom_temperature
+                name: Sypialnia
+                index: 0
+              - entity: sensor.tempset_sypialnia
+                index: 2
+                show_state: true
+                show_graph: false
+              - aggregate_func: max
+                color: white
+                entity: binary_sensor.co_badroom
+                index: 4
+                show_legend: false
+                show_state: true
+                y_axis: secondary
+                show_line: false
+              - entity: sensor.badroom_humidity
+                index: 3
+                show_state: true
+                show_graph: false
+            hour24: true
+            decimals: 1
+            hours_to_show: 24
+            line_width: 2
+            lower_bound_secondary: ~0
+            points_per_hour: 12
+            state_map:
+              - label: 'OFF'
+                value: 'off'
+              - label: Grzeje
+                value: 'on'
+            show:
+              extrema: true
+              graph: line
+              points: true
+              icon: false
+          - type: custom:mini-graph-card
+            animate: true
+            color_thresholds:
+              - color: '#a55eea'
+                value: -6.9
+              - color: '#8854d0'
+                value: -3.9
+              - color: '#3867d6'
+                value: -1.2
+              - color: '#4b7bec'
+                value: 1.6
+              - color: '#2d98da'
+                value: 4.3
+              - color: '#45aaf2'
+                value: 7.1
+              - color: '#0fb9b1'
+                value: 9.9
+              - color: '#2bcbba'
+                value: 12.7
+              - color: '#20bf6b'
+                value: 15.5
+              - color: '#26de81'
+                value: 18.2
+              - color: '#fed330'
+                value: 21
+              - color: '#f7b731'
+                value: 23.8
+              - color: '#fd9644'
+                value: 26.6
+              - color: '#fa8231'
+                value: 29.3
+              - color: '#fc5c65'
+                value: 32.1
+              - color: '#eb3b5a'
+                value: 35.9
+            entities:
+              - entity: sensor.ble_temperature_czujnik_biuro
+                name: Biuro
+                index: 0
+              - entity: sensor.tempset_biuro
+                index: 2
+                show_state: true
+                show_graph: false
+              - aggregate_func: max
+                color: white
+                entity: binary_sensor.co_office
+                index: 4
+                show_legend: false
+                show_state: true
+                y_axis: secondary
+                show_line: false
+              - entity: sensor.ble_humidity_czujnik_biuro
+                index: 3
+                show_state: true
+                show_graph: false
+            hour24: true
+            decimals: 1
+            hours_to_show: 24
+            line_width: 2
+            lower_bound_secondary: ~0
+            points_per_hour: 12
+            state_map:
+              - label: 'OFF'
+                value: 'off'
+              - label: Grzeje
+                value: 'on'
+            show:
+              extrema: true
+              graph: line
+              points: true
+              icon: false
+          - type: custom:mini-graph-card
+            animate: true
+            color_thresholds:
+              - color: '#a55eea'
+                value: -6.9
+              - color: '#8854d0'
+                value: -3.9
+              - color: '#3867d6'
+                value: -1.2
+              - color: '#4b7bec'
+                value: 1.6
+              - color: '#2d98da'
+                value: 4.3
+              - color: '#45aaf2'
+                value: 7.1
+              - color: '#0fb9b1'
+                value: 9.9
+              - color: '#2bcbba'
+                value: 12.7
+              - color: '#20bf6b'
+                value: 15.5
+              - color: '#26de81'
+                value: 18.2
+              - color: '#fed330'
+                value: 21
+              - color: '#f7b731'
+                value: 23.8
+              - color: '#fd9644'
+                value: 26.6
+              - color: '#fa8231'
+                value: 29.3
+              - color: '#fc5c65'
+                value: 32.1
+              - color: '#eb3b5a'
+                value: 35.9
+            entities:
+              - entity: sensor.ble_temperature_czujnik_pralnia
+                name: Pralnia
+                index: 0
+              - entity: sensor.tempset_pralnia
+                index: 2
+                show_state: true
+                show_graph: false
+              - aggregate_func: max
+                color: white
+                entity: binary_sensor.co_washroom
+                index: 4
+                show_legend: false
+                show_state: true
+                y_axis: secondary
+                show_line: false
+              - entity: sensor.ble_humidity_czujnik_pralnia
+                index: 3
+                show_state: true
+                show_graph: false
+            hour24: true
+            decimals: 1
+            hours_to_show: 24
+            line_width: 2
+            lower_bound_secondary: ~0
+            points_per_hour: 12
+            state_map:
+              - label: 'OFF'
+                value: 'off'
+              - label: Grzeje
+                value: 'on'
+            show:
+              extrema: true
+              graph: line
+              points: true
+              icon: false
+          - type: custom:mini-graph-card
+            animate: true
+            color_thresholds:
+              - color: '#a55eea'
+                value: -6.9
+              - color: '#8854d0'
+                value: -3.9
+              - color: '#3867d6'
+                value: -1.2
+              - color: '#4b7bec'
+                value: 1.6
+              - color: '#2d98da'
+                value: 4.3
+              - color: '#45aaf2'
+                value: 7.1
+              - color: '#0fb9b1'
+                value: 9.9
+              - color: '#2bcbba'
+                value: 12.7
+              - color: '#20bf6b'
+                value: 15.5
+              - color: '#26de81'
+                value: 18.2
+              - color: '#fed330'
+                value: 21
+              - color: '#f7b731'
+                value: 23.8
+              - color: '#fd9644'
+                value: 26.6
+              - color: '#fa8231'
+                value: 29.3
+              - color: '#fc5c65'
+                value: 32.1
+              - color: '#eb3b5a'
+                value: 35.9
+            entities:
+              - entity: sensor.attic_temperature
+                name: Strych
+                index: 0
+              - entity: sensor.attic_humidity
+                index: 3
+                show_state: true
+                show_graph: false
+            hour24: true
+            decimals: 1
+            hours_to_show: 24
+            line_width: 2
+            lower_bound_secondary: ~0
+            points_per_hour: 12
+            state_map:
+              - label: 'OFF'
+                value: 'off'
+              - label: Grzeje
+                value: 'on'
+            show:
+              extrema: true
+              graph: line
+              points: true
+              icon: false
+        square: false
+        columns: 2
+      - type: grid
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - entity: sensor.temp_zasilanie_p0
+                name: zasilanie
+                color: red
+              - entity: sensor.temp_powrot_p0
+                name: powrót
+                show_state: true
+                show_fill: false
+              - aggregate_func: max
+                color: white
+                entity: binary_sensor.co_pomp_floor_0
+                name: Ogrzewanie
+                show_line: true
+                show_fill: false
+                show_points: false
+                smoothing: true
+                y_axis: secondary
+            hour24: true
+            decimals: 1
+            hours_to_show: 24
+            line_width: 1
+            lower_bound_secondary: ~0
+            points_per_hour: 12
+            show:
+              extrema: true
+              graph: line
+            name: Centralne Ogrzewanie Parter
+            state_map:
+              - label: Wyłączona
+                value: 'off'
+              - label: Włączona
+                value: 'on'
+            update_interval: 1
+          - type: custom:mini-graph-card
+            entities:
+              - entity: sensor.temp_zasilanie_p1
+                name: zasilanie
+                color: red
+              - entity: sensor.temp_powrot_p1
+                name: powrót
+                show_state: true
+                show_fill: false
+              - aggregate_func: max
+                color: white
+                entity: binary_sensor.co_pomp_floor_1
+                name: Ogrzewanie
+                show_line: true
+                show_fill: false
+                show_points: false
+                smoothing: true
+                y_axis: secondary
+            hour24: true
+            decimals: 1
+            hours_to_show: 24
+            line_width: 1
+            lower_bound_secondary: ~0
+            points_per_hour: 12
+            show:
+              extrema: true
+              graph: line
+            name: Centralne Ogrzewanie Piętro
+            state_map:
+              - label: Wyłączona
+                value: 'off'
+              - label: Włączona
+                value: 'on'
+            update_interval: 1
+        columns: 1
+        square: false
   - icon: mdi:cellphone-basic
     path: telefony
     title: Telefony i Tablety
@@ -7966,956 +9056,19 @@ views:
       - user: 4ef97f3e6dc04a4ea74d10b9c44d5598
       - user: 805092647db847c7b49845fa252467b5
       - user: 000e6a0be92643dc8b56799557b36098
+    type: sidebar
     badges: []
     cards:
-      - type: vertical-stack
-        cards:
-          - type: entity
-            entity: device_tracker.telefon_julia
-          - elements:
-              - type: state-label
-                entity: sensor.telefon_julia_poziom_baterii
-                prefix: 🔋
-                style:
-                  color: black
-                  left: 70%
-                  top: 1%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: binary_sensor.telefon_julia_czy_sie_laduje
-                prefix: 🔌
-                style:
-                  color: black
-                  left: 70%
-                  top: 7%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_julia_temperatura_baterii
-                prefix: 🌡️
-                style:
-                  color: black
-                  left: 70%
-                  top: 13%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: binary_sensor.telefon_julia_dane_mobilne
-                prefix: '📶Dane '
-                style:
-                  color: black
-                  left: 70%
-                  top: 25%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: binary_sensor.telefon_julia_stan_wi_fi
-                prefix: '🖧Wifi '
-                style:
-                  color: black
-                  left: 70%
-                  top: 31%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_julia_poziom_glosnosci_alarmu
-                prefix: '🔊Alarm '
-                style:
-                  color: black
-                  left: 70%
-                  top: 37%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_julia_poziom_glosnosci_dzwonka
-                prefix: '🔊Dzwonek '
-                style:
-                  color: black
-                  left: 70%
-                  top: 43%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_julia_poziom_glosnosci_muzyki
-                prefix: '🔊Muzyka '
-                style:
-                  color: black
-                  left: 70%
-                  top: 49%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_julia_aktualna_wersja
-                prefix: '💻 '
-                style:
-                  color: black
-                  left: 70%
-                  top: 55%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_julia_liczba_aktywnych_powiadomien
-                prefix: '⏰️ '
-                style:
-                  color: black
-                  left: 70%
-                  top: 61%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_julia_czas_aktywny_count
-                prefix: '🧮blok: '
-                style:
-                  color: black
-                  left: 70%
-                  top: 72%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_julia_czas_blokady_count
-                prefix: '🧮️aktyw: '
-                style:
-                  color: black
-                  left: 70%
-                  top: 78%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_julia_czas_blokady
-                prefix: '⏱️blok: '
-                style:
-                  color: black
-                  left: 70%
-                  top: 84%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_julia_czas_aktywny
-                prefix: '⏱️aktyw: '
-                style:
-                  color: black
-                  left: 70%
-                  top: 90%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-            image: /local/img/phone_redmi_note_8.jpg
-            type: picture-elements
-          - type: entities
-            entities:
-              - type: custom:fold-entity-row
-                style: |
-                  :host div#items {
-                    margin: 0px 0px 0px -20px;
-                   }
-                head: sensor.telefon_julia_aktualna_wersja
-                group_config:
-                  secondary_info: last-changed
-                entities:
-                  - type: custom:auto-entities
-                    card:
-                      type: entities
-                      state_color: true
-                      secondary_info: last-changed
-                    filter:
-                      include:
-                        - entity_id: '*telefon_julia*'
-                      exclude:
-                        - entity_id: '*_lokalizacja_geokodowana*'
-                    sort:
-                      method: entity_id
-              - type: custom:fold-entity-row
-                style: |
-                  :host div#items {
-                    margin: 0px 0px 0px -20px;
-                   }
-                head:
-                  type: section
-                  label: Aktualny adres
-                entities:
-                  - entity: sensor.telefon_julia_lokalizacja_geokodowana
-            state_color: true
-      - type: vertical-stack
-        cards:
-          - type: entity
-            entity: device_tracker.telefon_oliwia
-          - elements:
-              - type: state-label
-                entity: sensor.telefon_oliwia_poziom_baterii
-                prefix: 🔋
-                style:
-                  color: black
-                  left: 70%
-                  top: 1%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: binary_sensor.telefon_oliwia_czy_sie_laduje
-                prefix: 🔌
-                style:
-                  color: black
-                  left: 70%
-                  top: 7%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_oliwia_temperatura_baterii
-                prefix: 🌡️
-                style:
-                  color: black
-                  left: 70%
-                  top: 13%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: binary_sensor.telefon_oliwia_dane_mobilne
-                prefix: '📶Dane '
-                style:
-                  color: black
-                  left: 70%
-                  top: 25%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: binary_sensor.telefon_oliwia_stan_wi_fi
-                prefix: '🖧Wifi '
-                style:
-                  color: black
-                  left: 70%
-                  top: 31%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_oliwia_poziom_glosnosci_alarmu
-                prefix: '🔊Alarm '
-                style:
-                  color: black
-                  left: 70%
-                  top: 37%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_oliwia_poziom_glosnosci_dzwonka
-                prefix: '🔊Dzwonek '
-                style:
-                  color: black
-                  left: 70%
-                  top: 43%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_oliwia_poziom_glosnosci_muzyki
-                prefix: '🔊Muzyka '
-                style:
-                  color: black
-                  left: 70%
-                  top: 49%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_oliwia_aktualna_wersja
-                prefix: '💻 '
-                style:
-                  color: black
-                  left: 70%
-                  top: 55%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_oliwia_liczba_aktywnych_powiadomien
-                prefix: '⏰️ '
-                style:
-                  color: black
-                  left: 70%
-                  top: 61%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_oliwia_czas_aktywny_count
-                prefix: '🧮blok: '
-                style:
-                  color: black
-                  left: 70%
-                  top: 72%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_oliwia_czas_blokady_count
-                prefix: '🧮️aktyw: '
-                style:
-                  color: black
-                  left: 70%
-                  top: 78%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_oliwia_czas_blokady
-                prefix: '⏱️blok: '
-                style:
-                  color: black
-                  left: 70%
-                  top: 84%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_oliwia_czas_aktywny
-                prefix: '⏱️aktyw: '
-                style:
-                  color: black
-                  left: 70%
-                  top: 90%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-            image: /local/img/phone_redmi_note_9.jpg
-            type: picture-elements
-          - type: entities
-            entities:
-              - type: custom:fold-entity-row
-                style: |
-                  :host div#items {
-                    margin: 0px 0px 0px -20px;
-                   }
-                head: sensor.telefon_oliwia_aktualna_wersja
-                group_config:
-                  secondary_info: last-changed
-                entities:
-                  - type: custom:auto-entities
-                    card:
-                      type: entities
-                      state_color: true
-                      secondary_info: last-changed
-                    filter:
-                      include:
-                        - entity_id: '*telefon_oliwia*'
-                      exclude:
-                        - entity_id: '*_lokalizacja_geokodowana*'
-                    sort:
-                      method: entity_id
-              - type: custom:fold-entity-row
-                style: |
-                  :host div#items {
-                    margin: 0px 0px 0px -20px;
-                   }
-                head:
-                  type: section
-                  label: Aktualny adres
-                entities:
-                  - entity: sensor.telefon_oliwia_lokalizacja_geokodowana
-            state_color: true
-      - type: vertical-stack
-        cards:
-          - type: entity
-            entity: device_tracker.telefon_iwona
-          - elements:
-              - type: state-label
-                entity: sensor.telefon_iwona_poziom_baterii
-                prefix: 🔋
-                style:
-                  color: black
-                  left: 70%
-                  top: 1%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: binary_sensor.telefon_iwona_czy_sie_laduje
-                prefix: 🔌
-                style:
-                  color: black
-                  left: 70%
-                  top: 7%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_iwona_temperatura_baterii
-                prefix: 🌡️
-                style:
-                  color: black
-                  left: 70%
-                  top: 13%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: binary_sensor.telefon_iwona_dane_mobilne
-                prefix: '📶Dane '
-                style:
-                  color: black
-                  left: 70%
-                  top: 25%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: binary_sensor.telefon_iwona_stan_wi_fi
-                prefix: '🖧Wifi '
-                style:
-                  color: black
-                  left: 70%
-                  top: 31%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_iwona_poziom_glosnosci_alarmu
-                prefix: '🔊Alarm '
-                style:
-                  color: black
-                  left: 70%
-                  top: 37%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_iwona_poziom_glosnosci_dzwonka
-                prefix: '🔊Dzwonek '
-                style:
-                  color: black
-                  left: 70%
-                  top: 43%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_iwona_poziom_glosnosci_muzyki
-                prefix: '🔊Muzyka '
-                style:
-                  color: black
-                  left: 70%
-                  top: 49%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_iwona_aktualna_wersja
-                prefix: '💻 '
-                style:
-                  color: black
-                  left: 70%
-                  top: 55%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_iwona_liczba_aktywnych_powiadomien
-                prefix: '⏰️ '
-                style:
-                  color: black
-                  left: 70%
-                  top: 61%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_iwona_czas_aktywny_count
-                prefix: '🧮blok: '
-                style:
-                  color: black
-                  left: 70%
-                  top: 72%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_iwona_czas_blokady_count
-                prefix: '🧮️aktyw: '
-                style:
-                  color: black
-                  left: 70%
-                  top: 78%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_iwona_czas_blokady
-                prefix: '⏱️blok: '
-                style:
-                  color: black
-                  left: 70%
-                  top: 84%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_iwona_czas_aktywny
-                prefix: '⏱️aktyw: '
-                style:
-                  color: black
-                  left: 70%
-                  top: 90%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-            image: /local/img/phone_redmi_note_10_lite.jpg
-            type: picture-elements
-          - type: entities
-            entities:
-              - type: custom:fold-entity-row
-                style: |
-                  :host div#items {
-                    margin: 0px 0px 0px -20px;
-                   }
-                head: sensor.telefon_iwona_aktualna_wersja
-                group_config:
-                  secondary_info: last-changed
-                entities:
-                  - type: custom:auto-entities
-                    card:
-                      type: entities
-                      state_color: true
-                      secondary_info: last-changed
-                    filter:
-                      include:
-                        - entity_id: '*telefon_iwona*'
-                      exclude:
-                        - entity_id: '*_lokalizacja_geokodowana*'
-                    sort:
-                      method: entity_id
-              - type: custom:fold-entity-row
-                style: |
-                  :host div#items {
-                    margin: 0px 0px 0px -20px;
-                   }
-                head:
-                  type: section
-                  label: Aktualny adres
-                entities:
-                  - entity: sensor.telefon_iwona_lokalizacja_geokodowana
-            state_color: true
-      - type: vertical-stack
-        cards:
-          - type: entity
-            entity: device_tracker.telefon_marcin
-          - elements:
-              - type: state-label
-                entity: sensor.telefon_marcin_poziom_baterii
-                prefix: 🔋
-                style:
-                  color: black
-                  left: 70%
-                  top: 1%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: binary_sensor.telefon_marcin_czy_sie_laduje
-                prefix: 🔌
-                style:
-                  color: black
-                  left: 70%
-                  top: 7%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_marcin_temperatura_baterii
-                prefix: 🌡️
-                style:
-                  color: black
-                  left: 70%
-                  top: 13%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: binary_sensor.telefon_marcin_dane_mobilne
-                prefix: '📶Dane '
-                style:
-                  color: black
-                  left: 70%
-                  top: 25%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: binary_sensor.telefon_marcin_stan_wi_fi
-                prefix: '🖧Wifi '
-                style:
-                  color: black
-                  left: 70%
-                  top: 31%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_marcin_poziom_glosnosci_alarmu
-                prefix: '🔊Alarm '
-                style:
-                  color: black
-                  left: 70%
-                  top: 37%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_marcin_poziom_glosnosci_dzwonka
-                prefix: '🔊Dzwonek '
-                style:
-                  color: black
-                  left: 70%
-                  top: 43%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_marcin_poziom_glosnosci_muzyki
-                prefix: '🔊Muzyka '
-                style:
-                  color: black
-                  left: 70%
-                  top: 49%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_marcin_aktualna_wersja
-                prefix: '💻 '
-                style:
-                  color: black
-                  left: 70%
-                  top: 55%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_marcin_liczba_aktywnych_powiadomien
-                prefix: '⏰ '
-                style:
-                  color: black
-                  left: 70%
-                  top: 61%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_marcin_czas_aktywny_count
-                prefix: '🧮blok: '
-                style:
-                  color: black
-                  left: 70%
-                  top: 72%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_marcin_czas_blokady_count
-                prefix: '🧮️aktyw: '
-                style:
-                  color: black
-                  left: 70%
-                  top: 78%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_marcin_czas_blokady
-                prefix: '⏱️blok: '
-                style:
-                  color: black
-                  left: 70%
-                  top: 84%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.telefon_marcin_czas_aktywny
-                prefix: '⏱️aktyw: '
-                style:
-                  color: black
-                  left: 70%
-                  top: 90%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-            image: /local/img/phone_realme_7_pro.jpg
-            type: picture-elements
-          - type: entities
-            entities:
-              - type: custom:fold-entity-row
-                style: |
-                  :host div#items {
-                    margin: 0px 0px 0px -20px;
-                   }
-                head: sensor.telefon_marcin_aktualna_wersja
-                group_config:
-                  secondary_info: last-changed
-                entities:
-                  - type: custom:auto-entities
-                    card:
-                      type: entities
-                      state_color: true
-                      secondary_info: last-changed
-                    filter:
-                      include:
-                        - entity_id: '*telefon_marcin*'
-                      exclude:
-                        - entity_id: '*_lokalizacja_geokodowana*'
-                    sort:
-                      method: entity_id
-              - type: custom:fold-entity-row
-                style: |
-                  :host div#items {
-                    margin: 0px 0px 0px -20px;
-                   }
-                head:
-                  type: section
-                  label: Aktualny adres
-                entities:
-                  - entity: sensor.telefon_marcin_lokalizacja_geokodowana
-            state_color: true
-      - type: vertical-stack
-        cards:
-          - type: entity
-            entity: device_tracker.tablet_marcin
-          - elements:
-              - type: state-label
-                entity: sensor.tablet_marcin_poziom_baterii
-                prefix: 🔋
-                style:
-                  color: black
-                  left: 70%
-                  top: 1%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.tablet_marcin_temperatura_baterii
-                prefix: 🌡️
-                style:
-                  color: black
-                  left: 70%
-                  top: 7%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.tablet_marcin_lokalizacja_geokodowana
-                prefix: 🗺️
-                style:
-                  color: black
-                  left: 70%
-                  top: 13%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: binary_sensor.tablet_marcin_czy_sie_laduje
-                prefix: 🔋
-                style:
-                  color: black
-                  left: 70%
-                  top: 19%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: binary_sensor.tablet_marcin_dane_mobilne
-                prefix: '📶Dane '
-                style:
-                  color: black
-                  left: 70%
-                  top: 25%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: binary_sensor.tablet_marcin_stan_wi_fi
-                prefix: '🖧Wifi '
-                style:
-                  color: black
-                  left: 70%
-                  top: 31%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.tablet_marcin_poziom_glosnosci_alarmu
-                prefix: '🔊Alarm '
-                style:
-                  color: black
-                  left: 70%
-                  top: 37%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.tablet_marcin_poziom_glosnosci_dzwonka
-                prefix: '🔊Dzwonek '
-                style:
-                  color: black
-                  left: 70%
-                  top: 43%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.tablet_marcin_poziom_glosnosci_muzyki
-                prefix: '🔊Muzyka '
-                style:
-                  color: black
-                  left: 70%
-                  top: 49%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.tablet_marcin_aktualna_wersja
-                prefix: '💻 '
-                style:
-                  color: black
-                  left: 70%
-                  top: 55%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.tablet_marcin_liczba_aktywnych_powiadomien
-                prefix: '⚠️ '
-                style:
-                  color: black
-                  left: 70%
-                  top: 61%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-            image: /local/img/tablet_huawei_mediapad_m5_10_lte.jpg
-            type: picture-elements
-          - type: entities
-            entities:
-              - type: custom:fold-entity-row
-                style: |
-                  :host div#items {
-                    margin: 0px 0px 0px -20px;
-                   }
-                head: sensor.tablet_plc_aktualna_wersja
-                group_config:
-                  secondary_info: last-changed
-                entities:
-                  - type: custom:auto-entities
-                    card:
-                      type: entities
-                      state_color: true
-                      secondary_info: last-changed
-                    filter:
-                      include:
-                        - entity_id: '*tablet_plc*'
-                      exclude:
-                        - entity_id: '*_lokalizacja_geokodowana*'
-                    sort:
-                      method: entity_id
-              - type: custom:fold-entity-row
-                style: |
-                  :host div#items {
-                    margin: 0px 0px 0px -20px;
-                   }
-                head:
-                  type: section
-                  label: Aktualny adres
-                entities:
-                  - entity: sensor.tablet_plc_lokalizacja_geokodowana
-            state_color: true
-      - type: vertical-stack
-        cards:
-          - type: entity
-            entity: device_tracker.tablet_plc
-          - elements:
-              - type: state-label
-                entity: sensor.tablet_plc_battery_level
-                prefix: 🔋
-                style:
-                  color: black
-                  left: 70%
-                  top: 1%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.tablet_plc_temperatura_baterii
-                prefix: 🌡️
-                style:
-                  color: black
-                  left: 70%
-                  top: 7%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.tablet_plc_geocoded_location
-                prefix: 🗺️
-                style:
-                  color: black
-                  left: 70%
-                  top: 13%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: binary_sensor.tablet_plc_czy_sie_laduje
-                prefix: 🔋
-                style:
-                  color: black
-                  left: 70%
-                  top: 19%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: binary_sensor.tablet_plc_dane_mobilne
-                prefix: '📶Dane '
-                style:
-                  color: black
-                  left: 70%
-                  top: 25%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: binary_sensor.tablet_plc_stan_wi_fi
-                prefix: '🖧Wifi '
-                style:
-                  color: black
-                  left: 70%
-                  top: 31%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.tablet_plc_poziom_glosnosci_alarmu
-                prefix: '🔊Alarm '
-                style:
-                  color: black
-                  left: 70%
-                  top: 37%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.tablet_plc_poziom_glosnosci_dzwonka
-                prefix: '🔊Dzwonek '
-                style:
-                  color: black
-                  left: 70%
-                  top: 43%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.tablet_plc_poziom_glosnosci_muzyki
-                prefix: '🔊Muzyka '
-                style:
-                  color: black
-                  left: 70%
-                  top: 49%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.tablet_plc_aktualna_wersja
-                prefix: '💻 '
-                style:
-                  color: black
-                  left: 70%
-                  top: 55%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-              - type: state-label
-                entity: sensor.tablet_plc_liczba_aktywnych_powiadomien
-                prefix: '⚠️ '
-                style:
-                  color: black
-                  left: 70%
-                  top: 61%
-                  transform: translate(0%,0%)
-                  front-size: 0.84vw
-            image: /local/img/tablet_huawei_mediapad_m5_lite_10_wifi.jpg
-            type: picture-elements
-          - type: entities
-            entities:
-              - type: custom:fold-entity-row
-                style: |
-                  :host div#items {
-                    margin: 0px 0px 0px -20px;
-                   }
-                head: sensor.tablet_plc_aktualna_wersja
-                group_config:
-                  secondary_info: last-changed
-                entities:
-                  - type: custom:auto-entities
-                    card:
-                      type: entities
-                      state_color: true
-                      secondary_info: last-changed
-                    filter:
-                      include:
-                        - entity_id: '*tablet_plc*'
-                      exclude:
-                        - entity_id: '*_lokalizacja_geokodowana*'
-                    sort:
-                      method: entity_id
-              - type: custom:fold-entity-row
-                style: |
-                  :host div#items {
-                    margin: 0px 0px 0px -20px;
-                   }
-                head:
-                  type: section
-                  label: Aktualny adres
-                entities:
-                  - entity: sensor.tablet_plc_lokalizacja_geokodowana
-            state_color: true
+      - dark_mode: true
+        entities:
+          - entity: device_tracker.telefon_marcin
+          - entity: device_tracker.telefon_iwona
+          - entity: device_tracker.telefon_julia_2
+          - entity: device_tracker.telefon_oliwia
+        hours_to_show: 0
+        type: map
+        view_layout:
+          position: sidebar
       - type: custom:mini-graph-card
         entities:
           - entity: sensor.telefon_marcin_poziom_baterii
@@ -8949,14 +9102,20 @@ views:
           points: false
         name: Poziomy baterii
         update_interval: 1
-      - dark_mode: true
+        view_layout:
+          position: sidebar
+      - type: entities
         entities:
-          - entity: device_tracker.telefon_marcin
-          - entity: device_tracker.telefon_iwona
-          - entity: device_tracker.telefon_julia_2
-          - entity: device_tracker.telefon_oliwia
-        hours_to_show: 0
-        type: map
+          - entity: sensor.telefon_oliwia_ostatnie_powiadomienie
+            name: Oliwia
+          - entity: sensor.telefon_julia_ostatnie_powiadomienie
+            name: Julia
+          - entity: sensor.telefon_iwona_ostatnie_powiadomienie
+            name: Iwona
+          - entity: sensor.telefon_marcin_ostatnie_powiadomienie
+            name: Marcin
+        view_layout:
+          position: sidebar
       - type: custom:mini-graph-card
         entities:
           - entity: sensor.telefon_marcin_czas_blokady_time
@@ -8990,6 +9149,8 @@ views:
           points: false
         name: Czas aktywnego telefonu
         update_interval: 1
+        view_layout:
+          position: sidebar
       - type: custom:mini-graph-card
         entities:
           - entity: sensor.telefon_marcin_czas_aktywny_time
@@ -9023,14 +9184,941 @@ views:
           points: false
         name: Czas używania telefonu
         update_interval: 1
-      - type: custom:auto-entities
-        card:
-          type: entities
-        filter:
-          include:
-            - entity_id: '*ostatnie_powiadomienie'
-          exclude:
-            - entity_id: '*plc*'
+        view_layout:
+          position: sidebar
+      - type: grid
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: entity
+                entity: device_tracker.telefon_julia
+              - elements:
+                  - type: state-label
+                    entity: sensor.telefon_julia_poziom_baterii
+                    prefix: 🔋
+                    style:
+                      color: black
+                      left: 70%
+                      top: 1%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: binary_sensor.telefon_julia_czy_sie_laduje
+                    prefix: 🔌
+                    style:
+                      color: black
+                      left: 70%
+                      top: 7%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_julia_temperatura_baterii
+                    prefix: 🌡️
+                    style:
+                      color: black
+                      left: 70%
+                      top: 13%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: binary_sensor.telefon_julia_dane_mobilne
+                    prefix: '📶Dane '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 25%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: binary_sensor.telefon_julia_stan_wi_fi
+                    prefix: '🖧Wifi '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 31%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_julia_poziom_glosnosci_alarmu
+                    prefix: '🔊Alarm '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 37%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_julia_poziom_glosnosci_dzwonka
+                    prefix: '🔊Dzwonek '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 43%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_julia_poziom_glosnosci_muzyki
+                    prefix: '🔊Muzyka '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 49%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_julia_aktualna_wersja
+                    prefix: '💻 '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 55%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_julia_liczba_aktywnych_powiadomien
+                    prefix: '⏰️ '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 61%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_julia_czas_aktywny_count
+                    prefix: '🧮blok: '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 72%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_julia_czas_blokady_count
+                    prefix: '🧮️aktyw: '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 78%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_julia_czas_blokady
+                    prefix: '⏱️blok: '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 84%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_julia_czas_aktywny
+                    prefix: '⏱️aktyw: '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 90%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                image: /local/img/phone_redmi_note_8.jpg
+                type: picture-elements
+              - type: entities
+                entities:
+                  - type: custom:fold-entity-row
+                    style: |
+                      :host div#items {
+                        margin: 0px 0px 0px -20px;
+                       }
+                    head: sensor.telefon_julia_aktualna_wersja
+                    group_config:
+                      secondary_info: last-changed
+                    entities:
+                      - type: custom:auto-entities
+                        card:
+                          type: entities
+                          state_color: true
+                          secondary_info: last-changed
+                        filter:
+                          include:
+                            - entity_id: '*telefon_julia*'
+                          exclude:
+                            - entity_id: '*_lokalizacja_geokodowana*'
+                        sort:
+                          method: entity_id
+                  - type: custom:fold-entity-row
+                    style: |
+                      :host div#items {
+                        margin: 0px 0px 0px -20px;
+                       }
+                    head:
+                      type: section
+                      label: Aktualny adres
+                    entities:
+                      - entity: sensor.telefon_julia_lokalizacja_geokodowana
+                state_color: true
+          - type: vertical-stack
+            cards:
+              - type: entity
+                entity: device_tracker.telefon_oliwia
+              - elements:
+                  - type: state-label
+                    entity: sensor.telefon_oliwia_poziom_baterii
+                    prefix: 🔋
+                    style:
+                      color: black
+                      left: 70%
+                      top: 1%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: binary_sensor.telefon_oliwia_czy_sie_laduje
+                    prefix: 🔌
+                    style:
+                      color: black
+                      left: 70%
+                      top: 7%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_oliwia_temperatura_baterii
+                    prefix: 🌡️
+                    style:
+                      color: black
+                      left: 70%
+                      top: 13%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: binary_sensor.telefon_oliwia_dane_mobilne
+                    prefix: '📶Dane '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 25%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: binary_sensor.telefon_oliwia_stan_wi_fi
+                    prefix: '🖧Wifi '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 31%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_oliwia_poziom_glosnosci_alarmu
+                    prefix: '🔊Alarm '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 37%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_oliwia_poziom_glosnosci_dzwonka
+                    prefix: '🔊Dzwonek '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 43%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_oliwia_poziom_glosnosci_muzyki
+                    prefix: '🔊Muzyka '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 49%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_oliwia_aktualna_wersja
+                    prefix: '💻 '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 55%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_oliwia_liczba_aktywnych_powiadomien
+                    prefix: '⏰️ '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 61%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_oliwia_czas_aktywny_count
+                    prefix: '🧮blok: '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 72%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_oliwia_czas_blokady_count
+                    prefix: '🧮️aktyw: '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 78%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_oliwia_czas_blokady
+                    prefix: '⏱️blok: '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 84%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_oliwia_czas_aktywny
+                    prefix: '⏱️aktyw: '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 90%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                image: /local/img/phone_redmi_note_9.jpg
+                type: picture-elements
+              - type: entities
+                entities:
+                  - type: custom:fold-entity-row
+                    style: |
+                      :host div#items {
+                        margin: 0px 0px 0px -20px;
+                       }
+                    head: sensor.telefon_oliwia_aktualna_wersja
+                    group_config:
+                      secondary_info: last-changed
+                    entities:
+                      - type: custom:auto-entities
+                        card:
+                          type: entities
+                          state_color: true
+                          secondary_info: last-changed
+                        filter:
+                          include:
+                            - entity_id: '*telefon_oliwia*'
+                          exclude:
+                            - entity_id: '*_lokalizacja_geokodowana*'
+                        sort:
+                          method: entity_id
+                  - type: custom:fold-entity-row
+                    style: |
+                      :host div#items {
+                        margin: 0px 0px 0px -20px;
+                       }
+                    head:
+                      type: section
+                      label: Aktualny adres
+                    entities:
+                      - entity: sensor.telefon_oliwia_lokalizacja_geokodowana
+                state_color: true
+          - type: vertical-stack
+            cards:
+              - type: entity
+                entity: device_tracker.telefon_iwona
+              - elements:
+                  - type: state-label
+                    entity: sensor.telefon_iwona_poziom_baterii
+                    prefix: 🔋
+                    style:
+                      color: black
+                      left: 70%
+                      top: 1%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: binary_sensor.telefon_iwona_czy_sie_laduje
+                    prefix: 🔌
+                    style:
+                      color: black
+                      left: 70%
+                      top: 7%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_iwona_temperatura_baterii
+                    prefix: 🌡️
+                    style:
+                      color: black
+                      left: 70%
+                      top: 13%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: binary_sensor.telefon_iwona_dane_mobilne
+                    prefix: '📶Dane '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 25%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: binary_sensor.telefon_iwona_stan_wi_fi
+                    prefix: '🖧Wifi '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 31%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_iwona_poziom_glosnosci_alarmu
+                    prefix: '🔊Alarm '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 37%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_iwona_poziom_glosnosci_dzwonka
+                    prefix: '🔊Dzwonek '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 43%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_iwona_poziom_glosnosci_muzyki
+                    prefix: '🔊Muzyka '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 49%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_iwona_aktualna_wersja
+                    prefix: '💻 '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 55%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_iwona_liczba_aktywnych_powiadomien
+                    prefix: '⏰️ '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 61%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_iwona_czas_aktywny_count
+                    prefix: '🧮blok: '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 72%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_iwona_czas_blokady_count
+                    prefix: '🧮️aktyw: '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 78%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_iwona_czas_blokady
+                    prefix: '⏱️blok: '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 84%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_iwona_czas_aktywny
+                    prefix: '⏱️aktyw: '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 90%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                image: /local/img/phone_redmi_note_10_lite.jpg
+                type: picture-elements
+              - type: entities
+                entities:
+                  - type: custom:fold-entity-row
+                    style: |
+                      :host div#items {
+                        margin: 0px 0px 0px -20px;
+                       }
+                    head: sensor.telefon_iwona_aktualna_wersja
+                    group_config:
+                      secondary_info: last-changed
+                    entities:
+                      - type: custom:auto-entities
+                        card:
+                          type: entities
+                          state_color: true
+                          secondary_info: last-changed
+                        filter:
+                          include:
+                            - entity_id: '*telefon_iwona*'
+                          exclude:
+                            - entity_id: '*_lokalizacja_geokodowana*'
+                        sort:
+                          method: entity_id
+                  - type: custom:fold-entity-row
+                    style: |
+                      :host div#items {
+                        margin: 0px 0px 0px -20px;
+                       }
+                    head:
+                      type: section
+                      label: Aktualny adres
+                    entities:
+                      - entity: sensor.telefon_iwona_lokalizacja_geokodowana
+                state_color: true
+          - type: vertical-stack
+            cards:
+              - type: entity
+                entity: device_tracker.telefon_marcin
+              - elements:
+                  - type: state-label
+                    entity: sensor.telefon_marcin_poziom_baterii
+                    prefix: 🔋
+                    style:
+                      color: black
+                      left: 70%
+                      top: 1%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: binary_sensor.telefon_marcin_czy_sie_laduje
+                    prefix: 🔌
+                    style:
+                      color: black
+                      left: 70%
+                      top: 7%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_marcin_temperatura_baterii
+                    prefix: 🌡️
+                    style:
+                      color: black
+                      left: 70%
+                      top: 13%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: binary_sensor.telefon_marcin_dane_mobilne
+                    prefix: '📶Dane '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 25%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: binary_sensor.telefon_marcin_stan_wi_fi
+                    prefix: '🖧Wifi '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 31%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_marcin_poziom_glosnosci_alarmu
+                    prefix: '🔊Alarm '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 37%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_marcin_poziom_glosnosci_dzwonka
+                    prefix: '🔊Dzwonek '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 43%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_marcin_poziom_glosnosci_muzyki
+                    prefix: '🔊Muzyka '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 49%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_marcin_aktualna_wersja
+                    prefix: '💻 '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 55%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_marcin_liczba_aktywnych_powiadomien
+                    prefix: '⏰ '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 61%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_marcin_czas_aktywny_count
+                    prefix: '🧮blok: '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 72%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_marcin_czas_blokady_count
+                    prefix: '🧮️aktyw: '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 78%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_marcin_czas_blokady
+                    prefix: '⏱️blok: '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 84%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.telefon_marcin_czas_aktywny
+                    prefix: '⏱️aktyw: '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 90%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                image: /local/img/phone_realme_7_pro.jpg
+                type: picture-elements
+              - type: entities
+                entities:
+                  - type: custom:fold-entity-row
+                    style: |
+                      :host div#items {
+                        margin: 0px 0px 0px -20px;
+                       }
+                    head: sensor.telefon_marcin_aktualna_wersja
+                    group_config:
+                      secondary_info: last-changed
+                    entities:
+                      - type: custom:auto-entities
+                        card:
+                          type: entities
+                          state_color: true
+                          secondary_info: last-changed
+                        filter:
+                          include:
+                            - entity_id: '*telefon_marcin*'
+                          exclude:
+                            - entity_id: '*_lokalizacja_geokodowana*'
+                        sort:
+                          method: entity_id
+                  - type: custom:fold-entity-row
+                    style: |
+                      :host div#items {
+                        margin: 0px 0px 0px -20px;
+                       }
+                    head:
+                      type: section
+                      label: Aktualny adres
+                    entities:
+                      - entity: sensor.telefon_marcin_lokalizacja_geokodowana
+                state_color: true
+          - type: vertical-stack
+            cards:
+              - type: entity
+                entity: device_tracker.tablet_plc
+              - elements:
+                  - type: state-label
+                    entity: sensor.tablet_plc_poziom_baterii
+                    prefix: 🔋
+                    style:
+                      color: black
+                      left: 70%
+                      top: 1%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: binary_sensor.tablet_plc_czy_sie_laduje
+                    prefix: 🔌
+                    style:
+                      color: black
+                      left: 70%
+                      top: 7%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.tablet_plc_temperatura_baterii
+                    prefix: 🌡️
+                    style:
+                      color: black
+                      left: 70%
+                      top: 13%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: binary_sensor.tablet_plc_dane_mobilne
+                    prefix: '📶Dane '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 25%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: binary_sensor.tablet_plc_stan_wi_fi
+                    prefix: '🖧Wifi '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 31%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.tablet_plc_poziom_glosnosci_alarmu
+                    prefix: '🔊Alarm '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 37%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.tablet_plc_poziom_glosnosci_dzwonka
+                    prefix: '🔊Dzwonek '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 43%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.tablet_plc_poziom_glosnosci_muzyki
+                    prefix: '🔊Muzyka '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 49%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.tablet_plc_aktualna_wersja
+                    prefix: '💻 '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 55%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.tablet_plc_liczba_aktywnych_powiadomien
+                    prefix: '⏰️ '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 61%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                image: /local/img/tablet_huawei_mediapad_m5_lite_10_wifi.jpg
+                type: picture-elements
+              - type: entities
+                entities:
+                  - type: custom:fold-entity-row
+                    style: |
+                      :host div#items {
+                        margin: 0px 0px 0px -20px;
+                       }
+                    head: sensor.tablet_plc_aktualna_wersja
+                    group_config:
+                      secondary_info: last-changed
+                    entities:
+                      - type: custom:auto-entities
+                        card:
+                          type: entities
+                          state_color: true
+                          secondary_info: last-changed
+                        filter:
+                          include:
+                            - entity_id: '*tablet_plc*'
+                          exclude:
+                            - entity_id: '*_lokalizacja_geokodowana*'
+                        sort:
+                          method: entity_id
+                  - type: custom:fold-entity-row
+                    style: |
+                      :host div#items {
+                        margin: 0px 0px 0px -20px;
+                       }
+                    head:
+                      type: section
+                      label: Aktualny adres
+                    entities:
+                      - entity: sensor.tablet_plc_lokalizacja_geokodowana
+                state_color: true
+          - type: vertical-stack
+            cards:
+              - type: entity
+                entity: device_tracker.tablet_marcin
+              - elements:
+                  - type: state-label
+                    entity: sensor.tablet_marcin_battery_level
+                    prefix: 🔋
+                    style:
+                      color: black
+                      left: 70%
+                      top: 1%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: binary_sensor.tablet_marcin_is_charging
+                    prefix: 🔌
+                    style:
+                      color: black
+                      left: 70%
+                      top: 7%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.tablet_marcin_battery_temperature
+                    prefix: 🌡️
+                    style:
+                      color: black
+                      left: 70%
+                      top: 13%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: binary_sensor.tablet_marcin_mobile_data
+                    prefix: '📶Dane '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 25%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: binary_sensor.tablet_marcin_wifi_state
+                    prefix: '🖧Wifi '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 31%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.tablet_marcin_volume_level_alarm
+                    prefix: '🔊Alarm '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 37%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.tablet_marcin_volume_level_ringer
+                    prefix: '🔊Dzwonek '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 43%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.tablet_marcin_volume_level_music
+                    prefix: '🔊Muzyka '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 49%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.tablet_marcin_current_version
+                    prefix: '💻 '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 55%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                  - type: state-label
+                    entity: sensor.tablet_marcin_active_notification_count
+                    prefix: '⏰️ '
+                    style:
+                      color: black
+                      left: 70%
+                      top: 61%
+                      transform: translate(0%,0%)
+                      front-size: 0.84vw
+                image: /local/img/tablet_huawei_mediapad_m5_10_lte.jpg
+                type: picture-elements
+              - type: entities
+                entities:
+                  - type: custom:fold-entity-row
+                    style: |
+                      :host div#items {
+                        margin: 0px 0px 0px -20px;
+                       }
+                    head: sensor.tablet_marcin_current_version
+                    group_config:
+                      secondary_info: last-changed
+                    entities:
+                      - type: custom:auto-entities
+                        card:
+                          type: entities
+                          state_color: true
+                          secondary_info: last-changed
+                        filter:
+                          include:
+                            - entity_id: '*tablet_marcin*'
+                          exclude:
+                            - entity_id: '*_lokalizacja_geokodowana*'
+                        sort:
+                          method: entity_id
+                  - type: custom:fold-entity-row
+                    style: |
+                      :host div#items {
+                        margin: 0px 0px 0px -20px;
+                       }
+                    head:
+                      type: section
+                      label: Aktualny adres
+                    entities:
+                      - entity: sensor.tablet_marcin_geocoded_location
+                state_color: true
+        square: false
   - icon: mdi:desk
     path: biuro
     title: Biuro
@@ -9424,14 +10512,14 @@ views:
                 name: Zablokowane filtry
             state_color: true
         type: vertical-stack
-      - entities:
-          - entity: sensor.dcp_t510w_status
-          - entity: sensor.dcp_t510w_b_w_counter
-          - entity: sensor.dcp_t510w_color_counter
-          - entity: sensor.dcp_t510w_page_counter
-          - entity: sensor.dcp_t510w_uptime
-        title: Zużycie drukarki
-        type: entities
+      - type: custom:auto-entities
+        card:
+          type: entities
+          title: Drukarka Brother
+        filter:
+          include:
+            - entity_id: '*dcp_*'
+          exclude: []
   - icon: mdi:calendar-month
     path: kalendarz
     title: kalendarz
