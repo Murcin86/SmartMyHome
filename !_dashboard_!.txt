@@ -4,12 +4,6 @@ views:
     path: default_view
     title: Home
     visible:
-      - user: 000e6a0be92643dc8b56799557b36098
-      - user: 8cef7abca7484458803fc5cb8861fa3a
-      - user: c84cbe7abef9425d9b1632e1f2760da6
-      - user: 4ef97f3e6dc04a4ea74d10b9c44d5598
-      - user: 805092647db847c7b49845fa252467b5
-      - user: f05478cf3aac4fb5a53c97c3bf8577f4
     theme: ''
     badges: []
     cards:
