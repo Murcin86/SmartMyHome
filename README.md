@@ -16,11 +16,11 @@ Zainstalowane dodatki:
 oraz nierozłączne HACS:
 ![image](https://user-images.githubusercontent.com/95655881/153396904-47f0c1e6-a621-4a7d-952b-086d285376bb.png)
 ![image](https://user-images.githubusercontent.com/95655881/153396956-c3cda1af-cf0d-4e1e-919a-ed56761f997a.png)
-**![image](https://user-images.githubusercontent.com/95655881/145274532-12b410f4-eb08-49c3-a1e5-946ef9cb9e07.png)
-**
+![image](https://user-images.githubusercontent.com/95655881/145274532-12b410f4-eb08-49c3-a1e5-946ef9cb9e07.png)
 
 
-poniżej filmik na youtube z pokazaniem całego dashboardu:
+
+poniżej filmik na youtube z pokazaniem całego dashboardu - już niedługo będzie nowszy :)
 https://www.youtube.com/watch?v=I4_ygZ_jMbM
 
 a tak wygląda rozdzielnica na parterze.... Duża 144p dla sterownika PLC + sterowanie 230v, druga obok sterowanie 24V oraz multimedialna
