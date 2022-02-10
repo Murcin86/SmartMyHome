@@ -14,10 +14,10 @@ Zainstalowane dodatki:
 
 
 oraz nierozłączne HACS:
-![image](https://user-images.githubusercontent.com/95655881/145274460-6c534519-0e3a-4276-a613-51ac7dda1aa1.png)
-![image](https://user-images.githubusercontent.com/95655881/145274505-02d948d8-ac6b-4a2f-9f90-7129fac79f55.png)
-![image](https://user-images.githubusercontent.com/95655881/145274532-12b410f4-eb08-49c3-a1e5-946ef9cb9e07.png)
-
+![image](https://user-images.githubusercontent.com/95655881/153396904-47f0c1e6-a621-4a7d-952b-086d285376bb.png)
+![image](https://user-images.githubusercontent.com/95655881/153396956-c3cda1af-cf0d-4e1e-919a-ed56761f997a.png)
+**![image](https://user-images.githubusercontent.com/95655881/145274532-12b410f4-eb08-49c3-a1e5-946ef9cb9e07.png)
+**
 
 
 poniżej filmik na youtube z pokazaniem całego dashboardu:
