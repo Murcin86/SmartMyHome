@@ -1,6 +1,0 @@
-
-######################## OGRZEWANIE PODŁOGOWE ########################
-
-  - platform: ads
-    name: Reset minmax temp
-    adsvar: P_BOILER.tminmax_reset

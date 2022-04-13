@@ -1,7 +1,0 @@
-
-- platform: rest
-  name: Teams_status
-  value_template: "{{value_json.availability}}"
-  resource: https://graph.microsoft.com/beta/me/presence
-  headers:
-    Authorization: !secret teams_token
