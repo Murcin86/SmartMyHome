@@ -1,71 +1,65 @@
 
+
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
-automation:         !include automations.yaml
-automation spit:    !include_dir_list ./configuration/automations
-binary_sensor:      !include_dir_merge_list ./configuration/binary_sensors
-climate:            !include ./configuration/climate.yaml
-cover:              !include_dir_merge_list ./configuration/covers
-group:              !include ./configuration/groups.yaml
-light:              !include_dir_merge_list ./configuration/lights
-script:             !include_dir_merge_named ./configuration/scripts
-scene:              !include ./configuration/scenes.yaml
-sensor:             !include_dir_merge_list ./configuration/sensors
-switch:             !include_dir_merge_list ./configuration/switches
-template:           !include_dir_merge_list ./configuration/template
+automation:             !include automations.yaml
+automation spit:        !include_dir_list ./configuration/automations
+binary_sensor:          !include_dir_merge_list ./configuration/binary_sensors
+#climate:                !include ./configuration/climate.yaml
+cover:                  !include_dir_merge_list ./configuration/covers
+group:                  !include ./configuration/groups.yaml
+light:                  !include_dir_merge_list ./configuration/lights
+script:                 !include_dir_merge_named ./configuration/scripts
+scene:                  !include ./configuration/scenes.yaml
+sensor:                 !include_dir_merge_list ./configuration/sensors
+switch:                 !include_dir_merge_list ./configuration/switches
+template:               !include_dir_merge_list ./configuration/template
 
-camera:             !include ./configuration/camera.yaml
-google_assistant:   !include google_assistant.yaml
-input_number:       !include_dir_merge_named ./configuration/input_number
-input_select:       !include_dir_named ./configuration/input_select
-recorder:           !include ./configuration/recorder.yaml
-sensor system:      !include ./configuration/system_sensor.yaml
+camera:                 !include ./configuration/kamery.yaml
+google_assistant:       !include google_assistant.yaml
+input_number:           !include_dir_merge_named ./configuration/input_number
+input_select:           !include_dir_named ./configuration/input_select
+recorder:               !include ./configuration/recorder.yaml
+influxdb:               !include ./configuration/influxdb.yaml
+sensor system:          !include ./configuration/system_sensor.yaml
 
 ######################################## THEME ########################################
 frontend:
-  themes:           !include_dir_merge_named themes/ 
+  themes:               !include_dir_merge_named themes/ 
+lovelace:               !include ./configuration/lovelace.yaml
 
 ######################################## SYSTEMOWE ########################################
 
+api:
+
+zha:
+  zigpy_config:
+    ota:
+      ikea_provider: true                        # Auto update Trådfri devices
+      #ledvance_provider: true                    # Auto update LEDVANCE devices
+      #salus_provider: true                       # Auto update SALUS devices
+      #otau_directory: /path/to/your/ota/folder  # Utilize .ota files to update everything else
+
 http:
-   ip_ban_enabled: false
-   login_attempts_threshold: 5
+   ip_ban_enabled: true
+   login_attempts_threshold: 2
    use_x_forwarded_for: true
    trusted_proxies:
     - 172.30.33.0/24 
 
 homeassistant:
-   customize:   !include ./configuration/customize.yaml
-   packages:    !include_dir_named integrations
-   media_dirs:
-     media: /media
-   allowlist_external_dirs:
-     - /config
-     - /config/www
    auth_providers:
     - type: trusted_networks    # logowanie bezpieczną wewnętrzną siecią
       trusted_networks:
-      - 192.168.20.0/24
+      - my_network_ip
       - 127.0.0.1
     - type: homeassistant       # logowanie loginem i hasłem
+   customize:   !include ./configuration/customize.yaml
+   packages:    !include_dir_named integrations
+   media_dirs:
+    media: /media
+   allowlist_external_dirs:
+     - /config
+     - /config/www
 
-######################################## WAKE ON LAN ########################################
-
-wake_on_lan:
-
-######################################## TELEGRAM ########################################
-
-telegram_bot:
-  - platform: polling
-    api_key: !secret telegram_api
-    allowed_chat_ids:
-      - !secret telegram_chat_id 
-    
-notify:
-  - platform: telegram
-    name: !secret telegram_boot_name
-    chat_id: !secret telegram_chat_id
-
-
-    
