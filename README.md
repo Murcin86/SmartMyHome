@@ -8,7 +8,7 @@ Przykład mojego wykorzystania HomeAssistant w połączeniu ze sterownikiem PLC 
 
 Wykorzystane integracje:
 
-![image](https://user-images.githubusercontent.com/95655881/148034481-3f51c158-2fc4-4849-842f-587e16ba6e19.png)
+![image](https://user-images.githubusercontent.com/95655881/163258944-eed176a9-ad1b-4bbd-bbe5-f43a3cfbfc14.png)
 
 Zainstalowane dodatki:
 
