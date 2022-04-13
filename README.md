@@ -12,18 +12,18 @@ Wykorzystane integracje:
 
 Zainstalowane dodatki:
 
-![image](https://user-images.githubusercontent.com/95655881/145274322-ab924764-7117-4abe-bb6e-2c74cbfd61ec.png)
+![image](https://user-images.githubusercontent.com/95655881/163259068-78525e9b-e53e-46b0-af8b-7ee141ff8d8f.png)
 
 
 oraz nierozłączne HACS:
-![image](https://user-images.githubusercontent.com/95655881/153396904-47f0c1e6-a621-4a7d-952b-086d285376bb.png)
-![image](https://user-images.githubusercontent.com/95655881/153396956-c3cda1af-cf0d-4e1e-919a-ed56761f997a.png)
-![image](https://user-images.githubusercontent.com/95655881/145274532-12b410f4-eb08-49c3-a1e5-946ef9cb9e07.png)
+![image](https://user-images.githubusercontent.com/95655881/163259241-05d48729-c313-4f25-9f66-f3d1a81459b9.png)
+![image](https://user-images.githubusercontent.com/95655881/163259292-49e13e27-5f39-4e16-a04b-a1693646fd62.png)
+![image](https://user-images.githubusercontent.com/95655881/163259337-3ef5987d-58cf-4d2b-b712-5e64a4a32c18.png)
 
 
 
 poniżej filmik na youtube z pokazaniem całego dashboardu - już niedługo będzie nowszy :)
-https://www.youtube.com/watch?v=I4_ygZ_jMbM
+https://youtu.be/uvLJeNZ29so
 
 a tak wygląda rozdzielnica na parterze.... Duża 144p dla sterownika PLC + sterowanie 230v, druga obok sterowanie 24V oraz multimedialna
 
