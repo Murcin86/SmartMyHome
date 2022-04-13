@@ -1,24 +1,16 @@
-- id: '1609340837380'
-  alias: Cast to Google Hub
-  description: ''
-  use_blueprint:
-    path: homeassistant/cast_and_recast.yaml
-    input:
-      player: media_player.office_speaker
-      view: googlehome
-      dashboard: nasz-dom
-- id: '1609961113878'
-  alias: Notify_okuku
+- id: '1640780140257'
+  alias: Uruchomienie HA
   description: ''
   trigger:
-- entity_id: binary_sensor.pl_move_p1_bathroom_up
-    from: 'off'
-    platform: state
-    to: 'on'
+  - platform: homeassistant
+    event: start
   condition: []
   action:
-- service: tts.google_say
-    data:
-      entity_id: media_player.bathroomup_speaker
-      message: a kuku
+  - service: input_boolean.turn_on
+    target:
+      entity_id:
+      - input_boolean.startup_ha
+      - input_boolean.uruchamianie
+    data: {}
   mode: single
+
