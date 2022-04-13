@@ -1,0 +1,183 @@
+
+######################## OŚWIETLENIE PARTER ########################
+
+  - platform: ads
+    name: kotłownia
+    adsvar: GVL_Lamp.bLIGHT_BOILER
+  - platform: ads
+    name: garaż 1
+    adsvar: GVL_Lamp.bLIGHT_GARAGE1
+  - platform: ads
+    name: garaż 2
+    adsvar: GVL_Lamp.bLIGHT_GARAGE2
+  - platform: ads
+    name: garaż 3
+    adsvar: GVL_Lamp.bLIGHT_GARAGEdesk1
+  - platform: ads
+    name: biurko garaż
+    adsvar: GVL_Lamp.bLIGHT_GARAGEdesk2
+  - platform: ads
+    name: gabinet 1
+    adsvar: GVL_Lamp.bLIGHT_SMALLROOM1
+  - platform: ads
+    name: gabinet 2
+    adsvar: GVL_Lamp.bLIGHT_SMALLROOM2
+  - platform: ads
+    name: przedpokój wejściowy
+    adsvar: GVL_Lamp.bLIGHT_ENTRANCE
+  - platform: ads
+    name: garderoba przedpokój
+    adsvar: GVL_Lamp.bLIGHT_ENTRANCEwear
+  - platform: ads
+    name: lustro przedpokój
+    adsvar: GVL_Lamp.bLIGHT_ENTRANCEmirror
+  - platform: ads
+    name: przedpokój led 1
+    adsvar: GVL_Lamp.bLIGHT_ENTRANCEled1
+  - platform: ads
+    name: przedpokój led 2
+    adsvar: GVL_Lamp.bLIGHT_ENTRANCEled2
+  - platform: ads
+    name: przedpokój led 3
+    adsvar: GVL_Lamp.bLIGHT_ENTRANCEled3
+  - platform: ads
+    name: spiżarka 1
+    adsvar: GVL_Lamp.bLIGHT_PANTRY1
+  - platform: ads
+    name: spiżarka 2
+    adsvar: GVL_Lamp.bLIGHT_PANTRY2
+  - platform: ads
+    name: łazienka dolna 1
+    adsvar: GVL_Lamp.bLIGHT_BATHROOMdown1
+  - platform: ads
+    name: łazienka dolna 2
+    adsvar: GVL_Lamp.bLIGHT_BATHROOMdown2
+  - platform: ads
+    name: łazienka dolna 3
+    adsvar: GVL_Lamp.bLIGHT_BATHROOMdown3
+  - platform: ads
+    name: lustro łazienka dolna
+    adsvar: GVL_Lamp.bLIGHT_BATHROOMmirror
+  - platform: ads
+    name: kuchnia 1
+    adsvar: GVL_Lamp.bLIGHT_KITCHEN1
+  - platform: ads
+    name: kuchnia 2
+    adsvar: GVL_Lamp.bLIGHT_KITCHEN2
+  - platform: ads
+    name: kuchnia 3
+    adsvar: GVL_Lamp.bLIGHT_KITCHEN3
+  - platform: ads
+    name: kuchnia 4
+    adsvar: GVL_Lamp.bLIGHT_KITCHEN4
+  - platform: ads
+    name: kuchnia 5
+    adsvar: GVL_Lamp.bLIGHT_KITCHEN5
+  - platform: ads
+    name: kuchnia 6
+    adsvar: GVL_Lamp.bLIGHT_KITCHEN6
+  - platform: ads
+    name: led kuchnia
+    adsvar: GVL_Lamp.bLIGHT_KITCHENled
+  - platform: ads
+    name: salon 1 
+    adsvar: GVL_Lamp.bLIGHT_SALON1
+  - platform: ads
+    name: salon 2
+    adsvar: GVL_Lamp.bLIGHT_SALON2
+  - platform: ads
+    name: jadalnia 1
+    adsvar: GVL_Lamp.bLIGHT_SALONdinning1
+  - platform: ads
+    name: jadalnia 2
+    adsvar: GVL_Lamp.bLIGHT_SALONdinning2
+  - platform: ads
+    name: korytarz 1 
+    adsvar: GVL_Lamp.bLIGHT_HALLDOWN1
+  - platform: ads
+    name: korytarz 2
+    adsvar: GVL_Lamp.bLIGHT_HALLDOWN2
+  - platform: ads
+    name: led 1 salon
+    adsvar: GVL_Lamp.bLIGHT_SALONled1
+  - platform: ads
+    name: led 2 salon
+    adsvar: GVL_Lamp.bLIGHT_SALONled2
+  - platform: ads
+    name: barek 1
+    adsvar: GVL_Lamp.bLIGHT_SALONdesk1
+  - platform: ads
+    name: barek 2
+    adsvar: GVL_Lamp.bLIGHT_SALONdesk2
+  - platform: ads
+    name: barek 3
+    adsvar: GVL_Lamp.bLIGHT_SALONdesk3
+
+  - platform: ads
+    name: schody led 1
+    adsvar: GVL_Lamp.bLIGHT_STAIRS1
+  - platform: ads
+    name: schody led 2
+    adsvar: GVL_Lamp.bLIGHT_STAIRS2
+  - platform: ads
+    name: schody led 3
+    adsvar: GVL_Lamp.bLIGHT_STAIRS3
+  - platform: ads
+    name: schody led 4
+    adsvar: GVL_Lamp.bLIGHT_STAIRS4
+  - platform: ads
+    name: schody led 5
+    adsvar: GVL_Lamp.bLIGHT_STAIRS5
+  - platform: ads
+    name: schody led 6
+    adsvar: GVL_Lamp.bLIGHT_STAIRS6
+  - platform: ads
+    name: schody led 7
+    adsvar: GVL_Lamp.bLIGHT_STAIRS7
+  - platform: ads
+    name: schody led 8
+    adsvar: GVL_Lamp.bLIGHT_STAIRS8
+  - platform: ads
+    name: schody led 9
+    adsvar: GVL_Lamp.bLIGHT_STAIRS9
+  - platform: ads
+    name: schody led 10
+    adsvar: GVL_Lamp.bLIGHT_STAIRS10
+  - platform: ads
+    name: schody led 11
+    adsvar: GVL_Lamp.bLIGHT_STAIRS11
+  - platform: ads
+    name: schody led 12
+    adsvar: GVL_Lamp.bLIGHT_STAIRS12
+  - platform: ads
+    name: schody led 13
+    adsvar: GVL_Lamp.bLIGHT_STAIRS13
+  - platform: ads
+    name: schody led 14
+    adsvar: GVL_Lamp.bLIGHT_STAIRS14
+  - platform: ads
+    name: schody led 15
+    adsvar: GVL_Lamp.bLIGHT_STAIRS15
+
+  - platform: ads
+    name: nad drzwiami
+    adsvar: GVL_Lamp.bLIGHT_OUTSIDEenterDoor
+  - platform: ads
+    name: nad kotłownią
+    adsvar: GVL_Lamp.bLIGHT_OUTSIDEboiler
+  - platform: ads
+    name: nad garażem 1
+    adsvar: GVL_Lamp.bLIGHT_OUTSIDEgarage1
+  - platform: ads
+    name: nad garażem 2
+    adsvar: GVL_Lamp.bLIGHT_OUTSIDEgarage2
+
+  - platform: ads
+    name: taras 1
+    adsvar: GVL_Lamp.bLIGHT_TARAS1
+  - platform: ads
+    name: taras 2
+    adsvar: GVL_Lamp.bLIGHT_TARAS2
+  - platform: ads
+    name: taras 3
+    adsvar: GVL_Lamp.bLIGHT_TARAS3

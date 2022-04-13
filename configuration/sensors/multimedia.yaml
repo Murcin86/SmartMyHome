@@ -1,0 +1,27 @@
+
+######################## AKTYWNOŚĆ MULTIMEDIÓW ########################
+
+- platform: template
+  sensors:
+    time_salon_tv:
+      value_template: '{{ state_attr("remote.salon_tv", "current_activity") }}'
+      #friendly_name: 'Czas TV w salonie'
+    time_media_player:
+      value_template: '{{ state_attr("media_player.salon_music", "current_activity") }}'
+      #friendly_name: 'Czas w salon music'
+
+    harmony_activity:
+      value_template: >
+        {% if is_state("remote.harmony_hub", 'on') %}
+          {{ states.remote.harmony_hub.attributes.current_activity }}
+        {% else %}
+          PowerOff
+        {% endif %}
+
+    salon_tv_activity:
+      value_template: >
+        {% if is_state("remote.salon_tv", 'on') %}
+          {{ states.remote.salon_tv.attributes.current_activity }}
+        {% else %}
+          PowerOff
+        {% endif %}

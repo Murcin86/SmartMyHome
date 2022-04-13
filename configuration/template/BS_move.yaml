@@ -1,0 +1,65 @@
+
+- binary_sensor:
+  - name: Ruch korytarz dolny
+    state: "{{ is_state('binary_sensor.move_hall_down', 'off') }}"
+    device_class: motion
+  - name: Ruch w przedpokoju
+    state: "{{ is_state('binary_sensor.move_entrance', 'off') }}"
+    device_class: motion
+  - name: Ruch w kotłowni
+    state: "{{ is_state('binary_sensor.move_boiler', 'off') }}"
+    device_class: motion
+  - name: Ruch w garażu
+    state: "{{ is_state('binary_sensor.move_garage', 'off') }}"
+    device_class: motion
+  - name: Ruch w gabinecie
+    state: "{{ is_state('binary_sensor.move_smallroom', 'off') }}"
+    device_class: motion
+  - name: Ruch w kuchni
+    state: "{{ is_state('binary_sensor.move_kitchen', 'off') }}"
+    device_class: motion
+  - name: Ruch w salonie
+    state: "{{ is_state('binary_sensor.move_salon', 'off') }}"
+    device_class: motion
+  - name: Ruch w łazience dolnej
+    state: "{{ is_state('binary_sensor.move_bathroom_down', 'off') }}"
+    device_class: motion
+  - name: Ruch w garderobie w przedpokoju
+    state: "{{ is_state('binary_sensor.move_weardrobe_entrance', 'off') }}"
+    device_class: motion
+  - name: Ruch w spiżarce
+    state: "{{ is_state('binary_sensor.move_pantry', 'off') }}"
+    device_class: motion
+
+  - name: Ruch korytarz górny
+    state: "{{ is_state('binary_sensor.move_hall_up', 'off') }}"
+    device_class: motion
+  - name: Ruch u Oliwii
+    state: "{{ is_state('binary_sensor.move_oliwia', 'off') }}"
+    device_class: motion
+  - name: Ruch u Julii
+    state: "{{ is_state('binary_sensor.move_julia', 'off') }}"
+    device_class: motion
+  - name: Ruch w łazience górnej
+    state: "{{ is_state('binary_sensor.move_bathroom_up', 'off') }}"
+    device_class: motion
+  - name: Ruch w sypialni
+    state: "{{ is_state('binary_sensor.move_badroom', 'off') }}"
+    device_class: motion
+  - name: Ruch w garderobie w sypialni
+    state: "{{ is_state('binary_sensor.move_weardrobe_badroom', 'off') }}"
+    device_class: motion
+  - name: Ruch w pralni
+    state: "{{ is_state('binary_sensor.move_washroom', 'off') }}"
+    device_class: motion
+  - name: Ruch w biurze
+    state: "{{ is_state('binary_sensor.move_office', 'off') }}"
+    device_class: motion
+
+  - name: Ruch na strychu 1
+    state: "{{ is_state('binary_sensor.move_attic_1', 'off') }}"
+    device_class: motion
+
+  - name: Ruch na strychu 2
+    state: "{{ is_state('binary_sensor.move_attic_2', 'on') }}"
+    device_class: motion

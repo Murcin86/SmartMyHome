@@ -1,0 +1,19 @@
+
+- binary_sensor:
+  - name: Ogrzewanie parter
+    state: "{{ is_state('binary_sensor.co_pomp_floor_0', 'on') }}"
+    icon: >
+      {% if is_state("binary_sensor.co_pomp_floor_0", "on") %}
+        mdi:radiator
+      {% else %}
+        mdi:radiator-disabled
+      {% endif %}
+  - name: Ogrzewanie piętro
+    state: "{{ is_state('binary_sensor.co_pomp_floor_1', 'on') }}"
+    icon: >
+      {% if is_state("binary_sensor.co_pomp_floor_1", "on") %}
+        mdi:radiator
+      {% else %}
+        mdi:radiator-disabled
+      {% endif %}
+

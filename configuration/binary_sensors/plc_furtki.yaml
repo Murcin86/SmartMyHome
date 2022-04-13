@@ -1,0 +1,42 @@
+
+######################## SKRZYNKA NA LISTY ######################## 
+
+- platform: ads
+  name: List w skrzynce
+  adsvar: P_OUTSITE.bMAilBox_IsSomething
+- platform: ads
+  name: MailBox_OpenOutSite
+  adsvar: GVL_Sensors.bMailBox_1
+- platform: ads
+  name: MailBox_OpenInSite
+  adsvar: GVL_Sensors.bMailBox_2
+    
+######################## FURTKA WEJSCIOWA ######################## 
+ 
+- platform: ads
+  name: main_wicket
+  device_class: door
+  adsvar: GVL_Sensors.bWicked1_CLO
+
+- platform: ads
+  name: main_wicket_Q
+  adsvar: P_OUTSITE.bWicket_Q_OPN
+
+######################## FURTKA SMIECI ZEWNETRZNA ########################  
+
+- platform: ads
+  name: trash_wicket_1
+  device_class: door
+  adsvar: GVL_Sensors.bWicked2_CLO
+
+######################## FURTKA SMIECI WEWNETRZNA ########################  
+
+- platform: ads
+  name: trash_wicket_2
+  device_class: door
+  adsvar: GVL_Sensors.bWicked3_CLO
+
+- platform: ads
+  name: trash_wicket_2_Q
+  adsvar: P_OUTSITE.bWicket2_Q_OPN
+

@@ -1,0 +1,75 @@
+
+######################## POMIARY ZUŻYCIA ENERGI INTEGRACJI POWERCALC ######################## 
+
+- platform: powercalc
+  entity_id: binary_sensor.binary_roborock
+  fixed:
+    power: 2
+  name: roborock powercalc
+
+- platform: powercalc
+  entity_id: switch.monitorhmi
+  fixed:
+    power: 21
+  name: monitor_hmi powercalc
+
+- platform: powercalc
+  entity_id: switch.diskstation
+  fixed:
+    power: 20
+  name: diskstation powercalc
+
+- platform: powercalc
+  entity_id: switch.gniazdka_strych
+  fixed:
+    power: 7
+  name: attic powercalc
+
+- platform: powercalc
+  entity_id: binary_sensor.binary_switch_gbn
+  fixed:
+    power: 2
+  name: switch_gbn powercalc
+
+- platform: powercalc
+  entity_id: binary_sensor.binary_router
+  fixed:
+    power: 9
+  name: router powercalc
+
+- platform: powercalc
+  entity_id: binary_sensor.binary_switches
+  fixed:
+    power: 15
+  name: switches powercalc
+
+- platform: powercalc
+  entity_id: binary_sensor.binary_switch_poe
+  fixed:
+    power: 6
+  name: switch_poe powercalc
+
+- platform: powercalc
+  entity_id: binary_sensor.binary_oven
+  fixed:
+    power: 2
+  name: oven powercalc
+
+- platform: powercalc
+  entity_id: binary_sensor.binary_hp_elitedesk_g3
+  fixed:
+    power: 40
+  name: hp_elitedesk_g3 powercalc
+
+- platform: powercalc
+  entity_id: binary_sensor.binary_plc
+  fixed:
+    power: 32
+  name: plc powercalc
+
+- platform: powercalc
+  entity_id: binary_sensor.binary_zasilacz_24
+  fixed:
+    power: 20
+  name: zasilacz_24 powercalc
+ 

@@ -1,0 +1,154 @@
+  db_url: !secret mariadb
+#  db_url: !secret mariadb_synology
+  purge_keep_days: 3
+  include:    # To co ma zawierać BaseData
+    domains:
+#      - sensor
+      - binary_sensor
+      - switch
+      - weather
+      - cover
+      - light
+      - alarm_control_panel
+      - input_text
+      - input_select
+      - input_boolean
+      - lock
+      - device_tracker
+      - calendar
+      - person
+      - device_tracker
+
+    entities: # encje dodatkowe - pełna nazwa
+      - sensor.speedtest_download
+      - sensor.speedtest_upload
+      - sensor.speedtest_ping
+      - sensor.temp_zewnetrzna
+      - sensor.pogoda_aktualna_temperatura
+      - sensor.airly_temperature
+      - sensor.sun_elevation
+      - sensor.aktualna_pogoda_weather
+      - sensor.vaillant_outdoor_temperature
+      - sensor.gas_cena_gazu
+      - sensor.licznik_glowny_gazu
+      - sensor.licznik_glowny_gazu_cost
+      - sensor.ienergy_l1
+      - sensor.ienergy_l1
+      - sensor.ienergy_l2
+      - sensor.ienergy_l3
+      - sensor.ienergy_l1_cost
+      - sensor.ienergy_l2_cost
+      - sensor.ienergy_l3_cost
+      - sensor.ipower_sum
+      - sensor.mainpowersocketups_power
+      - sensor.attic_powercalc_energy
+      - sensor.no_power_time_on_formated
+      - sensor.no_power_count_on
+      - sensor.temp_cyrkulacja_zadana
+      - sensor.temp_ciepla_woda
+      - sensor.temp_cyrkulacja
+      - sensor.temperatura_cieplej_wody_w_zasobniku
+      - sensor.domestichotwatertanktemperature_21194100202529220938023336n6
+      - sensor.openweathermap_weather
+      - sensor.alarmbutton_action
+      - sensor.juliawallbutton_action
+      - sensor.juliawallbutton_click
+      - sensor.oliwiawallbutton_action
+      - sensor.oliwiawallbutton_click
+      - sensor.magiccube_action
+      - sensor.office_pilot_action
+      - sensor.office_button_action
+      - sensor.salonbutton_action
+      - sensor.ostatni_ruch_dom
+      - sensor.ostatni_ruch_parter
+      - sensor.ostatni_ruch_pietro
+      - sensor.ostatni_ruch_zewn
+      - sensor.telefon_marcin_battery_level
+      - sensor.telefon_iwona_battery_level
+      - sensor.telefon_julia_battery_level
+      - sensor.telefon_oliwia_battery_level
+      - sensor.telefon_oliwia_active_notification_count
+      - sensor.telefon_julia_active_notification_count
+      - sensor.telefon_iwona_active_notification_count
+      - sensor.telefon_marcin_active_notification_count
+      
+      - sensor.processor_use
+      - sensor.memory_use_percent
+      - sensor.swap_use_percent
+      - sensor.load_1m
+      - sensor.load_5m
+      - sensor.load_15m
+      - sensor.disk_use_percent
+      - sensor.database_size
+      - sensor.database_rozmiar
+      - sensor.influxdb_db_size
+      - sensor.temp_rozdzielnica_p0
+      - sensor.temp_rozdzielnica_p1
+      - sensor.sila_wiatru
+      - sensor.sila_wiatru_2
+      - sensor.airly_pressure
+      - sensor.natezenie_swiatla
+      - sensor.airly_humidity
+      - sensor.licznik_impulsow_gaz_plc_godzin
+      - sensor.licznik_impulsow_gaz_plc_dzien
+      - sensor.temp_zasilanie_p0
+      - sensor.temp_zasilanie_p1
+      - sensor.temp_powrot_p0
+      - sensor.temp_powrot_p1
+      - sensor.influxdb_ha_rozmiar
+      - sensor.mariadb_ha_rozmiar
+      - sensor.mariadb_synology_rozmiar
+      - sensor.pranie
+      - sensor.zmywarka
+      - sensor.last_boot
+      - sensor.telefon_marcin_czas_blokady_time
+      - sensor.telefon_iwona_czas_blokady_time
+      - sensor.telefon_julia_czas_blokady_time
+      - sensor.telefon_oliwia_czas_blokady_time
+      - sensor.telefon_marcin_czas_aktywny_time
+      - sensor.telefon_iwona_czas_aktywny_time
+      - sensor.telefon_julia_czas_aktywny_time
+      - sensor.telefon_oliwia_czas_aktywny_time
+      - sensor.telefon_marcin_geocoded_location
+      - sensor.telefon_iwona_geocoded_location
+      - sensor.telefon_julia_geocoded_location
+      - sensor.telefon_oliwia_geocoded_location
+    entity_globs: # encje wykluczone - nazwa połowiczna
+      - sensor.*_energy
+      - sensor.ble_temperature_czujnik_*
+      - sensor.kitchen_temp*
+      - sensor.oliwia_temp*
+      - sensor.badroom_temper*
+      - sensor.attic_temper*
+      - sensor.adguard_*
+      - sensor.diskstation_*
+      - sensor.ups_*
+      - sensor.my_vw_*
+      - sensor.zaluzja_*
+      - sensor.sum_power_*
+      - sensor.dcheck*
+      - sensor.*_power
+
+  exclude:    # Elementy wykluczone
+    domains:
+      - updater
+      - automation
+      - camera
+      - group
+      - mqtt
+      - persistent_notification
+      - media_player
+      - script
+      - sun
+      - timer
+      - updater
+      - weather
+      - zone
+    entities: # encje wykluczone - pełna nazwa
+      - group.weather
+
+    entity_globs: # encje wykluczone - nazwa połowiczna
+      - binary_sensor.burze_dzis_*
+
+    event_types:
+      - call_service

@@ -1,0 +1,15 @@
+
+################## WYBÓR RADIO STACJI ################## 
+
+name: 'Wybór radio stacji:'
+options:
+- RMF FM
+- RMF Classisc
+- Meloradio
+- RadioZET
+- Jedynka
+- Dwójka
+- Trójka
+- Spotyfy
+- Custom Station
+initial: RMF FM

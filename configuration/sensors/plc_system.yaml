@@ -1,0 +1,70 @@
+
+######################## PRZEKROCZONE LICZNIKI I BŁĘDY ########################
+
+- platform: ads
+  name: dCheckBounds
+  adsvar: GVL_Checks.dCheckBounds
+  adstype: dint
+  scan_interval: 1000
+- platform: ads
+  name: dCheckDivDInt
+  adsvar: GVL_Checks.dCheckDivDInt
+  adstype: dint
+  scan_interval: 1000
+- platform: ads
+  name: dCheckDivLInt
+  adsvar: GVL_Checks.dCheckDivLInt
+  adstype: dint
+  scan_interval: 1000
+- platform: ads
+  name: dCheckDivLReal
+  adsvar: GVL_Checks.dCheckDivLReal
+  adstype: dint
+  scan_interval: 1000
+- platform: ads
+  name: dCheckDivReal
+  adsvar: GVL_Checks.dCheckDivReal
+  adstype: dint
+  scan_interval: 1000
+- platform: ads
+  name: dCheckRangeSigned
+  adsvar: GVL_Checks.dCheckRangeSigned
+  adstype: dint
+  scan_interval: 1000
+- platform: ads
+  name: dCheckRangeUnsigned
+  adsvar: GVL_Checks.dCheckRangeUnsigned
+  adstype: dint
+  scan_interval: 1000
+ 
+######################## TESTOWE ZMIENNE ########################
+ 
+- platform: ads
+  name: Testowy int 0
+  adsvar: P_System.iTestowy0
+  adstype: int
+- platform: ads
+  name: Testowy int 1
+  adsvar: P_System.iTestowy1
+  adstype: int
+  scan_interval: 1
+- platform: ads
+  name: Testowy int 2
+  adsvar: P_System.iTestowy2
+  adstype: int
+  scan_interval: 10
+- platform: ads
+  name: Testowy int 3
+  adsvar: P_System.iTestowy3
+  adstype: int
+  scan_interval: 100
+- platform: ads
+  name: Testowy int 4
+  adsvar: P_System.iTestowy4
+  adstype: int
+  scan_interval: 1000
+- platform: ads
+  name: Testowy int 5
+  adsvar: P_System.iTestowy5
+  adstype: int
+  scan_interval: 10000

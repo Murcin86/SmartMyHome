@@ -1,0 +1,281 @@
+
+######################## TEMPERATURY ODCZYTANE PARTER ########################
+
+- platform: ads
+  name: Temp. Zasilanie P0
+  adsvar: GVL_IO.iTemp_A3[5].bTemp
+  unit_of_measurement: '°C'
+  factor: 100 
+  adstype: int
+- platform: ads
+  name: Temp. powrót P0
+  adsvar: GVL_IO.iTemp_A3[7].bTemp
+  unit_of_measurement: '°C'
+  factor: 100 
+  adstype: int
+
+- platform: ads
+  name: Temp. Kotłownia
+  adsvar: HomeAssistant.iTemp_BOILER
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: Temp. Salon
+  adsvar: HomeAssistant.iTemp_SALON
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: Temp. Kuchnia
+  adsvar: HomeAssistant.iTEMP_KITCHEN
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: Temp. Gabinet
+  adsvar: HomeAssistant.iTEMP_SMALLROOM
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: Temp. Łazienka dolna
+  adsvar: HomeAssistant.iTEMP_BATHROOMdown
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: Temp. Przedpokój wejściowy
+  adsvar: HomeAssistant.iTEMP_ENTRANCEHALL
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: Temp. Garaż
+  adsvar: HomeAssistant.iTEMP_GARAGE
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: Temp. Spiżarka
+  adsvar: HomeAssistant.iTEMP_PANTRY
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: Temp. Salon_4
+  adsvar: HomeAssistant.iTemp_SALON3
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: Temp. Salon_2
+  adsvar: HomeAssistant.iTemp_SALON4
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: Temp. Boiler_2
+  adsvar: HomeAssistant.iTemp_BOILER2
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+
+############ TEMPERATURY ODCZYTANE PIĘTRO ############
+
+- platform: ads
+  name: Temp. zasilanie P1
+  adsvar: GVL_IO.iTemp_A12[3].bTemp
+  unit_of_measurement: '°C'
+  factor: 100 
+  adstype: int
+- platform: ads
+  name: Temp. powrót P1
+  adsvar: GVL_IO.iTemp_A12[4].bTemp
+  unit_of_measurement: '°C'
+  factor: 100 
+  adstype: int
+
+- platform: ads
+  name: Temp. Julia
+  adsvar: HomeAssistant.iTEMP_JULIA
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: Temp. Oliwia
+  adsvar: HomeAssistant.iTEMP_OLIWIA
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: Temp. Sypialnia
+  adsvar: HomeAssistant.iTEMP_BADROOM
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: Temp. Łazienka górna
+  adsvar: HomeAssistant.iTEMP_BATHROOMup
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: Temp. Garderoba
+  adsvar: HomeAssistant.iTEMP_WARDRABE
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: Temp. Pralnia
+  adsvar: HomeAssistant.iTEMP_WASHROOM
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: Temp. Biuro
+  adsvar: HomeAssistant.iTEMP_OFFICE
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+  
+######################## TEMPERATURY ZADANE PARTER ########################
+
+- platform: ads
+  name: TempSet. Salon
+  adsvar: HomeAssistant.iTEMPSet_SALON
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: TempSet. Kuchnia
+  adsvar: HomeAssistant.iTEMPSet_KITCHEN
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: TempSet. Kotłownia
+  adsvar: HomeAssistant.iTempSet_BOILER
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: TempSet. Gabinet
+  adsvar: HomeAssistant.iTEMPSet_SMALLROOM
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: TempSet. Łazienka dolna
+  adsvar: HomeAssistant.iTEMPSet_BATHROOMdown
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: TempSet. Przedpokój wejściowy
+  adsvar: HomeAssistant.iTEMPSet_ENTRANCEHALL
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: TempSet. Garaż
+  adsvar: HomeAssistant.iTEMPSet_GARAGE
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: TempSet. Spiżarka
+  adsvar: HomeAssistant.iTEMPSet_PANTRY
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+
+######################## TEMPERATURY ZADANE PIĘTRO ########################
+
+- platform: ads
+  name: TempSet. Łazienka górna
+  adsvar: HomeAssistant.iTEMPSet_BATHROOMup
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: TempSet. Julia
+  adsvar: HomeAssistant.iTEMPSet_JULIA
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: TempSet. Oliwia
+  adsvar: HomeAssistant.iTEMPSet_OLIWIA
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: TempSet. Sypialnia
+  adsvar: HomeAssistant.iTEMPSet_BADROOM
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: TempSet. Pralnia
+  adsvar: HomeAssistant.iTEMPSet_WASHROOM
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: TempSet. Biuro
+  adsvar: HomeAssistant.iTEMPSet_OFFICE
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+
+######################## TEMPERATURY MIN MAX ########################
+
+- platform: ads
+  name: TempMin_zasilanie_p0
+  adsvar: HomeAssistant.iTEMP_Zasilanie_P0_min
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: TempMax_zasilanie_p0
+  adsvar: HomeAssistant.iTEMP_Zasilanie_P0_max
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: TempMin_zasilanie_p1
+  adsvar: HomeAssistant.iTEMP_Zasilanie_P1_min
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: TempMax_zasilanie_p1
+  adsvar: HomeAssistant.iTEMP_Zasilanie_P1_max
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: TempMin_Powrot_p0
+  adsvar: HomeAssistant.iTEMP_Powrot_P0_min
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: TempMax_Powrot_p0
+  adsvar: HomeAssistant.iTEMP_Powrot_P0_max
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: TempMin_Powrot_p1
+  adsvar: HomeAssistant.iTEMP_Powrot_P1_min
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int
+- platform: ads
+  name: TempMax_Powrot_p1
+  adsvar: HomeAssistant.iTEMP_Powrot_P1_max
+  unit_of_measurement: '°C'
+  factor: 10
+  adstype: int

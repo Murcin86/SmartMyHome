@@ -1,0 +1,55 @@
+
+- platform: tod
+  name: Night
+  after: sunset
+  before: sunrise
+
+######################## OBECNOŚĆ URZĄDZEN ########################
+
+- platform: ping
+  host: 192.168.20.186
+  name: ping diskstation
+- platform: ping
+  host: 192.168.20.100
+  name: ping router
+- platform: ping
+  host: 192.168.20.150
+  name: ping plc
+- platform: ping
+  host: 192.168.20.177
+  name: ping camera_garaz
+- platform: ping
+  host: 192.168.20.146
+  name: ping camera_parter
+- platform: ping
+  host: 192.168.20.158
+  name: ping camera_pietro
+- platform: ping
+  host: 192.168.20.251
+  name: ping camera_zewnetrzna_garaz
+- platform: ping
+  host: 192.168.20.254
+  name: ping camera_zewnetrzna_kotlownia
+- platform: ping
+  host: 192.168.20.229
+  name: ping laptop julia
+- platform: ping
+  host: 192.168.20.173
+  name: ping laptop marcin
+- platform: ping
+  host: 192.168.20.118
+  name: ping laptop iwona
+- platform: ping
+  host: 192.168.20.151
+  name: ping hp elitedesk g3
+- platform: ping
+  host: 192.168.20.153
+  name: ping pc-home
+- platform: ping
+  host: 192.168.20.150
+  name: ping pc-plc
+- platform: ping
+  host: 192.168.20.160
+  name: ping roborock
+  
+######################## OBECNOŚĆ TELEFONÓW ########################

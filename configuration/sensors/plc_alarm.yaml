@@ -1,0 +1,22 @@
+
+######################## OSTATNI RUCH W DOMU ########################
+
+- platform: ads
+  name: Ostatni ruch Parter
+  adsvar: P_ALARM_MOVE_SENSOR.iOstatniRuch_Parter
+  adstype: int
+
+- platform: ads
+  name: Ostatni ruch Pietro
+  adsvar: P_ALARM_MOVE_SENSOR.iOstatniRuch_Pietro
+  adstype: int
+
+- platform: ads
+  name: Ostatni ruch Dom
+  adsvar: P_ALARM_MOVE_SENSOR.iOstatniRuch_Dom
+  adstype: int
+
+- platform: ads
+  name: Ostatni ruch Zewn
+  adsvar: P_ALARM_MOVE_SENSOR.iOstatniRuch_Zewn
+  adstype: int

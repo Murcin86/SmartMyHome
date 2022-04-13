@@ -1,0 +1,33 @@
+
+- binary_sensor:
+  - name: Brama garazowa
+    state: "{{ is_state('binary_sensor.garage_closed', 'off') }}"
+    device_class: door
+    icon: >
+      {% if is_state("binary_sensor.garage_opened", "on") %}
+        mdi:garage-open-variant
+      {% elif is_state('binary_sensor.garage_closed', 'on') %}
+        mdi:garage-variant
+      {% else %}
+        mdi:garage-alert-variant
+      {% endif %}
+  - name: Brama wjazdowa
+    state: "{{ is_state('binary_sensor.entrance_gate_closed', 'off') }}"
+    device_class: door
+    icon: >
+      {% if is_state("binary_sensor.entrance_gate_opened", "on") %}
+        mdi:gate-open
+      {% elif is_state('binary_sensor.entrance_gate_closed', 'on') %}
+        mdi:gate
+      {% else %}
+        mdi:gate-arrow-right
+      {% endif %}
+  - name: Brama goscinna
+    state: "{{ is_state('binary_sensor.entrance_gate_guest', 'off') }}"
+    device_class: door
+    icon: >
+      {% if is_state("binary_sensor.entrance_gate_guest", "off") %}
+        mdi:gate-open
+      {% else %}
+        mdi:gate
+      {% endif %}

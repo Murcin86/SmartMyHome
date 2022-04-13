@@ -1,0 +1,226 @@
+
+######################## CZASY ZAŁĄCZONEJ PODŁOGÓWKI ########################
+
+- platform: history_stats
+  name: CO_pomp_floor0 Time_ON
+  entity_id: binary_sensor.co_pomp_floor_0
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: CO_pomp_floor0 Count_ON
+  entity_id: binary_sensor.co_pomp_floor_0
+  state: 'on'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}' 
+
+- platform: history_stats
+  name: CO_pomp_floor1 Time_ON
+  entity_id: binary_sensor.co_pomp_floor_1
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: CO_pomp_floor1 Count_ON
+  entity_id: binary_sensor.co_pomp_floor_1
+  state: 'on'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}' 
+
+- platform: history_stats
+  name: CO_floor0_lev1 Time_ON
+  entity_id: binary_sensor.co_mixpomp_floor_0_lev_1
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: CO_floor0_lev1 Count_ON
+  entity_id: binary_sensor.co_mixpomp_floor_0_lev_1
+  state: 'on'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}' 
+
+- platform: history_stats
+  name: CO_floor0_lev2 Time_ON
+  entity_id: binary_sensor.co_mixpomp_floor_0_lev_2
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: CO_floor0_lev2 Count_ON
+  entity_id: binary_sensor.co_mixpomp_floor_0_lev_2
+  state: 'on'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}' 
+
+- platform: history_stats
+  name: CO_floor1_lev1 Time_ON
+  entity_id: binary_sensor.co_mixpomp_floor_1_lev_1
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: CO_floor1_lev1 Count_ON
+  entity_id: binary_sensor.co_mixpomp_floor_1_lev_1
+  state: 'on'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}' 
+
+- platform: history_stats
+  name: CO_floor1_lev2 Time_ON
+  entity_id: binary_sensor.co_mixpomp_floor_1_lev_2
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: CO_floor1_lev2 Count_ON
+  entity_id: binary_sensor.co_mixpomp_floor_1_lev_2
+  state: 'on'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}' 
+
+######################## CZASY ZAŁĄCZONEJ PODŁOGÓWKI  POMIESZCZENIA ########################
+
+- platform: history_stats
+  name: co_entrance Time_ON
+  entity_id: binary_sensor.co_entrance
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: co_bathroom_down Time_ON
+  entity_id: binary_sensor.co_bathroom_down
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: co_smallroom Time_ON
+  entity_id: binary_sensor.co_smallroom
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: co_pantry Time_ON
+  entity_id: binary_sensor.co_pantry
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: co_boiler Time_ON
+  entity_id: binary_sensor.co_boiler
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: co_garage Time_ON
+  entity_id: binary_sensor.co_garage
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: co_badroom Time_ON
+  entity_id: binary_sensor.co_badroom
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: co_julia Time_ON
+  entity_id: binary_sensor.co_julia
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: co_oliwia Time_ON
+  entity_id: binary_sensor.co_oliwia
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: co_office Time_ON
+  entity_id: binary_sensor.co_office
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: co_washroom Time_ON
+  entity_id: binary_sensor.co_washroom
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+
+######################## WARTOŚCI MIN i MAX PODŁOGÓWKI  POMIESZCZENIA ########################
+
+- platform: statistics
+  entity_id: sensor.temp_zasilanie_p0
+  max_age:
+    hours: 24
+  name: stats_temp_zasilanie_p0
+  state_characteristic: mean
+- platform: template
+  sensors:
+    temp_zasilanie_p0_min:
+        value_template: "{{ state_attr('sensor.stats_temp_zasilanie_p0', 'min_value') }}" 
+    temp_zasilanie_p0_max:
+         value_template: "{{ state_attr('sensor.stats_temp_zasilanie_p0', 'max_value') }}" 
+
+- platform: statistics
+  entity_id: sensor.temp_powrot_p0
+  max_age:
+    hours: 24 
+  name: stats_temp_powrot_p0
+  state_characteristic: mean
+- platform: template
+  sensors:
+      temp_powrot_p0_min:
+        value_template: "{{ state_attr('sensor.stats_temp_powrot_p0', 'min_value') }}" 
+      temp_powrot_p0_max:
+         value_template: "{{ state_attr('sensor.stats_temp_powrot_p0', 'max_value') }}" 
+
+- platform: statistics
+  entity_id: sensor.temp_zasilanie_p1
+  max_age:
+    hours: 24 
+  name: stats_temp_zasilanie_p1
+  state_characteristic: mean
+- platform: template
+  sensors:
+      temp_zasilanie_p1_min:
+        value_template: "{{ state_attr('sensor.stats_temp_zasilanie_p1', 'min_value') }}" 
+      temp_zasilanie_p1_max:
+         value_template: "{{ state_attr('sensor.stats_temp_zasilanie_p1', 'max_value') }}" 
+
+- platform: statistics
+  entity_id: sensor.temp_powrot_p1
+  max_age:
+    hours: 24 
+  name: stats_temp_powrot_p1
+  state_characteristic: mean
+- platform: template
+  sensors:
+    temp_powrot_p1_min:
+        value_template: "{{ state_attr('sensor.stats_temp_powrot_p1', 'min_value') }}" 
+    temp_powrot_p1_max:
+         value_template: "{{ state_attr('sensor.stats_temp_powrot_p1', 'max_value') }}" 

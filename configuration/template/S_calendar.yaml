@@ -1,0 +1,15 @@
+
+######################## FORMATOWANIE KALENDARZY ########################
+
+- sensor:
+  - name: Najbliższe urodziny 
+    state: "{{ as_timestamp(states.calendar.familijne.attributes.start_time) | timestamp_custom('%d.%m') }}"
+  - name: Najbliższe urodziny dzień
+    state: "{{ as_timestamp(states.calendar.familijne.attributes.start_time) | timestamp_custom('%d') }}"
+  - name: Najbliższe urodziny miesiąc
+    state: "{{ as_timestamp(states.calendar.familijne.attributes.start_time) | timestamp_custom('%m') }}"
+
+  - name: Najbliższe zadanie julia 
+    state: "{{ as_timestamp(states.calendar.zadania_julia.attributes.start_time) | timestamp_custom('%d.%m, godz: %H:%M') }}"
+  - name: Najbliższe zadanie oliwia 
+    state: "{{ as_timestamp(states.calendar.zadania_oliwia.attributes.start_time) | timestamp_custom('%d.%m, godz: %H:%M') }}"

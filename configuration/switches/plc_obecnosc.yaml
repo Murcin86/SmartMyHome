@@ -1,0 +1,62 @@
+
+ ######################## OBECNOŚC W POSZCZEGÓLNYCH POMIESZCZENIACH ########################
+
+- platform: ads
+  name: Obecność Korytarz dolny
+  adsvar: GVL_Alarm.bSomeKorytarzDolny
+- platform: ads
+  name: Obecność Salon
+  adsvar: GVL_Alarm.bSomeSalon
+- platform: ads
+  name: Obecność Kuchnia
+  adsvar: GVL_Alarm.bSomeKuchnia
+- platform: ads
+  name: Obecność Spiżarka
+  adsvar: GVL_Alarm.bSomeSpizarka
+- platform: ads
+  name: Obecność Gabinet
+  adsvar: GVL_Alarm.bSomeGabinet
+- platform: ads
+  name: Obecność Łazienka dolna
+  adsvar: GVL_Alarm.bSomeLazienkaDolna
+- platform: ads
+  name: Obecność Garaż
+  adsvar: GVL_Alarm.bSomeGaraz
+- platform: ads
+  name: Obecność Kotłownia
+  adsvar: GVL_Alarm.bSomeKotlownia
+- platform: ads
+  name: Obecność Garderoba dolna
+  adsvar: GVL_Alarm.bSomeGarderobaDolna
+- platform: ads
+  name: Obecność Przedpokoj
+  adsvar: GVL_Alarm.bSomePrzedpokoj
+  
+- platform: ads
+  name: Obecność Korytarz górny
+  adsvar: GVL_Alarm.bSomeKorytarzGorny
+- platform: ads
+  name: Obecność Sypialnia
+  adsvar: GVL_Alarm.bSomeSypialnia
+- platform: ads
+  name: Obecność Garderoba gorna
+  adsvar: GVL_Alarm.bSomeGarderobaGorna
+- platform: ads
+  name: Obecność Julia
+  adsvar: GVL_Alarm.bSomeJulia
+- platform: ads
+  name: Obecność Oliwia
+  adsvar: GVL_Alarm.bSomeOliwia
+- platform: ads
+  name: Obecność Lazienka gorna
+  adsvar: GVL_Alarm.bSomeLazienkaGorna
+- platform: ads
+  name: Obecność Biuro
+  adsvar: GVL_Alarm.bSomeBiuro
+- platform: ads
+  name: Obecność Pralnia
+  adsvar: GVL_Alarm.bSomePralnia
+- platform: ads
+  name: Obecność Strych
+  adsvar: GVL_Alarm.bSomeStrych
+

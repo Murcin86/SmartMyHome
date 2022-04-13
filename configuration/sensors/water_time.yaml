@@ -1,0 +1,42 @@
+
+######################## CZASY ZAŁĄCZONEJ PODŁOGÓWKI ########################
+
+- platform: history_stats
+  name: CirculationPomp Time_ON
+  entity_id: binary_sensor.pompa_cyrkulacji
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: CirculationPomp Count_ON
+  entity_id: binary_sensor.pompa_cyrkulacji
+  state: 'on'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'  
+
+######################## PIEC VAILLANT ########################
+
+- platform: history_stats
+  name: Multimatic Vaillant Time_ON
+  entity_id: binary_sensor.multimatic_system_online_21194100202529220938023336n6
+  state: 'unavailable'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+  
+- platform: history_stats
+  name: Multimatic Vaillant Time_OFF
+  entity_id: binary_sensor.multimatic_system_online_21194100202529220938023336n6
+  state: 'offline'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: Multimatic Vaillant Count_ON
+  entity_id: binary_sensor.multimatic_system_online_21194100202529220938023336n6
+  state: 'unavailable'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'  

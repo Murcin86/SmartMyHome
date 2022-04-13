@@ -1,0 +1,5 @@
+
+cpu_temp:
+  name: CPU Temperature
+  min: 0
+  max: 200000

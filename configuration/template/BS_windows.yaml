@@ -1,0 +1,202 @@
+
+- binary_sensor:
+  - name: Wszystkie okna parter
+    state: "{{ is_state('binary_sensor.windows_all_p0', 'on') }}"
+    device_class: window
+    icon: >
+      {% if is_state("binary_sensor.windows_all_p0", "on") %}
+        mdi:window-open-variant
+      {% else %}
+        mdi:window-closed-variant
+      {% endif %}
+
+  - name: Wszystkie okna piętro
+    state: "{{ is_state('binary_sensor.windows_all_p1', 'on') }}"
+    device_class: window
+    icon: >
+      {% if is_state("binary_sensor.windows_all_p1", "on") %}
+        mdi:window-open-variant
+      {% else %}
+        mdi:window-closed-variant
+      {% endif %}
+
+  - name: Okno przedpokoj
+    state: "{{ is_state('binary_sensor.window_entrance', 'off') }}"
+    device_class: window
+    icon: >
+      {% if is_state("binary_sensor.window_entrance", "off") %}
+        mdi:window-open-variant
+      {% else %}
+        mdi:window-closed-variant
+      {% endif %}
+  - name: Okno łazienka dolna
+    state: "{{ is_state('binary_sensor.window_bathroom_down', 'off') }}"
+    device_class: window
+    icon: >
+      {% if is_state("binary_sensor.window_bathroom_down", "off") %}
+        mdi:window-open-variant
+      {% else %}
+        mdi:window-closed-variant
+      {% endif %}
+  - name: Okno gabinet L
+    state: "{{ is_state('binary_sensor.window_smallroom_l', 'off') }}"
+    device_class: window
+    icon: >
+      {% if is_state("binary_sensor.window_smallroom_l", "off") %}
+        mdi:window-open-variant
+      {% else %}
+        mdi:window-closed-variant
+      {% endif %}
+  - name: Okno gabinet R
+    state: "{{ is_state('binary_sensor.window_smallroom_r', 'off') }}"
+    device_class: window
+    icon: >
+      {% if is_state("binary_sensor.window_smallroom_r", "off") %}
+        mdi:window-open-variant
+      {% else %}
+        mdi:window-closed-variant
+      {% endif %}
+  - name: Okno kuchnia L
+    state: "{{ is_state('binary_sensor.window_kitchen_l', 'off') }}"
+    device_class: window
+    icon: >
+      {% if is_state("binary_sensor.window_kitchen_l", "off") %}
+        mdi:window-open-variant
+      {% else %}
+        mdi:window-closed-variant
+      {% endif %}
+  - name: Okno kuchnia R
+    state: "{{ is_state('binary_sensor.window_kitchen_r', 'off') }}"
+    device_class: window
+    icon: >
+      {% if is_state("binary_sensor.window_kitchen_r", "off") %}
+        mdi:window-open-variant
+      {% else %}
+        mdi:window-closed-variant
+      {% endif %}
+  - name: Okno salon L
+    state: "{{ is_state('binary_sensor.window_salon_l', 'off') }}"
+    device_class: window
+    icon: >
+      {% if is_state("binary_sensor.window_salon_l", "off") %}
+        mdi:window-open-variant
+      {% else %}
+        mdi:window-closed-variant
+      {% endif %}
+  - name: Okno salon R
+    state: "{{ is_state('binary_sensor.window_salon_r', 'off') }}"
+    device_class: window
+    icon: >
+      {% if is_state("binary_sensor.window_salon_r", "off") %}
+        mdi:window-open-variant
+      {% else %}
+        mdi:window-closed-variant
+      {% endif %}
+  - name: Okno salon taras
+    state: "{{ is_state('binary_sensor.window_salon_taras', 'off') }}"
+    device_class: window
+    icon: >
+      {% if is_state("binary_sensor.window_salon_taras", "off") %}
+        mdi:window-open-variant
+      {% else %}
+        mdi:window-closed-variant
+      {% endif %}
+  - name: Okno Julia L
+    state: "{{ is_state('binary_sensor.window_julia_l', 'off') }}"
+    device_class: window
+    icon: >
+      {% if is_state("binary_sensor.window_julia_l", "off") %}
+        mdi:window-open-variant
+      {% else %}
+        mdi:window-closed-variant
+      {% endif %}
+  - name: Okno Julia R
+    state: "{{ is_state('binary_sensor.window_julia_r', 'off') }}"
+    device_class: window
+    icon: >
+      {% if is_state("binary_sensor.window_julia_r", "off") %}
+        mdi:window-open-variant
+      {% else %}
+        mdi:window-closed-variant
+      {% endif %}
+  - name: Okno Oliwia L
+    state: "{{ is_state('binary_sensor.window_oliwia_l', 'off') }}"
+    device_class: window
+    icon: >
+      {% if is_state("binary_sensor.window_oliwia_l", "off") %}
+        mdi:window-open-variant
+      {% else %}
+        mdi:window-closed-variant
+      {% endif %}
+  - name: Okno Oliwia R
+    state: "{{ is_state('binary_sensor.window_oliwia_l', 'off') }}"
+    device_class: window
+    icon: >
+      {% if is_state("binary_sensor.window_oliwia_l", "off") %}
+        mdi:window-open-variant
+      {% else %}
+        mdi:window-closed-variant
+      {% endif %}
+  - name: Okno sypialnia L
+    state: "{{ is_state('binary_sensor.window_badroom_l', 'off') }}"
+    device_class: window
+    icon: >
+      {% if is_state("binary_sensor.window_badroom_l", "off") %}
+       mdi:window-open-variant
+      {% else %}
+       mdi:window-closed-variant
+      {% endif %}
+  - name: Okno sypialnia R
+    state: "{{ is_state('binary_sensor.window_badroom_r', 'off') }}"
+    device_class: window
+    icon: >
+      {% if is_state("binary_sensor.window_badroom_r", "off") %}
+        mdi:window-open-variant
+      {% else %}
+        mdi:window-closed-variant
+      {% endif %}
+  - name: Okno biuro L
+    state: "{{ is_state('binary_sensor.window_office_l', 'off') }}"
+    device_class: window
+    icon: >
+      {% if is_state("binary_sensor.window_office_l", "off") %}
+        mdi:window-open-variant
+      {% else %}
+        mdi:window-closed-variant
+      {% endif %}
+  - name: Okno biuro R
+    state: "{{ is_state('binary_sensor.window_office_r', 'off') }}"
+    device_class: window
+    icon: >
+      {% if is_state("binary_sensor.window_office_r", "off") %}
+        mdi:window-open-variant
+      {% else %}
+        mdi:window-closed-variant
+      {% endif %}
+  - name: Okno pralnia
+    state: "{{ is_state('binary_sensor.window_washroom', 'off') }}"
+    device_class: window
+    icon: >
+      {% if is_state("binary_sensor.window_washroom", "off") %}
+        mdi:window-open-variant
+      {% else %}
+        mdi:window-closed-variant
+      {% endif %}
+  - name: Okno łazienka górna
+    state: "{{ is_state('binary_sensor.window_bathroom_up', 'off') }}"
+    device_class: window
+    icon: >
+      {% if is_state("binary_sensor.window_bathroom_up", "off") %}
+        mdi:window-open-variant
+      {% else %}
+        mdi:window-closed-variant
+      {% endif %}
+  - name: Okno strych
+    state: "{{ is_state('binary_sensor.window_attic', 'off') }}"
+    device_class: window
+    icon: >
+      {% if is_state("binary_sensor.window_attic", "off") %}
+        mdi:window-open-variant
+      {% else %}
+        mdi:window-closed-variant
+      {% endif %}

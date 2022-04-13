@@ -1,0 +1,41 @@
+
+######################## ZASILANIE SIECIOWEJ OK ########################
+
+- platform: ads
+  name: Zasilanie 230v OK
+  device_class: safety
+  adsvar: GVL_Power.bPowerOK
+  
+######################## BEZPIECZNIKI 24V ########################
+
+- platform: ads
+  name: bezpiecznik P0_1
+  adsvar: GVL_IO.bInput_A15[12].bIO
+- platform: ads
+  name: bezpiecznik P0_2
+  adsvar: GVL_IO.bInput_A15[13].bIO
+- platform: ads
+  name: bezpiecznik P0_3
+  adsvar: GVL_IO.bInput_A15[14].bIO
+- platform: ads
+  name: bezpiecznik P0_4
+  adsvar: GVL_IO.bInput_A15[15].bIO
+- platform: ads
+  name: bezpiecznik P0_5
+  adsvar: GVL_IO.bInput_A15[16].bIO
+  
+- platform: ads
+  name: bezpiecznik P1_1
+  adsvar: GVL_IO.bInput_A15[4].bIO
+- platform: ads
+  name: bezpiecznik P1_2
+  adsvar: GVL_IO.bInput_A15[5].bIO
+- platform: ads
+  name: bezpiecznik P1_3
+  adsvar: GVL_IO.bInput_A15[6].bIO
+- platform: ads
+  name: bezpiecznik P1_4
+  adsvar: GVL_IO.bInput_A15[7].bIO
+- platform: ads
+  name: bezpiecznik P1_5
+  adsvar: GVL_IO.bInput_A15[8].bIO

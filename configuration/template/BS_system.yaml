@@ -1,0 +1,22 @@
+
+- binary_sensor:
+  - name: binary switch_gbn
+    state: "{{ is_state('binary_sensor.alwaystrue', 'on') }}"
+  - name: binary router
+    state: "{{ is_state('binary_sensor.alwaystrue', 'on') }}"
+  - name: binary switches
+    state: "{{ is_state('binary_sensor.alwaystrue', 'on') }}"
+  - name: binary switch_poe
+    state: "{{ is_state('binary_sensor.alwaystrue', 'on') }}"
+  - name: binary oven
+    state: "{{ is_state('binary_sensor.alwaystrue', 'on') }}"
+  - name: binary hp_elitedesk_g3
+    state: "{{ is_state('binary_sensor.alwaystrue', 'on') }}"
+  - name: binary plc
+    state: "{{ is_state('binary_sensor.alwaystrue', 'on') }}"
+  - name: binary zasilacz_24
+    state: "{{ is_state('binary_sensor.alwaystrue', 'on') }}"
+  - name: binary roborock
+    state: "{{ is_state('binary_sensor.alwaystrue', 'on') }}"
+  - name: binary oven
+    state: "{{ is_state('binary_sensor.alwaystrue', 'on') }}"

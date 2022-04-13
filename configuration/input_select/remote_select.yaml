@@ -1,0 +1,12 @@
+
+################## WYBÓR PILOTA ################## 
+
+name: 'Wybór pilota:'
+options:
+- Harmony
+- Telewizor
+- Amplituner
+- Xbox 360
+- DVD
+initial: Telewizor
+icon: mdi:remote-tv

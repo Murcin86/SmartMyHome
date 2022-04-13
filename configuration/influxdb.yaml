@@ -1,0 +1,9 @@
+host: !secret influxdb_url
+port: 8086
+database: !secret influxdb_base
+username: !secret influxdb_user
+password: !secret influxdb_pass
+# ssl: true
+# verify_ssl: true
+max_retries: 3
+default_measurement: state

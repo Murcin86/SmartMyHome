@@ -1,0 +1,7 @@
+
+- platform: wake_on_lan
+  name: "Diskstation"
+  mac: !secret mac_diskstation
+  host: !secret ip_diskstation
+  turn_off:
+    service: synology_dsm.shutdown

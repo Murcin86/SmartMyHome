@@ -1,0 +1,69 @@
+
+######################## FUNCJE RADIA ########################
+
+radio_play:
+  alias: Uruchom radio
+  icon: "mdi:play"
+  sequence:
+  - service: media_player.volume_set
+    data: 
+        entity_id: >
+            {% if is_state("input_select.audio_select", "Cały dom") %} media_player.home
+            {% elif is_state("input_select.audio_select", "Dzieci") %} media_player.kids
+            {% elif is_state("input_select.audio_select", "Amplituner") %} media_player.salon_music
+            {% elif is_state("input_select.audio_select", "Salon") %} media_player.salon
+            {% elif is_state("input_select.audio_select", "Kuchnia") %} media_player.kuchnia
+            {% elif is_state("input_select.audio_select", "Julia") %} media_player.julia
+            {% elif is_state("input_select.audio_select", "Oliwia") %} media_player.oliwia
+            {% elif is_state("input_select.audio_select", "Sypialnia") %} media_player.sypialnia
+            {% elif is_state("input_select.audio_select", "Biuro") %} media_player.biuro
+            {% elif is_state("input_select.audio_select", "Łazienka górna") %} media_player.lazienka_gorna
+            {% endif %}
+        volume_level: '{{  states.input_number.volume_radio.state  }}'  
+  - service: media_player.play_media
+    data: 
+        entity_id: >
+            {% if is_state("input_select.audio_select", "Cały dom") %} media_player.home
+            {% elif is_state("input_select.audio_select", "Dzieci") %} media_player.kids
+            {% elif is_state("input_select.audio_select", "Amplituner") %} media_player.salon_music
+            {% elif is_state("input_select.audio_select", "Salon") %} media_player.salon
+            {% elif is_state("input_select.audio_select", "Kuchnia") %} media_player.kuchnia
+            {% elif is_state("input_select.audio_select", "Julia") %} media_player.julia
+            {% elif is_state("input_select.audio_select", "Oliwia") %} media_player.oliwia
+            {% elif is_state("input_select.audio_select", "Sypialnia") %} media_player.sypialnia
+            {% elif is_state("input_select.audio_select", "Biuro") %} media_player.biuro
+            {% elif is_state("input_select.audio_select", "Łazienka górna") %} media_player.lazienka_gorna
+            {% endif %}
+        media_content_id: >
+            {% if is_state("input_select.radio_station", "RMF FM") %} http://217.74.72.11/rmf_fm
+            {% elif is_state("input_select.radio_station", "RMF Classic") %} http://rmfstream1.interia.pl:8000/rmf_classic
+            {% elif is_state("input_select.radio_station", "Meloradio") %} https://ml.cdn.eurozet.pl/mel-net.mp3
+            {% elif is_state("input_select.radio_station", "RadioZET") %} https://zt.cdn.eurozet.pl/zet-tun.mp3     
+            {% elif is_state("input_select.radio_station", "Jedynka") %} http://mp3.polskieradio.pl:8900/
+            {% elif is_state("input_select.radio_station", "Dwójka") %} http://mp3.polskieradio.pl:8902/            
+            {% elif is_state("input_select.radio_station", "Trójka") %} http://mp3.polskieradio.pl:8904/
+            {% elif is_state("input_select.radio_station", "Spotify") %} spotify:playlist:37i9dQZF1E3agq9f3jFqW4
+            {% elif is_state("input_select.chromecast_radio_station", "Custom Station") %} {{states.input_text.custom_station.state}}
+            {% endif %}
+       # media_content_type: 'audio/mp4'   
+        media_content_type: 'music'   
+
+radio_stop:
+  alias: Zatrzymaj radio
+  icon: "mdi:stop"
+  sequence:
+  - service: media_player.media_stop
+    data: 
+        entity_id: >
+            {% if is_state("input_select.audio_select", "Cały dom") %} media_player.home
+            {% elif is_state("input_select.audio_select", "Dzieci") %} media_player.kids
+            {% elif is_state("input_select.audio_select", "Amplituner") %} media_player.salon_music
+            {% elif is_state("input_select.audio_select", "Salon") %} media_player.salon
+            {% elif is_state("input_select.audio_select", "Kuchnia") %} media_player.kuchnia
+            {% elif is_state("input_select.audio_select", "Julia") %} media_player.julia
+            {% elif is_state("input_select.audio_select", "Oliwia") %} media_player.oliwia
+            {% elif is_state("input_select.audio_select", "Sypialnia") %} media_player.sypialnia
+            {% elif is_state("input_select.audio_select", "Biuro") %} media_player.biuro
+            {% elif is_state("input_select.audio_select", "Łazienka górna") %} media_player.lazienka_gorna
+            {% endif %}
+  

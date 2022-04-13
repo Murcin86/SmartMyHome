@@ -1,0 +1,261 @@
+
+ ######################## CZASY ZAŁĄCZONYCH ELEMENTÓW ########################
+ 
+ # UPS
+- platform: history_stats
+  name: ups time_on
+  entity_id: binary_sensor.alwaystrue
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+
+# PLC
+- platform: history_stats
+  name: plc time_on
+  entity_id: binary_sensor.alwaystrue
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+
+# hp_elitedesk_g3
+- platform: history_stats
+  name: hp_elitedesk_g3 time_on
+  entity_id: binary_sensor.alwaystrue
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+
+# SWITCH POE
+- platform: history_stats
+  name: switch_poe time_on
+  entity_id: binary_sensor.alwaystrue
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+
+# SWITCHES
+- platform: history_stats
+  name: switches time_on
+  entity_id: binary_sensor.alwaystrue
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+
+# ROUTER
+- platform: history_stats
+  name: Router time_on
+  entity_id: binary_sensor.alwaystrue
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+
+# SWITCH OD GBN
+- platform: history_stats
+  name: gbn_switch time_on
+  entity_id: binary_sensor.alwaystrue
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+
+# ZASILACZ 24V
+- platform: history_stats
+  name: zasilacz_24 time_on
+  entity_id: binary_sensor.alwaystrue
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+
+# ODKURZACZ ROBOROCK
+- platform: history_stats
+  name: roborock time_on
+  entity_id: binary_sensor.alwaystrue
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+
+# PIEKARNIK OVEN
+- platform: history_stats
+  name: oven time_on
+  entity_id: binary_sensor.binary_oven
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+
+ # GNIAZDKO MONITOR 
+- platform: history_stats
+  name: Monitor_hmi Time_ON
+  entity_id: switch.monitorhmi
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+
+ # GNIAZDKO LAPTOPA 
+- platform: history_stats
+  name: Laptop Time_ON
+  entity_id: switch.officelaptop
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: Laptop Count_ON
+  entity_id: switch.officelaptop
+  state: 'on'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+
+# GNIAZDKA BIURO
+- platform: history_stats
+  name: biuro time_on
+  entity_id: switch.office
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: biuro count_on
+  entity_id: switch.office
+  state: 'on'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+
+ # ZMYWARKA
+- platform: history_stats
+  name: dishwasher time_on
+  entity_id: sensor.zmywarka
+  state: 'Trwa mycie...'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: dishwasher count_on
+  entity_id: sensor.zmywarka
+  state: 'Trwa mycie...'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+ 
+# LODÓWKA
+- platform: history_stats
+  name: fridge time_on
+  entity_id: switch.fridge
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: fridge count_on
+  entity_id: switch.fridge
+  state: 'on'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+
+# BOILER CO
+- platform: history_stats
+  name: boiler time_on
+  entity_id: switch.boiler
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: boiler count_on
+  entity_id: switch.boiler
+  state: 'on'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+
+# GNIAZDKA PRALKA
+- platform: history_stats
+  name: washing_machine time_on
+  entity_id: sensor.pranie
+  state: 'Trwa pranie...'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: washing_machine count_on
+  entity_id: sensor.pranie
+  state: 'Trwa pranie...'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+
+# DISKSTATION
+- platform: history_stats
+  name: Diskstation time_on
+  entity_id: binary_sensor.ping_diskstation
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: Diskstation count_on
+  entity_id: binary_sensor.ping_diskstation
+  state: 'on'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'  
+
+# GNIAZDKA SALON TV
+- platform: history_stats
+  name: salon_tv time_on
+  entity_id: switch.gniazdka_tv_salon
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: salon_tv count_on
+  entity_id: switch.gniazdka_tv_salon
+  state: 'on'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+
+# STRYCH, WZMACNIACZ ANTENOWY, KAMERA PIĘTRO
+- platform: history_stats
+  name: attic time_on
+  entity_id: switch.gniazdka_strych
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: attic count_on
+  entity_id: switch.gniazdka_strych
+  state: 'on'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+
+# ZANIKI NAPIĘCIA
+- platform: history_stats
+  name: no_power time_on
+  entity_id: binary_sensor.zasilanie_230v
+  state: 'on'
+  type: time
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'
+- platform: history_stats
+  name: no_power count_on
+  entity_id: binary_sensor.zasilanie_230v
+  state: 'on'
+  type: count
+  start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+  end: '{{ now() }}'

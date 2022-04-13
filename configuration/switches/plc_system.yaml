@@ -1,0 +1,26 @@
+
+######################## FUNKCJE SYSTEMOWE ########################
+
+- platform: ads
+  name: Monitor HMI
+  adsvar: HomeAssistant.bHmi_ON
+
+- platform: ads
+  name: Czas letni
+  adsvar: P_SYSTEM.bSummerTime
+  
+- platform: ads
+  name: Czas świąteczny
+  adsvar: GVL_PowerSocket.bChristmas_time
+
+- platform: ads
+  name: Zezwolenie dla dzieci
+  adsvar: GVL_Alarm.bKidsRelease
+
+- platform: ads
+  name: Skasowania licznika błędów
+  adsvar: P_System.bReset
+
+- platform: ads
+  name: Skasowania max wiatru
+  adsvar: P_System.bResetMaxWiatr
