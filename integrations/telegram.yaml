@@ -1,0 +1,13 @@
+
+######################################## TELEGRAM ########################################
+
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api
+    allowed_chat_ids:
+      - !secret telegram_chat_id 
+
+notify:
+  - platform: telegram
+    name: !secret telegram_boot_name
+    chat_id: !secret telegram_chat_id
