@@ -13,17 +13,18 @@ Przykład mojego wykorzystania HomeAssistant w połączeniu ze sterownikiem PLC 
 
 Wykorzystane integracje:
 
-![image](https://user-images.githubusercontent.com/95655881/163258944-eed176a9-ad1b-4bbd-bbe5-f43a3cfbfc14.png)
+![image](https://github.com/Murcin86/SmartMyHome/assets/95655881/b40011c8-87f9-473f-b474-1162d0f2bd1b)
+
 
 Zainstalowane dodatki:
 
-![image](https://user-images.githubusercontent.com/95655881/163259068-78525e9b-e53e-46b0-af8b-7ee141ff8d8f.png)
+![image](https://github.com/Murcin86/SmartMyHome/assets/95655881/37689671-d2e2-4155-af74-981bee0c1518)
 
 
 oraz nierozłączne HACS:
-![image](https://user-images.githubusercontent.com/95655881/163259241-05d48729-c313-4f25-9f66-f3d1a81459b9.png)
-![image](https://user-images.githubusercontent.com/95655881/163259292-49e13e27-5f39-4e16-a04b-a1693646fd62.png)
-![image](https://user-images.githubusercontent.com/95655881/163259337-3ef5987d-58cf-4d2b-b712-5e64a4a32c18.png)
+![image](https://github.com/Murcin86/SmartMyHome/assets/95655881/d5409326-bd42-4b48-9826-6b3cb92e49eb)
+![image](https://github.com/Murcin86/SmartMyHome/assets/95655881/993ca718-64df-4aa9-8483-3a066e0a35b8)
+
 
 
 
